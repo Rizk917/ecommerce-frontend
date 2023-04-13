@@ -1,10 +1,10 @@
-
-import { Navbar } from "../components/navBar/Navbar";
+import HomeComponent from "../components/Home/HomeComponent";
+import Footer from "../components/footer/Footer";
 function Home() {
   return (
-    <div>
-  
-        <Navbar />
+      <div className="starting">
+        <HomeComponent/>
+        <Footer/>
       </div>
   );
 }
