@@ -51,11 +51,6 @@ function Navbar() {
           </a>
         </li>
         <li className='li'>
-          <a href="/discounts" className={location.pathname === '/discounts' ? 'active' : ''}>
-            Discounts
-          </a>
-        </li>
-        <li className='li'>
           <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
             Contact us
           </a>

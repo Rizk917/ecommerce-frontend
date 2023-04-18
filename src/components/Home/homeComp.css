@@ -1,0 +1,160 @@
+/* Default styles */
+img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.background {
+  background-color: red;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.bold-text {
+  font-weight: bold;
+}
+.b-bottom {
+  border-bottom: 1px solid;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.d-flex {
+  display: flex;
+}
+.d-flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bigFont-3 {
+  font-size: 3rem;
+}
+.bigFont-1 {
+  font-size: 1.4rem;
+}
+
+.bigFont-2 {
+  font-size: 2rem;
+}
+
+.m-top {
+  margin-top: 10px;
+}
+
+.m-bottom {
+  margin-bottom: 10px;
+}
+/* CSS */
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans",
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+.flex-r {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex-50 {
+  flex-basis: 50%;
+}
+
+.left {
+  padding: 30px;
+}
+
+.imageRight {
+  justify-content: end;
+  margin-left: auto;
+}
+
+.popular-card {
+  width: calc(20% - 15px);
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.popular-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.popular-card h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.popular-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.popular-card a {
+  display: inline-block;
+  background-color: #0095ff;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.popular-card a:hover {
+  background-color: #0077cc;
+}
