@@ -1,8 +1,8 @@
 
 function HomeComponent() {
   return (
-    <div>
-        hiii
+    <div >
+   hiii
         
       </div>
   );
