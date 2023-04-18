@@ -6,10 +6,11 @@
   z-index: 10;
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
-  background-color: #00c9ec;
+  background-color: white;
   transition: all 0.3s ease;
   align-items: center;
   height: 10vh;
+  border-bottom:1px solid #000000;
 }
 
 .logo {
@@ -48,10 +49,13 @@
   color: white;
 }
 
-.nav-links li a.active {
+/* .nav-links li a.active {
   color: white;
+} */
+.nav-links li a.active {
+  color: black;
+  border-bottom: 1px solid;
 }
-
 .header-icons {
   display: flex;
   align-items: center;
@@ -164,10 +168,7 @@
   .user {
     display: none;
   }
-
-  .nav-links li a.active {
-    color: black;
-  }
+ 
 
   .nav-links.open {
     right: 0%;

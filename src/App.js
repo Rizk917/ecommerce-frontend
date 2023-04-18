@@ -2,7 +2,7 @@ import './App.css';
 import {  Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/navBar/Navbar';
-
+import ContactUs from './pages/ContactUs';
 function App() {
   return (
     <div className='main-wrap'>
@@ -11,7 +11,7 @@ function App() {
     <Route exact path='/' element={< Home/>}></Route>
     <Route exact path='/about-us' element={< Home/>}></Route>
     <Route exact path='/cart' element={< Home/>}></Route>
-    <Route exact path='/contact-us' element={< Home/>}></Route>
+    <Route exact path='/contactus' element={< ContactUs/>}></Route>
 
   </Routes>
   </div>

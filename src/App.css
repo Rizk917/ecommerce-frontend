@@ -6,7 +6,7 @@
   z-index: 10;
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
-  background-color: orange;
+  /* background-color: orange; */
   transition: all .30s ease;
   align-items: center;
 }
@@ -46,9 +46,7 @@
   color: white;
 }
 
-.nav-links li a.active{
-  color: white;
-}
+
 
 .header-icons{
   display: flex;
