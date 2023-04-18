@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
-import "../App.css"
+import '../App.css';
 
 function Checkout() {
   return (
@@ -63,8 +63,7 @@ function Checkout() {
                     <div className="w-100">
                       <div className="d-flex justify-content-between align-items-center">
                         <Link to="/cart" className="text-dark">
-                          <BiArrowBack className="me-2" />  Return To Cart
-                          
+                          <BiArrowBack className="me-2" /> Return To Cart
                         </Link>
                         <Link to="/cart" className="button">
                           Continue to shipping
