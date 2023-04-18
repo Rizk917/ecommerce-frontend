@@ -98,6 +98,18 @@
   font-size: 1.2rem;
   font-family: bold;
 }
+
+.popup{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media all and (max-width: 1230px) {
   .sticky-header {
     grid-template-columns: 250px 4fr 1fr;
