@@ -1,6 +1,7 @@
 import './navbar.css';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import logo from '../../Assets/logo.png';
 
 function Navbar() {
@@ -30,33 +31,35 @@ function Navbar() {
 
   return (
     <header className="sticky-header">
-      <a href="/" className="logo">
+      <Link href="/" className="logo">
         {/* <img src={logo} alt="wlogo" className="header-logo" /> */}
         <span>Store</span>
-      </a>
+      </Link>
       <ul className={menu}>
         <li className='li'>
-          <a href="/" className={location.pathname === '/' ? 'active' : ''}>
+          <Link to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li className='li'>
-          <a href="/shop" className={location.pathname === '/shop' ? 'active' : ''}>
+          <Link to="/shop">
             Shop
-          </a>
+          </Link>
         </li>
         <li className='li'>
-          <a href="/about" className={location.pathname === '/about' ? 'active' : ''}>
+          <Link to="/about">
             About us
-          </a>
+          </Link>
         </li>
         <li className='li'>
-          <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
+          <Link to="/contactus">
             Contact us
-          </a>
+          </Link>
         </li>
+        
       </ul>
       <div className="header-icons">
+        <Link to="/cart">Cart</Link>
         <a href="/" className="user"> 
           <i className="ri-user-fill"></i>Sign-in
         </a>
