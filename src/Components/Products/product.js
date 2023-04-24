@@ -9,12 +9,14 @@ function Product() {
   const [products, setProducts] = useState([]);
   const [searchTerm,setSearchTerm] = useState("");
 
+  
+
   // get products using axios
   useEffect(() => {
     axios
       .get("http://localhost:5000/products")
       .then((response) => {
-        setProducts(response.data.data); 
+        setProducts(response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -35,6 +37,7 @@ function Product() {
   }, [categories]);
 
   // add data to products
+  
   const [addProduct,setAddProduct] = useState({
     productName:"",
     productDescription:"",
@@ -43,14 +46,17 @@ function Product() {
     productQuantity:"",
     categoryId:""
   })
-    
-
-  // add product
-  const handleChange = (event) => {
+  
+// add product
+  const handleChange = async (event) => {
     event.preventDefault();
+    
+    const fieldName = event.target.getAttribute('name')
+  let fieldValue = event.target.value;
+  if(fieldName === 'image'){
+    fieldValue = event.target.files[0];
+}
 
-    const fieldName = event.target.getAttribute('name')  
-    const fieldValue = event.target.value; 
 
     const newFormData = { ...addProduct};
     newFormData[fieldName] = fieldValue;
@@ -63,34 +69,49 @@ function Product() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newProduct = {
-      productName:addProduct.productName,
-      productDescription:addProduct.productDescription,
-      productImage:addProduct.productImage,
-      productPrice:addProduct.productPrice,
-      productQuantity:addProduct.productQuantity,
-      categoryId:addProduct.categoryId
-    };
+    const formData = new FormData();
+      formData.append('productName',addProduct.productName)
+      formData.append('productDescription',addProduct.productDescription)
+      formData.append('productImage',addProduct.productImage)
+      formData.append('productPrice',addProduct.productPrice)
+      formData.append('productQuantity',addProduct.productQuantity)
+      formData.append('categoryId',String(addProduct.categoryId))
+    
 
-    console.log(newProduct)
+    const config = {
+      headers:{'content-type':"multipart/form-data"}
+    };
     
     axios
-    .post('http://localhost:5000/products', newProduct)
+    .post('http://localhost:5000/products', formData, config)
     .then((response) => {
       setProducts([...products, response.data])
-      console.log(products)
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error.response.data)
     })
 
+    handleShowProduct();
+
+  }
   
-  }  
+  
 
 
   // Function for deleting  a product
-  const handleDeleteProduct = (id) => {
-    setProducts(products.filter(product => product.id !== id));
+
+  
+  const handleDeleteProduct = async (id) => {
+    const url = `http://localhost:5000/products/${id}`;
+    try{
+      await axios.delete(url);
+      setProducts(products.filter(product => product._id !== id));
+      console.log('Product deleted successfully!');
+    }
+    catch(error){
+      console.log(error)
+    }
+    
   };
 
 
@@ -157,7 +178,7 @@ function Product() {
                 </button>
               </td>
               <td className='table_td'>
-                <button onClick={() => handleDeleteProduct(product.id)}>
+                <button onClick={() => handleDeleteProduct(product._id)}>
                 <img src={process.env.PUBLIC_URL + '/pictures/delete.png'} alt='delete' className='delete' />
 
                 </button>

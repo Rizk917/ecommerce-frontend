@@ -8,7 +8,7 @@ return (
     <div>
       {isSidebarOpen ? <div className='sidebar'>
         <button type='button' className='button_sidebar'><p>HOME</p></button>
-        <button type='button' className='button_sidebar'><p>Categories</p></button>
+        <button type='button' className='button_sidebar'><Link to='/categories'><p>Categories</p></Link></button>
         <button type='button' className='button_sidebar'><Link to='/products'><p>Products</p></Link></button>
         <button type='button' className='button_sidebar'><p>Orders</p></button>
         <button type='button' className='button_sidebar'><p>Social Media</p></button>
