@@ -1,3 +1,10 @@
+.page_name{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border: 1px solid black;
+    }
+
 .table{
     width:30rem;
     margin-top: 15px;
@@ -82,14 +89,23 @@
     align-items: center;
 }
 
+
+
 .category_form input{
     padding: 10px;
 }
-.add_category_form{
+.update_category_form{
     border: 1px solid;
     padding:10px;
     margin-top: 3rem;
-   
+
+}
+
+.category_form{
+    border: 1px solid;
+    padding:10px;
+    margin-top: 3rem;
+
 }
 
 .category{

@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom'
 
 function sidebar({isSidebarOpen}) {
 
+  
+
 return (
     <div>
       {isSidebarOpen ? <div className='sidebar'>
-        <button type='button' className='button_sidebar'><p>HOME</p></button>
-        <button type='button' className='button_sidebar'><Link to='/categories'><p>Categories</p></Link></button>
-        <button type='button' className='button_sidebar'><Link to='/products'><p>Products</p></Link></button>
-        <button type='button' className='button_sidebar'><p>Orders</p></button>
-        <button type='button' className='button_sidebar'><p>Social Media</p></button>
+        <button type='button' className='button_sidebar'><Link className='link_button' key={1} to='/home' ><p>Home</p></Link></button>
+        <button type='button' className='button_sidebar'><Link className='link_button' key={2} to='/categories'><p>Categories</p></Link></button>
+        <button type='button' className='button_sidebar'><Link className='link_button' key={3} to='/products'><p>Products</p></Link></button>
+        <button type='button' className='button_sidebar'><Link className='link_button' key={4} to='/orders'><p>Orders</p></Link></button>
+        <button type='button' className='button_sidebar'><Link className='link_button' key={5} to='/social'><p>Social Media</p></Link></button>
 
 
 

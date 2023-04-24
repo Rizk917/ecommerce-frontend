@@ -44,11 +44,32 @@
 }
 
 .button_sidebar:hover {
+    
     background-color: black;
-    color: white;
     border: 10px white;
     transition: 0.5s;
 }
+
+button p {
+    color: black;
+    text-decoration: none;
+}
+
+button:hover p {
+    color: white;
+}
+
+.link_button{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -120,7 +120,7 @@ function Product() {
   // update products
 
 
-  
+  const [currentProduct, setCurrentProduct] = useState('null')
   const [showProduct, setShowProduct] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
@@ -132,6 +132,7 @@ function Product() {
 
   return (
     <div className='container'>
+      <div className='page_name'><h1>Products</h1></div>
       <div className='table_container'>
         <div className='search_table'>
         <div className="search">
@@ -171,6 +172,7 @@ function Product() {
               <td className='table_td'>
                 <button onClick={() => {
                   setShowUpdateForm(!showUpdateForm);
+                  setCurrentProduct(product)
 
                 }}>
                 <img src={process.env.PUBLIC_URL + '/pictures/edit.png'} alt='edit' className='edit' />
@@ -190,19 +192,24 @@ function Product() {
             
         </tbody>
       </table>
-      {showUpdateForm ?(
+      {showUpdateForm && currentProduct?(
         <div className='update_product'>
       <form className='product_form' >
             <label className='product_label'>Product Name</label>
-            <input   type="text" className="product" name="name" />
+            <input   type="text" className="product" name="name" defaultValue={currentProduct.productName}/>
             <label className='product_label'>Product Description</label>
-            <input   type="text" className="product" name="description"/>
+            <input   type="text" className="product" name="description" defaultValue={currentProduct.productDescription}/>
             <label className='product_label'>Product Image</label>
-            <input   type="file" className="product" name="image" />
+            <input   type="file" className="product" name="image" defaultValue={currentProduct.productImage.file}/>
             <label className='product_label'>Product Price</label>
-            <input   type="text" className="product" name="price"/>
+            <input   type="text" className="product" name="price" defaultValue={currentProduct.productPrice}/>
             <label className='product_label'>Product Quantity</label>
-            <input   type="text" className="product" name="quantity"/>
+            <input   type="text" className="product" name="quantity" defaultValue={currentProduct.productQuantity}/>
+            <select className='product' name='categoryId' onChange={handleChange}>
+            {categories.map((category, key) => (
+            <option className='option' key={key} value={category._id} defaultValue={category.categoryName}>{category.categoryName}</option>
+  ))}
+</select>
             <button className='submit'>Submit</button>
             
           </form>

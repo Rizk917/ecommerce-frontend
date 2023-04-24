@@ -78,13 +78,26 @@ const [addCategory,setAddCategory] = useState({
   };
 
 
-    
+  const handleUpdateCategory = (event) => {
+    event.preventDefault();
+
+    const updateCategory = {
+      categoryName:event.target.categoryName.value,};
+      axios.put(`http://localhost:5000/categories/${currentCategory._id}`, updateCategory)
+      .then(()=>{
+        console.log('product updated successfully')
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
+    }
+  
 
 
 
   
 
-  
+  const [currentCategory, setCurrentCategory] = useState(null);
   const [showCategory, setShowCategory] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
@@ -96,6 +109,7 @@ const [addCategory,setAddCategory] = useState({
 
   return (
     <div className='container'>
+      <div className='page_name'><h1>Categories</h1></div>
       <div className='table_container'>
         <div className='search_table'>
         <div className="search">
@@ -129,15 +143,17 @@ const [addCategory,setAddCategory] = useState({
               return null
             }
           }).map((category, key) => {
+
             return (
               <tr  className='table_tr' key={key}>
               <td className='table_td'>{category.categoryName}</td>
               <td className='table_td'>
                 <button onClick={() => {
                   setShowUpdateForm(!showUpdateForm);
+                  setCurrentCategory(category);
 
                 }}>
-                <img src={process.env.PUBLIC_URL + '/pictures/edit.png'} alt='edit' className='edit' />
+                <img src={process.env.PUBLIC_URL + '/pictures/edit.png'} alt='edit' className='edit'  />
 
                 </button>
               </td>
@@ -154,11 +170,11 @@ const [addCategory,setAddCategory] = useState({
             
         </tbody>
       </table>
-      {showUpdateForm ?(
+      {showUpdateForm && currentCategory ?(
         <div className='update_category'>
-      <form className='category_form' >
+      <form className='category_form' onSubmit={handleUpdateCategory}>
             <label className='category_label'>Category Name</label>
-            <input   type="text" className="category" name="name" />
+            <input   type="text" className="category" name="categoryName" defaultValue={currentCategory.categoryName}/>
             <button className='submit'>Submit</button>
             
           </form>

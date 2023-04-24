@@ -1,10 +1,23 @@
+.page_name{
+display: flex;
+justify-content: center;
+margin-bottom: 30px;
+border: 1px solid black;
+}
+
+
 .table{
     width:30rem;
     margin-top: 15px;
 
 }
 
+.update_product form{
+    border: 1px solid;
+    padding:10px;
+    margin-top: 3rem;
 
+}
 
 .table_head_tr{
     font-size: 20px;    
