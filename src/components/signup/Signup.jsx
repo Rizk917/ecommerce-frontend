@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./signup.css";
-function Signup() {
+
+function Signup({ hello }) {
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -8,9 +9,9 @@ function Signup() {
     e.preventDefault();
   };
   return (
-    <div className="signup-wrapper">
+<>
       <form className="login-form" onSubmit={handleSubmit}>
-
+      <h1>Register</h1>
       <input
           type="text"
           name="Name"
@@ -35,8 +36,12 @@ function Signup() {
         <button className="signup-btn" value="SignUp" type="submit">
           Sign Up
         </button>
+        <p className="p">
+          <p onClick={hello}>Return to login?</p>
+          <span ><a href="/">cancel</a></span>
+        </p>
       </form>
-    </div>
+      </>
   );
 }
 export default Signup;

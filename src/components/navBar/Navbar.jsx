@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Login from '../login/Login';
 // import logo from '../../Assets/logo.png';
 
-function Navbar() {
+function Navbar({ onButtonClick }) {
   const [show, setShow] = useState(false);
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
@@ -15,10 +15,9 @@ function Navbar() {
     setHidden(!hidden);
   }
 
-  function popDown(){
-    setHidden(false)
-    
-  }
+  // function popDown(){
+  //   setHidden(false)
+  // }
   useEffect(() => {
     setShow(false);
     setMenu("nav-links");
@@ -40,9 +39,6 @@ function Navbar() {
 
   return (
     <>
-    {hidden ? <div className='popup'>
-      <Login/>
-    </div>: null}
     <header className="sticky-header">
       <a href="/" className="logo">
         {/* <img src={logo} alt="wlogo" className="header-logo" /> */}
@@ -71,9 +67,11 @@ function Navbar() {
         </li>
       </ul>
       <div className="header-icons">
-        <a href="#" className="user" onClick={popUp}> 
-          <i className="ri-user-fill"></i>Sign-in
-        </a>
+        <div onClick={onButtonClick}>
+          <p className="user" onClick={popUp}> 
+            <i className="ri-user-fill"></i>Sign-in
+          </p>
+        </div>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>
