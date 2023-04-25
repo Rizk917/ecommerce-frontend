@@ -50,12 +50,7 @@ function App() {
             <Route path="/products" element={<ProductsAdmin />} />
           </Route>
         </Routes>
-        {showPopUp ? (
-        <div className="popup">
-          <Login />
-        </div>
-      ) : null}
-      <Navbar onButtonClick={handleButtonClick} />
+
       <div className={showPopUp ? "none" : "main-wrap"}>
        
         <Routes>

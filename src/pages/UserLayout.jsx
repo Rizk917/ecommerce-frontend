@@ -21,6 +21,7 @@ function handleCloseButtonClick() {
         </div>
       ) : null}
       <Navbar onButtonClick={handleButtonClick} />
+      
         <Outlet/>
         </>
     )
