@@ -5,6 +5,7 @@ import Login from '../login/Login';
 // import logo from '../../Assets/logo.png';
 
 function Navbar({ onButtonClick }) {
+  const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
@@ -14,6 +15,16 @@ function Navbar({ onButtonClick }) {
   function popUp(){
     setHidden(!hidden);
   }
+
+  const isActive = () => {
+    window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
+    };
+  }, []);
 
   // function popDown(){
   //   setHidden(false)
@@ -39,7 +50,7 @@ function Navbar({ onButtonClick }) {
 
   return (
     <>
-    <header className="sticky-header">
+    <header className={active ? "sticky-header active" : "sticky-header"}  >
       <a href="/" className="logo">
         {/* <img src={logo} alt="wlogo" className="header-logo" /> */}
         <span>Store</span>
