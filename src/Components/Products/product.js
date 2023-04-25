@@ -6,6 +6,7 @@ function Product() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [productImage, setProductImage] = useState('');
 
   // get products using axios
   useEffect(() => {
@@ -43,14 +44,18 @@ function Product() {
   });
 
   // add product
+  const handleImageChange = async (event) => {
+    event.preventDefault();
+    setProductImage (event.target.files[0]);
+
+
+  }
+
   const handleChange = async (event) => {
     event.preventDefault();
 
     const fieldName = event.target.getAttribute("name");
     let fieldValue = event.target.value;
-    if (fieldName === "image") {
-      fieldValue = event.target.files[0];
-    }
 
     const newFormData = { ...addProduct };
     newFormData[fieldName] = fieldValue;
@@ -62,9 +67,9 @@ function Product() {
     event.preventDefault();
 
     const formData = new FormData();
+    formData.append('productImage',productImage)
     formData.append("productName", addProduct.productName);
     formData.append("productDescription", addProduct.productDescription);
-    formData.append("productImage", addProduct.productImage);
     formData.append("productPrice", addProduct.productPrice);
     formData.append("productQuantity", addProduct.productQuantity);
     formData.append("categoryId", String(addProduct.categoryId));
@@ -272,7 +277,7 @@ function Product() {
                   className="product"
                   name="productImage"
                   autoComplete="off"
-                  onChange={handleChange}
+                  onChange={handleImageChange}
                 />
                 <label className="product_label">Product Price</label>
                 <input

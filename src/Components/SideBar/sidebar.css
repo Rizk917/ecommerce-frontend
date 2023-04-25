@@ -28,8 +28,9 @@
 
 .sidebar{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 16rem;
+    margin-left: 10px;
 }
 
 .button_sidebar{
@@ -40,6 +41,7 @@
     margin: 2px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    margin-left: 10px;
     
 }
 
@@ -59,9 +61,35 @@ button:hover p {
     color: white;
 }
 
+
+
 .link_button{
     text-decoration: none;
 }
+
+.image_products{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+}
+
+.image_products img{
+    width: 30px;
+}
+
+
+
+
+
+
+
 
 
 

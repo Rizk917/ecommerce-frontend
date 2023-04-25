@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./Components/Header/header.js";
+import AdminHeader from "./Components/Header/header.js";
 import SideBar from "./Components/SideBar/sidebar.js";
-import Home from "./Components/Home/home.js";
-import Categories from "./Components/Categories/categories.js";
-import Products from "./Components/Products/product.js";
+import Dashboard from "./Components/Dashboard/Dashboard.js";
+import CategoriesAdmin from "./Components/Categories/categories.js";
+import ProductsAdmin from "./Components/Products/product.js";
 import "./App.css";
 
 function App() {
@@ -17,13 +17,13 @@ function App() {
   return (
     <div>
       <>
-        <Header showSidebar={showSidebar} isSidebarOpen={isSidebarOpen} />
+        <AdminHeader showSidebar={showSidebar} isSidebarOpen={isSidebarOpen} />
         <div className="app">
           <SideBar isSidebarOpen={isSidebarOpen} />
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/categories" element={<CategoriesAdmin />} />
+            <Route path="/products" element={<ProductsAdmin />} />
           </Routes>
         </div>
       </>
