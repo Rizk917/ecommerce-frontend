@@ -1,47 +1,57 @@
+import React, { useEffect, useState } from 'react';
+import './CartComponent.css';
 
-import React,{useEffect, useState} from 'react'
-import './CartComponent.css'
 export default function CartComponent() {
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Item 1', price: 10, quantity: 1 },
-    { id: 2, name: 'Item 2', price: 15, quantity: 1 },
-    { id: 3, name: 'Item 3', price: 20, quantity: 1 },
-  ]);
-  const [data, setData] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = JSON.parse(localStorage.getItem('cart'));
+    return savedCart ? savedCart : { userId: '', products: [] };
+  });
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('http://localhost:5000/acart');
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []);
-  console.log(data)
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.productPrice * item.productQuantity, 0);
+    return cart.products.reduce((total, item) => total + item.total, 0);
   };
 
   const handleRemoveItem = (itemId) => {
-    setCartItems(cartItems.filter((item) => item.id !== itemId));
+    setCart({
+      ...cart,
+      products: cart.products.filter((item) => item.productId !== itemId),
+    });
   };
-
   const handleQuantityChange = (itemId, newQuantity) => {
-    setCartItems(
-      cartItems.map((item) => {
-        if (item.id === itemId) {
-          return { ...item, quantity: newQuantity };
+    setCart({
+      ...cart,
+      products: cart.products.map((item) => {
+        if (item.productId === itemId) {
+          return { ...item, quantity: newQuantity, total: item.price * newQuantity };
         }
         return item;
-      })
-    );
+      }),
+    });
   };
-
+  const handleCreatingCart = async (productId, productName, productPrice) => {
+    try {
+      const response = await fetch('http://localhost:5000/addtocart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: cart.userId, // replace with actual user ID
+          products: cart.products
+        }),
+        
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
   return (
     <div className="cart-page">
       <h1 className="cart-page__title">Cart</h1>
@@ -56,24 +66,25 @@ export default function CartComponent() {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) =>  (
-            <tr key={item._id} className="cart-page__table-row">
-             { item.products.forEach((product) => {
-              <td className="cart-page__table-cell">{product.product}</td>
-              {/* <td className="cart-page__table-cell">${parseFloat(item.productPrice.$numberDecimal).toFixed(2)}</td> */}
+          {cart.products.map((product) => (
+            <tr key={product.productId} className="cart-page__table-row">
+              <td className="cart-page__table-cell">{product.productName}</td>
+              <td className="cart-page__table-cell">${parseFloat(product.price).toFixed(2)}</td>
               <td className="cart-page__table-cell">
                 <input
                   type="number"
                   min="1"
                   value={product.quantity}
-                  onChange={(event) => handleQuantityChange(item.id, parseInt(event.target.value))}
+                  onChange={(event) => handleQuantityChange(product.productId, parseInt(event.target.value))}
                   className="cart-page__quantity-input"
                 />
               </td>
-              {/* <td className="cart-page__table-cell">${parseFloat(item.productPrice.$numberDecimal).toFixed(2)* item.productQuantity}</td> */}
+              <td className="cart-page__table-cell">${parseFloat(product.price * product.quantity).toFixed(2)}</td>
               <td className="cart-page__table-cell">
-                <button className="cart-page__remove-button" onClick={() => handleRemoveItem(item.id)}>Remove</button>
-              </td>})}
+                <button className="cart-page__remove-button" onClick={() => handleRemoveItem(product.productId)}>
+                  Remove
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -87,13 +98,14 @@ export default function CartComponent() {
           </tr>
           <tr>
             <td className="cart-page__table-cell" colSpan="5">
-              <button className="cart-page__checkout-button">Proceed to Checkout</button>
+            <button className="cart-page__checkout-button" onClick={handleCreatingCart}>
+  Proceed to Checkout
+</button>
+
             </td>
           </tr>
         </tfoot>
       </table>
     </div>
   );
-}
-
-
+          }
