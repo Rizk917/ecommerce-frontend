@@ -49,7 +49,7 @@
 }
 
 .active-tab{
-    background: #899ea2;
+    background: rgb(208, 223, 178);
     position: relative;
 }
 
@@ -63,7 +63,7 @@
     height: 0;
     border-style: solid;
     border-width: 5px 5px 0 5px;
-    border-color: #899ea2 transparent transparent transparent;
+    border-color: rgb(208, 223, 178) transparent transparent transparent;
     
 }
 .active-tab h2{
@@ -75,6 +75,7 @@
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 1rem;
+    
 
 }
 
@@ -91,6 +92,7 @@
     font-weight: 700;
     line-height: 1.5;
     margin-bottom: 1rem; 
+    color: rgb(54, 71, 22);
 }
 
 .skill-row{
@@ -132,11 +134,12 @@
     right: 0;
     font-size:16px;
     font-weight:400;
-    color:#899ea2;
+    color:rgb(208, 223, 178);
 }
 
 .exp-column h3{
     margin-bottom: 10px;
+    color: rgb(54, 71, 22);
 
 }
 

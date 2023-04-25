@@ -55,7 +55,7 @@ const About = () => {
                {/* How it started Content */}
                <div className={toggleTab === 3 ? "content active-content" :"content"}>
                 <div className="exp-column">
-                  <h2>How IT All Started</h2>
+                  <h2>How It All Started</h2>
                   <h3>Lorem.</h3>
                   <span>2014-2016</span>
                   <p>

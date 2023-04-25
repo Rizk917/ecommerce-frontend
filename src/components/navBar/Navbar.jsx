@@ -4,10 +4,21 @@ import { useLocation } from 'react-router-dom';
 // import logo from '../../Assets/logo.png';
 
 function Navbar() {
+  const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
   const location = useLocation();
+
+  const isActive = () => {
+    window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
+    };
+  }, []);
 
   useEffect(() => {
     setShow(false);
@@ -29,7 +40,7 @@ function Navbar() {
   };
 
   return (
-    <header className="sticky-header">
+    <header className={active ? "sticky-header active" : "sticky-header"}  >
       <a href="/" className="logo">
         {/* <img src={logo} alt="wlogo" className="header-logo" /> */}
         <span>Store</span>
