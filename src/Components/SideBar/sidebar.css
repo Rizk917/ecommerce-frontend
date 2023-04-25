@@ -33,7 +33,12 @@
     margin-left: 10px;
 }
 
-.button_sidebar{
+button p{
+    font-size: 20px;
+}
+
+.link_button{
+    color: black;
     border: none;
     background-color: white;
     cursor: pointer;
@@ -42,26 +47,27 @@
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    width: 10rem;
     
 }
 
-.button_sidebar:hover {
+.link_button:hover {
     
     background-color: black;
     border: 10px white;
     transition: 0.5s;
 }
 
-button p {
-    color: black;
-    text-decoration: none;
-}
 
-button:hover p {
+.link_button:hover p {
     color: white;
 }
 
-
+button p:hover{
+    color: white;
+}
 
 .link_button{
     text-decoration: none;

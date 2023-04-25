@@ -36,31 +36,26 @@ function sidebar({ isSidebarOpen }) {
           </div>
 
           <div className="products">
-            <button type="button" className="button_sidebar">
               <Link className="link_button" key={1} to="/Dashboard">
-                <p>Home</p>
+              {/* <button type="button" className="button_sidebar">            </button> */}
+              <p>Home</p>
               </Link>
-            </button>
-            <button type="button" className="button_sidebar">
-              <Link className="link_button" key={2} to="/categories">
-                <p>Categories</p>
+              <Link className="link_button" key={1} to="/categories">
+              {/* <button type="button" className="button_sidebar">            </button> */}
+              <p>Categories</p>
               </Link>
-            </button>
-            <button type="button" className="button_sidebar">
-              <Link className="link_button" key={3} to="/products">
-                <p>Products</p>
+              <Link className="link_button" key={1} to="/products">
+              {/* <button type="button" className="button_sidebar">            </button> */}
+              <p>Products</p>
               </Link>
-            </button>
-            <button type="button" className="button_sidebar">
-              <Link className="link_button" key={4} to="/orders">
-                <p>Orders</p>
+              <Link className="link_button" key={1} to="/orders">
+              {/* <button type="button" className="button_sidebar">            </button> */}
+              <p>Orders</p>
               </Link>
-            </button>
-            <button type="button" className="button_sidebar">
-              <Link className="link_button" key={5} to="/social">
-                <p>Social Media</p>
+              <Link className="link_button" key={1} to="/socialmedia">
+              {/* <button type="button" className="button_sidebar">            </button> */}
+              <p>Social Media</p>
               </Link>
-            </button>
           </div>
         </div>
       ) : null}

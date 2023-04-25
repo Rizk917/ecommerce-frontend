@@ -67,6 +67,8 @@ function Category() {
     }
   };
 
+  // update category
+
   const handleUpdateCategory = (event) => {
     event.preventDefault();
 
@@ -79,13 +81,17 @@ function Category() {
         updateCategory
       )
       .then(() => {
-        console.log("product updated successfully");
+        console.log("category updated successfully");
       })
       .catch((error) => {
         console.log(error);
       });
     handleShowUpdateCategory();
   };
+
+
+
+
 
   const [currentCategory, setCurrentCategory] = useState(null);
   const [showCategory, setShowCategory] = useState(false);
@@ -157,7 +163,7 @@ function Category() {
                         </button>
                       </td>
                       <td className="table_td">
-                        <button
+                        <button className="button_click"
                           onClick={() => handleDeleteCategory(category._id)}
                         >
                           <img

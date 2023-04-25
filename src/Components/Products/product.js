@@ -43,7 +43,6 @@ function Product() {
     categoryId: "",
   });
 
-  // add product
   const handleImageChange = async (event) => {
     event.preventDefault();
     setProductImage (event.target.files[0]);
@@ -104,6 +103,62 @@ function Product() {
   };
 
   // update products
+  const [updateProduct, setUpdateProduct] = useState({
+    productName: "",
+    productDescription: "",
+    productImage: "",
+    productPrice: "",
+    productQuantity: "",
+    categoryId: "",
+  });
+
+  const handleUpdateImageChange = async (event) => {
+    event.preventDefault();
+    setProductImage (event.target.files[0]);
+
+
+  }
+
+  const handleUpdateChange = async (event) => {
+    event.preventDefault();
+
+    const fieldName = event.target.getAttribute("name");
+    let fieldValue = event.target.value;
+
+    const newFormData = { ...updateProduct };
+    newFormData[fieldName] = fieldValue;
+
+    setUpdateProduct(newFormData);
+  };
+
+  const handleUpdateProduct = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('productImage',productImage)
+    formData.append("productName", updateProduct.productName);
+    formData.append("productDescription", updateProduct.productDescription);
+    formData.append("productPrice", updateProduct.productPrice);
+    formData.append("productQuantity", updateProduct.productQuantity);
+    formData.append("categoryId", String(updateProduct.categoryId));
+
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+    };
+
+    axios
+      .put(`http://localhost:5000/products/${currentProduct._id}`, formData, config)
+      .then(() => {
+        console.log("product updated successfully");
+
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      });
+    }
+
+    
+
 
   const [currentProduct, setCurrentProduct] = useState("null");
   const [showProduct, setShowProduct] = useState(false);
@@ -190,12 +245,14 @@ function Product() {
           </table>
           {showUpdateForm && currentProduct ? (
             <div className="update_product">
-              <form className="product_form">
+              <form className="product_form" onSubmit={handleUpdateProduct}>
                 <label className="product_label">Product Name</label>
                 <input
                   type="text"
                   className="product"
                   name="name"
+                  onChange={handleUpdateChange}
+
                   defaultValue={currentProduct.productName}
                 />
                 <label className="product_label">Product Description</label>
@@ -203,6 +260,7 @@ function Product() {
                   type="text"
                   className="product"
                   name="description"
+                  onChange={handleUpdateChange}
                   defaultValue={currentProduct.productDescription}
                 />
                 <label className="product_label">Product Image</label>
@@ -210,6 +268,7 @@ function Product() {
                   type="file"
                   className="product"
                   name="image"
+                  onChange={handleUpdateImageChange}
                   defaultValue={currentProduct.productImage.file}
                 />
                 <label className="product_label">Product Price</label>
@@ -217,6 +276,7 @@ function Product() {
                   type="text"
                   className="product"
                   name="price"
+                  onChange={handleUpdateChange}
                   defaultValue={currentProduct.productPrice}
                 />
                 <label className="product_label">Product Quantity</label>
@@ -224,12 +284,13 @@ function Product() {
                   type="text"
                   className="product"
                   name="quantity"
+                  onChange={handleUpdateChange}
                   defaultValue={currentProduct.productQuantity}
                 />
                 <select
                   className="product"
                   name="categoryId"
-                  onChange={handleChange}
+                  onChange={handleUpdateChange}
                 >
                   {categories.map((category, key) => (
                     <option
