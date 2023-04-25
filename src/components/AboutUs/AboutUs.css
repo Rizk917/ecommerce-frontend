@@ -1,0 +1,177 @@
+.about{
+    padding: 5rem 3rem 3rem 3rem;
+    background: #f8f8f8;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.row .column{
+    width: 40%;
+}
+
+.column .tabs{
+    background: white;
+    margin-right: 10px;
+    cursor:pointer;
+}
+
+.single-tab h2{
+    display: block;
+    padding: 10px 16px;
+    border-radius: 4px;
+    color: #3c3c3c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.about-img{
+    position:relative;
+    background-image: url("https://c7.alamy.com/comp/ER5079/nut-and-spice-wholesale-shop-dubai-spice-souk-dubai-city-united-arab-ER5079.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 600px;
+    width: 100%;
+}
+
+.content{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.active-content{
+    display: block;
+    
+}
+
+.active-tab{
+    background: #899ea2;
+    position: relative;
+}
+
+.active-tab::before{
+    position: absolute;
+    bottom:-5px;
+    left:50%;
+    transform: translateX(-50%);
+    content:'';
+    width:0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #899ea2 transparent transparent transparent;
+    
+}
+.active-tab h2{
+    color: white;
+}
+
+.content h2{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+
+}
+
+.content p{
+    padding-bottom: 1rem;
+    font-size: 16px;
+    line-height:1.8;
+    font-weight: 400;
+    color:#999;
+}
+
+.content h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1rem; 
+}
+
+.skill-row{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.skill-column{
+    margin-bottom: 30px;
+    margin-right:20px;
+}
+
+.progress-wrap h3{
+    font-size:14px !important;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.progress{
+    height:8px;
+    background: rgba(0,0,0,.05);
+    overflow: visible;
+}
+
+.progress-bar{
+    width: 80%;
+    height: 8px;
+    background:#899ea2 ;
+    line-height: 1.2;
+    position: relative;
+    border-radius: 2px;
+}
+
+.progress-bar span{
+    position: absolute;
+    top:-30px;
+    right: 0;
+    font-size:16px;
+    font-weight:400;
+    color:#899ea2;
+}
+
+.exp-column h3{
+    margin-bottom: 10px;
+
+}
+
+.exp-column span{
+    font-weight: 1000;
+    color: #838386;
+}
+
+.exp-column p{
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 768px{
+    .about{
+        padding: 2rem 1rem 3 rem 1rem;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-img{
+        height: 500px;
+    }
+
+    .row -column{
+        width: 100%;
+    }
+
+    .tabs{
+        padding-top:3rem;
+    }
+    .skills-row{
+        grid-template-columns: 1fr;
+    }
+    
+}
