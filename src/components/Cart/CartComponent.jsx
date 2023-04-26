@@ -34,19 +34,20 @@ export default function CartComponent() {
   };
   const handleCreatingCart = async (productId, productName, productPrice) => {
     try {
-      const response = await fetch('http://localhost:5000/addtocart', {
+      const response = await fetch('http://localhost:5000/cart/addtocart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userId: cart.userId, // replace with actual user ID
+          userId: cart.userId, 
           products: cart.products
         }),
         
       });
       const data = await response.json();
       console.log(data);
+      setCart({ userId: '', products: [] })
     } catch (error) {
       console.error(error);
     }

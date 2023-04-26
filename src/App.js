@@ -5,6 +5,7 @@ import Navbar from './components/navBar/Navbar';
 import ContactUs from './pages/ContactUs';
 import Cart from './pages/Cart';
 import Footer from './components/footer/Footer';
+import Order from './pages/Order';
 function App() {
   return (
     <div className='main-wrap'>
@@ -14,6 +15,8 @@ function App() {
     <Route exact path='/about-us' element={< Home/>}></Route>
     <Route exact path='/contactus' element={< ContactUs/>}> </Route>
     <Route exact path='/cart' element={< Cart />}> </Route>
+    <Route exact path='/order' element={< Order />}> </Route>
+
 
 
    

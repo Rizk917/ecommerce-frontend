@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './order.css';
 
 export default function Order() {
   const [data, setData] = useState([]);
@@ -15,16 +14,18 @@ export default function Order() {
   };
 
   const handleConfirmOrder = () => {
+    const userId = "6437c07bd944ba122a2804a4";
     const requestOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        userId,
         phoneNumber,
         shippingAddress,
       }),
-    };
+  };
     fetch('http://localhost:5000/order', requestOptions)
       .then((response) => {
         if (response.status === 200) {
@@ -32,7 +33,7 @@ export default function Order() {
         } else {
           console.log('Error confirming order:', response.status);
         }
-      })
+        console.log(requestOptions)  })
       .catch((error) => {
         console.log('Error confirming order:', error);
       });
@@ -40,8 +41,9 @@ export default function Order() {
 
   useEffect(() => {
     const fetchData = async () => {
+     const userId= "6437c07bd944ba122a2804a4"
       try {
-        const response = await fetch('http://localhost:5000/acart');
+        const response = await fetch(`http://localhost:5000/cart/${userId}`);
         const dataFetched = await response.json();
         setData(dataFetched);
       } catch (error) {
