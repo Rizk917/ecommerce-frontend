@@ -51,7 +51,7 @@ function App() {
     <Routes>
     
     <Route element={<AdminLayout/>}>
-      <Route path="/Dashboard" element={<Dashboard />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/categories" element={<CategoriesAdmin />} />
       <Route path="/products" element={<ProductsAdmin />} />
     </Route>

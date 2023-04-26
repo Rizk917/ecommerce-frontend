@@ -4,7 +4,11 @@ import SideBar from '../SideBar/sidebar.js'
 import "./header.css";
 import burgerImage from '../image/burgerMenu.png'
 function AdminHeader({showSidebar,isSidebarOpen}) {
-
+    const logOut = () => {
+        window.location.href = "/";
+    
+        window.localStorage.clear();
+      };
 
 return (
     <div className="header-container">
@@ -15,7 +19,7 @@ return (
         <div className='title'>Welcome To The DashBoard</div>
     </div>
     <div className='logout'>
-    <button type='button' className="logout_button"><p className='logout_button_p'>Logout</p></button>
+    <button type='button'onClick={logOut} className="logout_button"><p>Logout</p></button>
 
     </div>
     
