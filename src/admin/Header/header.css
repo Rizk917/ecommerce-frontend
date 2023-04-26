@@ -27,7 +27,9 @@
     justify-content: center;
   }
   
-
+.logout_button_p {
+  font-size: 20px;
+}
 
   .logout{
     display: flex;

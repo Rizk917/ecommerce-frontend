@@ -3,6 +3,13 @@ display: flex;
 justify-content: center;
 margin-bottom: 30px;
 border: 1px solid black;
+height: 50px;
+align-items: center;
+}
+
+.title_page_dashboard{
+    font-size: 30px;
+    font-weight: bold;
 }
 
 

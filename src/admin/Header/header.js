@@ -15,7 +15,7 @@ return (
         <div className='title'>Welcome To The DashBoard</div>
     </div>
     <div className='logout'>
-    <button type='button' className="logout_button"><p>Logout</p></button>
+    <button type='button' className="logout_button"><p className='logout_button_p'>Logout</p></button>
 
     </div>
     
