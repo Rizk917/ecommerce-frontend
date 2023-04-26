@@ -1,6 +1,13 @@
 import React from "react";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
+import homepage from '../image/homepage.png'
+import product from '../image/product.png'
+import category from '../image/category.png'
+import order from '../image/order.png'
+import socialmedia from '../image/socialmedia.png'
+
+
 
 function SideBar({ isSidebarOpen }) {
   return (
@@ -9,27 +16,27 @@ function SideBar({ isSidebarOpen }) {
         <div className="sidebar">
           <div className="image_products">
             <img
-              src={process.env.PUBLIC_URL + "/pictures/homepage.png"}
+              src={homepage}
               alt="edit"
               className="edit"
             />
             <img
-              src={process.env.PUBLIC_URL + "/pictures/category.png"}
+              src={category}
               alt="edit"
               className="edit"
             />
             <img
-              src={process.env.PUBLIC_URL + "/pictures/product.png"}
+              src={product}
               alt="edit"
               className="edit"
             />
             <img
-              src={process.env.PUBLIC_URL + "/pictures/order.png"}
+              src={order}
               alt="edit"
               className="edit"
             />
             <img
-              src={process.env.PUBLIC_URL + "/pictures/socialmedia.png"}
+              src={socialmedia}
               alt="edit"
               className="edit"
             />

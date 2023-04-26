@@ -13,6 +13,7 @@ import AdminHeader from "./admin/Header/header";
 import AdminLayout from "./pages/AdminLayout";
 import UserLayout from "./pages/UserLayout";
 import SideBar from "./admin/SideBar/sidebar";
+import Shop from "./pages/Shop";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -31,43 +32,52 @@ function App() {
   };
   return (
     <>
-      {/* <AdminHeader
-            showSidebar={showSidebar}
-            isSidebarOpen={isSidebarOpen}
-          />
-          <div className="app">
-            <SideBar isSidebarOpen={isSidebarOpen} />
+        {/* <div>
+      <>
+        <AdminHeader showSidebar={showSidebar} isSidebarOpen={isSidebarOpen} />
+        <div className="admin_dashboard">
+          <SideBar isSidebarOpen={isSidebarOpen} />
+          <Routes>
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/categories" element={<CategoriesAdmin />} />
             <Route path="/products" element={<ProductsAdmin />} />
-          </div>
-        </Routes> */}
-     
-        <Routes>
-          <Route  element={<AdminLayout/>}>
-          <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/categories" element={<CategoriesAdmin />} />
-            <Route path="/products" element={<ProductsAdmin />} />
-          </Route>
-        </Routes>
+          </Routes>
+        </div>
+      </>
+    </div> */}
+
+    
+    <>
+    <Routes>
+    
+    <Route element={<AdminLayout/>}>
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/categories" element={<CategoriesAdmin />} />
+      <Route path="/products" element={<ProductsAdmin />} />
+    </Route>
+    </Routes>
+    </>
+        
 
       <div className={showPopUp ? "none" : "main-wrap"}>
-       
+      
         <Routes>
           <Route element={<UserLayout/>}>
           <Route exact path="/" element={<Home />}/>
           <Route exact path="/about" element={<AboutUs />}/>
           <Route exact path="/cart" element={<Home />}/>
           <Route exact path="/contactus" element={<ContactUs />}/>
+          <Route exact path="/shop" element={<Shop />}/>
+
           </Route>
         </Routes>
       
       </div>
-     
-     
+    
+    
     
 
-     
+    
     </>
   );
 }

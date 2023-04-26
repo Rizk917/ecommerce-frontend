@@ -41,7 +41,7 @@ function HomeComponent() {
           <div className="d-flex-row">
             <h4 className="m-top">0.5$</h4>
             <button class="button-7" role="button">
-             +
+            +
             </button>
           </div>
         </div>{" "}
