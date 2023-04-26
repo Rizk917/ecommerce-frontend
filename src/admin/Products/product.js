@@ -129,11 +129,21 @@ function ProductsAdmin() {
     event.preventDefault();
 
     const fieldName = event.target.getAttribute("name");
-    let fieldValue = event.target.value;
-    const newFormData = { ...updateProduct };
-    newFormData[fieldName] = fieldValue;
-
-    setUpdateProduct(newFormData);
+    
+    if(!event.target.value){
+      let fieldValue=event.target.defaultValue
+      const newFormData = { ...updateProduct };
+      newFormData[fieldName] = fieldValue;
+      console.log(fieldValue)
+      setUpdateProduct(newFormData);
+    }else{
+      let fieldValue = event.target.value;
+      const newFormData = { ...updateProduct };
+      newFormData[fieldName] = fieldValue;
+      console.log(fieldValue)
+      setUpdateProduct(newFormData);
+    }
+    
   };
   const handleUpdateProduct = (event) => {
     event.preventDefault();
@@ -150,6 +160,7 @@ function ProductsAdmin() {
     const config = {
       headers: { "content-type": "multipart/form-data" },
     };
+    console.log(currentProduct._id)
 
     axios
       .put(`http://localhost:5000/products/${currentProduct._id}`, formData, config)
