@@ -1,11 +1,11 @@
 import './navbar.css';
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import Login from '../login/Login';
 // import logo from '../../Assets/logo.png';
 
-function Navbar() {
+function Navbar({ onButtonClick }) {
+  const [active, setActive] = useState(false);
   const [show, setShow] = useState(false);
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
@@ -16,10 +16,19 @@ function Navbar() {
     setHidden(!hidden);
   }
 
-  function popDown(){
-    setHidden(false)
-    
-  }
+  const isActive = () => {
+    window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
+    };
+  }, []);
+
+  // function popDown(){
+  //   setHidden(false)
+  // }
   useEffect(() => {
     setShow(false);
     setMenu("nav-links");
@@ -41,41 +50,39 @@ function Navbar() {
 
   return (
     <>
-    {hidden ? <div className='popup'>
-      <Login/>
-    </div>: null}
-    <header className="sticky-header">
-      <Link href="/" className="logo">
+    <header className={active ? "sticky-header active" : "sticky-header"}  >
+      <a href="/" className="logo">
         {/* <img src={logo} alt="wlogo" className="header-logo" /> */}
         <span>Store</span>
-      </Link>
+      </a>
       <ul className={menu}>
         <li className='li'>
-          <Link to="/">
+          <a href="/" className={location.pathname === '/' ? 'active' : ''}>
             Home
-          </Link>
+          </a>
         </li>
         <li className='li'>
-          <Link to="/shop">
+          <a href="/shop" className={location.pathname === '/shop' ? 'active' : ''}>
             Shop
-          </Link>
+          </a>
         </li>
         <li className='li'>
-          <Link to="/about">
+          <a href="/about" className={location.pathname === '/about' ? 'active' : ''}>
             About us
-          </Link>
+          </a>
         </li>
         <li className='li'>
-          <Link to="/contactus">
+          <a href="/contactus" className={location.pathname === '/contactus' ? 'active' : ''}>
             Contact us
-          </Link>
+          </a>
         </li>
-        
       </ul>
       <div className="header-icons">
-        <a href="/" className="user"> 
-          <i className="ri-user-fill"></i>Sign-in
-        </a>
+        <div onClick={onButtonClick}>
+          <p className="user" onClick={popUp}> 
+            <i className="ri-user-fill"></i>Sign-in
+          </p>
+        </div>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

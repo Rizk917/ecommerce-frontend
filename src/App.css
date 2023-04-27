@@ -162,6 +162,8 @@
     color: black;
   }
 
+  
+
   .nav-links.open{
     right: 0%;
   }
@@ -171,3 +173,16 @@
   list-style: none!important;
   text-decoration: none;
 } */
+
+.none{
+  /* position: absolute;
+  visibility: hidden;
+  height: 0vh;
+  overflow: hidden; */
+  /*bro if you had an error w ma 3refet men sho, bikoun men wara l display none, shil l display none w uncomment li fo2*/
+  display: none;
+}
+.app{
+  display: flex;
+  justify-content: row;
+}
