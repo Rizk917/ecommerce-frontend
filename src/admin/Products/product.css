@@ -81,10 +81,11 @@ align-items: center;
     padding: 8px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    border-radius: 10%;
 }
 
 .add_product button:hover{
-    background-color: black;
+    background-color: #8c6b26;
     color: white;
     transition: 0.5s;
 }
