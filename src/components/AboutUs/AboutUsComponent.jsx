@@ -19,17 +19,18 @@ const About = () => {
                 className={toggleTab === 1 ? "single-tab active-tab" : "single-tab"}
                 onClick={() => toggleState(1)}
               >
-                <h2>Lorem, ipsum dolo.</h2>
+                
+                <h2>Our Story</h2>
               </div>
 
               <div className={toggleTab === 2 ? "single-tab active-tab" : "single-tab"}
                 onClick={() => toggleState(2)}>
-                <h2>Lorem, ipsum.</h2>
+                <h2>How It All Started</h2>
               </div>
 
               <div className={toggleTab === 3 ? "single-tab active-tab" : "single-tab"}
                 onClick={() => toggleState(3)}>
-                <h2>Lorem.</h2>
+                <h2>Our Mission</h2>
               </div>
             </div>
             <div className="tab-content">
@@ -53,7 +54,7 @@ const About = () => {
               </div>
               
                {/* How it started Content */}
-               <div className={toggleTab === 3 ? "content active-content" :"content"}>
+               <div className={toggleTab === 2 ? "content active-content" :"content"}>
                 <div className="exp-column">
                   <h2>How It All Started</h2>
                   <h3>Lorem.</h3>
@@ -84,7 +85,7 @@ const About = () => {
               </div>
 
               {/* Mission */}
-              <div className={toggleTab === 2 ? "content active-content" :"content"}>
+              <div className={toggleTab === 3 ? "content active-content" :"content"}>
                 <h2>Our Mission</h2>
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
