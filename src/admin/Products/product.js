@@ -125,24 +125,18 @@ function ProductsAdmin() {
 
   }
 
-  const handleUpdateChange = async (event) => {
+  const handleUpdateChange = async (event) =>{
     event.preventDefault();
 
     const fieldName = event.target.getAttribute("name");
     
-    if(!event.target.value){
-      let fieldValue=event.target.defaultValue
+      let fieldValue=event.target.value;
       const newFormData = { ...updateProduct };
       newFormData[fieldName] = fieldValue;
       console.log(fieldValue)
       setUpdateProduct(newFormData);
-    }else{
-      let fieldValue = event.target.value;
-      const newFormData = { ...updateProduct };
-      newFormData[fieldName] = fieldValue;
-      console.log(fieldValue)
-      setUpdateProduct(newFormData);
-    }
+    
+    
     
   };
   const handleUpdateProduct = (event) => {
@@ -262,7 +256,9 @@ function ProductsAdmin() {
                   type="text"
                   className="product"
                   name="name"
-                  onChange={handleUpdateChange}
+                  onChange={() => {
+                    handleUpdateChange();
+                  }}
                   defaultValue={currentProduct.productName}
                 />
                 <label className="product_label">Product Description</label>

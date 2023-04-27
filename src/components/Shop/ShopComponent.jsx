@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import burgerImage from '../../images/burgerMenu.png'
 import './shopComponent.css'
 import axios from "axios";
 import Chocolate from "../../images/chocolate1.png";
@@ -55,41 +54,38 @@ function ShopComponent() {
     }
   };
 
-const [isOpenSidebar, setIsOpenSidebar] = useState('false')
 
-  const handleClickBurger = ()=>{
-    setIsOpenSidebar(!isOpenSidebar)
-  }
 
   return (
     <div className="shop_product">
       <div className="hamburger">
-        <div className="burger_image">
-          <img src={burgerImage} alt='burger' onClick={handleClickBurger}/>
-        </div>
-        <div className="sideBar_products">
-        {isOpenSidebar ? (
+          <div className="sideBar_products">
+        <div className="div_color">
         <div className="list_categories">
-          <div className="list_category">
-            <ul>
-              <li className="li_category" 
-              onClick={() => handleShowProduct('all')}
-
-              >All Products</li>
-              {categories.map((category, key) => {
-                return(
-              <li className="li_category" key={key}
-              onClick={() => handleShowProduct(category._id)}
-
-              >{category.categoryName}</li>
-                )
-            })}
-              
-              
-            </ul>
+            <div className="list_category">
+              <ul>
+                <li className="li_category" 
+                onClick={() => handleShowProduct('all')}
+  
+                >All Products</li>
+                {categories.map((category, key) => {
+                  return(
+                <li className="li_category" key={key}
+                onClick={() => handleShowProduct(category._id)}
+  
+                >{category.categoryName}</li>
+                  )
+              })}
+                
+                
+              </ul>
+            </div>
           </div>
         </div>
-        ):null}
+          
+
+        
+        
 
 <div className="product_search">
     {products.map((product, key) => {
@@ -101,7 +97,7 @@ const [isOpenSidebar, setIsOpenSidebar] = useState('false')
           </div>
           <div className="details_product">
             <div className="product_price">
-              <h2>{product.productPrice}</h2>
+              <h2>{product.productPrice} $</h2>
             </div>
             <div className="button_card">
               <button type="button">

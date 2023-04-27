@@ -1,6 +1,9 @@
 .shop_product{
     display: flex;
-    justify-content: start;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
 }
 
 .sideBar_products{
@@ -18,8 +21,12 @@
 .burger_image{
     display: flex;
     padding: 5px ;
-
 }
+
+
+
+
+
 .burger_title{
     color: white;
     font-size: 16px;
@@ -27,7 +34,7 @@
 }
 
 .all_category{
-    width: 14rem;
+    width: 18rem;
     background-color:gold;
 }
 
@@ -40,14 +47,19 @@
 .list_category{
     display: flex;
     background-color:gold;
-    width: 14rem;
-    height: 100vh;
-    /* position: absolute;
-    top:0;
-    left:0;
-    transform: translateX(-100%);
-    transition: all 0.4s ease-in-out; */
+    width: 18rem;
+    /* height: 100vh; */
+    box-shadow: 5px 5px 10px grey;
+    
 
+
+    
+
+}
+
+.div_color{
+    background-color: white;
+    width: 18rem;
 }
 
 
@@ -58,13 +70,21 @@
 
 
 .list_category ul li {
-    width: 14rem;
+    width: 18rem;
     list-style: none;
     padding: 12px;
-    border-bottom: 1px solid black;
+    border-bottom: 10px solid white;
     text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s;
+    
+
+
+
     
 }
+
 
 .list_category ul{
     padding: 0;
@@ -73,19 +93,19 @@
 
 
 .list_category ul li:hover{
-    background-color: rgb(247, 234, 234);
+    letter-spacing: 0.1em;
+
+    background-color: white;
 }
 
 
 .card{
-
     width: 16rem;
     height: 22rem;
     border: 1px solid;
 }
 
 .product_search{
-    
     display: flex;
     flex-wrap: wrap;
     gap:1rem;
