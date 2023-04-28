@@ -102,7 +102,8 @@
 .card{
     width: 16rem;
     height: 22rem;
-    border: 1px solid;
+    border: 2px solid black;
+    border-radius: 1em ;
 }
 
 .product_search{
@@ -114,6 +115,8 @@
 
 .img_card{
     width: 16rem;
+    border-radius: 1em 1em 0 0;
+
 }
 
 
@@ -141,6 +144,10 @@
     border: 1px solid;
     width: 7rem;
     height: 2.5rem;
+    border-radius: 1em;
+    border: 2px solid;
+    box-shadow: 5px 5px 15px  gray;
+    ;
 }
 
 .product_price{

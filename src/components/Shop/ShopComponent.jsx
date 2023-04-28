@@ -13,12 +13,16 @@ function ShopComponent() {
   const [allProducts, setAllProducts] = useState(true)
 
 
+
+
+
   //get all categories
   useEffect(() => {
     axios
       .get("http://localhost:5000/categories")
       .then((response) => {
         setCategories(response.data.data);
+
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +37,6 @@ function ShopComponent() {
         const url = "http://localhost:5000/products/display";
         await axios.get(url).then((response) => {
           setProducts(response.data.products);
-          console.log(response)
         });
       } catch (error) {
         console.log(error);
@@ -44,15 +47,20 @@ function ShopComponent() {
         await axios.get(url).then((response) => {
           console.log(response)
           setProducts(response.data.products);
-          setAllProducts(false);
-
         
         });
       } catch (error) {
         console.log(error);
       }
     }
+    setAllProducts(false)
   };
+
+  useEffect(() => {
+    if (allProducts) {
+      handleShowProduct('all');
+    }
+  }, []);
 
 
 

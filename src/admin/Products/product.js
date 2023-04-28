@@ -105,75 +105,69 @@ function ProductsAdmin() {
     }
   };
 
-  const [productUpdateImage, setProductUpdateImage] = useState('')
+  // const [productUpdateImage, setProductUpdateImage] = useState('')
 
   // update products
+  // const [editProduct, seteditProduct] = useState({
+  //   productName: "",
+  //   productDescription: "",
+  //   productImage: "",
+  //   productPrice: "",
+  //   productQuantity: "",
+  //   categoryId: "",
+  // });
 
-  const [updateProduct, setUpdateProduct] = useState({
-    productName: "",
-    productDescription: "",
-    productImage: "",
-    productPrice: "",
-    productQuantity: "",
-    categoryId: "",
-  });
-
-  const handleUpdateImageChange = async (event) => {
-    event.preventDefault();
-    setProductUpdateImage (event.target.files[0]);
-
-
-  }
-
-  const handleUpdateChange = async (event) =>{
-    event.preventDefault();
-
-    const fieldName = event.target.getAttribute("name");
+  // const handleUpdateChange = async (event) =>{
+  //   event.preventDefault();
+  //   const fieldName = event.target.getAttribute("name");
     
-      let fieldValue=event.target.value;
-      const newFormData = { ...updateProduct };
-      newFormData[fieldName] = fieldValue;
-      console.log(fieldValue)
-      setUpdateProduct(newFormData);
-    
-    
-    
-  };
-  const handleUpdateProduct = (event) => {
-    event.preventDefault();
+  //     let fieldValue = event.target.value;
+  //     const newFormData = { ...updateProduct };
+  //     newFormData[fieldName] = fieldValue;
+  //     setUpdateProduct(newFormData);
+  // };
+  // const handleUpdateProduct = (event) => {
+  //   event.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append('productImage',productUpdateImage)
+  //   formData.append("productName", updateProduct.productName);
+  //   formData.append("productDescription", updateProduct.productDescription);
+  //   formData.append("productPrice", updateProduct.productPrice);
+  //   formData.append("productQuantity", updateProduct.productQuantity);
+  //   formData.append("categoryId", String(updateProduct.categoryId));
 
-    const formData = new FormData();
-    formData.append('productImage',productUpdateImage)
-    formData.append("productName", updateProduct.productName);
-    formData.append("productDescription", updateProduct.productDescription);
-    formData.append("productPrice", updateProduct.productPrice);
-    formData.append("productQuantity", updateProduct.productQuantity);
-    formData.append("categoryId", String(updateProduct.categoryId));
+  //   console.log(formData)
+  //   const config = {
+  //     headers: { "content-type": "multipart/form-data" },
+  //   };
 
-    console.log(formData)
-    const config = {
-      headers: { "content-type": "multipart/form-data" },
-    };
-    console.log(currentProduct._id)
+  //   axios
+  //     .put(`http://localhost:5000/products/${currentProduct._id}`, formData, config)
+  //     .then(() => {
+  //       console.log("product updated successfully");
 
-    axios
-      .put(`http://localhost:5000/products/${currentProduct._id}`, formData, config)
-      .then(() => {
-        console.log("product updated successfully");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.response.data);
+  //     });
+  //     handleShowUpdateForm()
+  //   }
 
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
-    }
-
-  const [currentProduct, setCurrentProduct] = useState("null");
   const [showProduct, setShowProduct] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+
+  // const handleShowUpdateForm = () => {
+  //   setShowUpdateForm(!showUpdateForm)
+  // }
 
   const handleShowProduct = () => {
     setShowProduct(!showProduct);
   };
+
+  
+
+    
+  
 
   return (
     <div className="container">
@@ -222,7 +216,6 @@ function ProductsAdmin() {
                         <button
                           onClick={() => {
                             setShowUpdateForm(!showUpdateForm);
-                            setCurrentProduct(product);
                           }}
                         >
                           <img
@@ -248,62 +241,48 @@ function ProductsAdmin() {
                 })}
             </tbody>
           </table>
-          {showUpdateForm && currentProduct ? (
+          {showUpdateForm ?  (
             <div className="update_product">
-              <form className="product_form" onSubmit={handleUpdateProduct}>
+              <form className="product_form" >
                 <label className="product_label">Product Name</label>
                 <input
                   type="text"
                   className="product"
-                  name="name"
-                  onChange={() => {
-                    handleUpdateChange();
-                  }}
-                  defaultValue={currentProduct.productName}
+                  name="productName"
                 />
                 <label className="product_label">Product Description</label>
                 <input
                   type="text"
                   className="product"
-                  name="description"
-                  onChange={handleUpdateChange}
-                  defaultValue={currentProduct.productDescription}
+                  name="productDescription"
                 />
                 <label className="product_label">Product Image</label>
                 <input
                   type="file"
                   className="product"
-                  name="image"
-                  onChange={handleUpdateImageChange}
-                  defaultValue={currentProduct.productImage.file}
+                  name="productImage"
                 />
                 <label className="product_label">Product Price</label>
                 <input
                   type="text"
                   className="product"
-                  name="price"
-                  onChange={handleUpdateChange}
-                  defaultValue={currentProduct.productPrice}
+                  name="productPrice"
                 />
                 <label className="product_label">Product Quantity</label>
                 <input
                   type="text"
                   className="product"
-                  name="quantity"
-                  onChange={handleUpdateChange}
-                  defaultValue={currentProduct.productQuantity}
-                />
+                  name="productQuantity"
+                  />
                 <select
                   className="product"
                   name="categoryId"
-                  onChange={handleUpdateChange}
                 >
                   {categories.map((category, key) => (
                     <option
                       className="option"
                       key={key}
                       value={category._id}
-                      defaultValue={category.categoryName}
                     >
                       {category.categoryName}
                     </option>
