@@ -1,21 +1,48 @@
-.sticky-header {
-  position: fixed;
+.hello{
   width: 100%;
   top: 0;
-  right: 0;
   z-index: 10;
+  right: 0;
+  position: fixed;
+
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
-  background-color: white;
   transition: all 0.3s ease;
   align-items: center;
   height: 10vh;
   border-bottom:1px solid #000000;
-}
+} 
 
 .active {
-  background-color: rgb(208, 223, 178);
-  color: rgb(131, 119, 119);
+  background-color: rgb(0, 0, 0);
+  animation: lol .6s ease;
+  transform: translateY(0px);
+}
+
+
+@keyframes lol {
+  0%{
+    opacity: 1;
+    top: -100px;
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+}
+.sticky-header{
+  
+  background-color: rgb(255, 255, 255);
+}
+
+
+.sticky-header .active .lol{
+  color: gray;
+}
+
+.sticky-header 
+.scroll-after .active {
+  color: rgb(223, 10, 10);
 }
 
 .logo {
@@ -39,7 +66,7 @@
   margin: 0 auto;
 }
 
-.nav-links .li a {
+.active .nav-links li a {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 5px 0;
@@ -48,19 +75,28 @@
   text-decoration: none;
   list-style-type: none;
   list-style: none;
+  color: rgb(255, 255, 255);
+}
+.sticky-header .nav-links li a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0px 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  list-style-type: none;
+  list-style: none;
+  color: rgb(0, 0, 0);
 }
 
-.nav-links li a:hover {
-  color: white;
+.active .active .nav-links a{
+  color: red;
 }
 
 /* .nav-links li a.active {
   color: white;
 } */
-.nav-links li a.active {
-  color: black;
-  border-bottom: 1px solid;
-}
+
 .header-icons {
   display: flex;
   align-items: center;
@@ -98,21 +134,9 @@
 }
 
 .li a {
-  color: black;
   text-decoration: none;
   font-size: 1.2rem;
   font-family: bold;
-}
-
-.popup{
-  background-color: #f1f1f1;
-  backdrop-filter: blur(10px);
-  position: absolute;
-  z-index: 8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  inset: 0;
 }
 @media all and (max-width: 1230px) {
   .sticky-header {
@@ -124,7 +148,7 @@
     font-weight: bold;
   }
 
-  .nav-links li a {
+  .nav-links a {
     font-size: 0.9rem;
     padding: 5px 0;
     margin: 0px 20px;
@@ -192,8 +216,10 @@
   }
 
   .li:hover{
-    background-color: lightblue;
     color: red;
   }
 }
 
+.lol{
+  color: red!important;
+}

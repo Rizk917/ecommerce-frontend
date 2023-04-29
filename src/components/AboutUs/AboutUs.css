@@ -32,7 +32,7 @@
     position:relative;
     background-image: url("https://c7.alamy.com/comp/ER5079/nut-and-spice-wholesale-shop-dubai-spice-souk-dubai-city-united-arab-ER5079.jpg");
     background-repeat:no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
     height: 600px;
     width: 100%;
@@ -152,7 +152,7 @@
     margin-top: 10px;
 }
 
-@media screen and (max-width: 768px{
+@media screen and (max-width: 768px){
     .about{
         padding: 2rem 1rem 3 rem 1rem;
     }
