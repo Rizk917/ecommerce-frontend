@@ -13,17 +13,17 @@ const Footer = () => {
         </h3>
 
         <p class="footer-links">
-          <a href="/"  className= { location.pathname === "/" ? "active" : ""}>
+          <a href="/"  className= { location.pathname === "/" ? "f-active" : ""}>
             Home
           </a>
 
-		  <a href="/" className={location.pathname === "/" ? "active" : ""}>
+		  <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
             Home
-          </a>   <a href="/" className={location.pathname === "/" ? "active" : ""}>
+          </a>   <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
             Home
-          </a>   <a href="/" className={location.pathname === "/" ? "active" : ""}>
+          </a>   <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
             Home
-          </a>   <a href="/" className={location.pathname === "/" ? "active" : ""}>
+          </a>   <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
             Home
           </a>
         </p>

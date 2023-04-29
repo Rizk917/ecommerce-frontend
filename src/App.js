@@ -51,12 +51,12 @@ function App() {
     <Routes>
     
     <Route element={<AdminLayout/>}>
+
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/categories" element={<CategoriesAdmin />} />
       <Route path="/products" element={<ProductsAdmin />} />
     </Route>
-    </Routes>
-    </>
+    </Routes>    </>
         
 
       <div className={showPopUp ? "none" : "main-wrap"}>

@@ -1,4 +1,5 @@
-.sticky-header{
+/* .sticky-header,
+.active{
   position: fixed;
   width: 100%;
   top: 0;
@@ -6,7 +7,6 @@
   z-index: 10;
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
-  /* background-color: orange; */
   transition: all .30s ease;
   align-items: center;
 }
@@ -23,6 +23,7 @@
 }
 
 .logo span{
+  color: white;
   font-size: 1.7rem;
   font-weight: bold;
 }
@@ -32,7 +33,7 @@
   margin: 0 auto;
 }
 
-.nav-links li a{
+.nav-links  a{
   font-size: 1.1rem;
   font-weight: 500;
   padding: 5px 0;
@@ -42,7 +43,7 @@
 }
 
 
-.nav-links li a:hover{
+.nav-links  a:hover{
   color: white;
 }
 
@@ -58,6 +59,7 @@
   font-size: 1.1rem;
   font-weight: bold;
   transition: all .30s ease;
+  color: white;
 }
 
 .header-icons a:hover{
@@ -102,7 +104,7 @@
     font-weight: bold;
   }
 
-  .nav-links li a{
+  .nav-links  a{
     font-size: 0.9rem;
     padding: 5px 0;
     margin: 0px 20px;
@@ -157,32 +159,19 @@
   .user {
     display: none;
   }
-
-  .nav-links li a.active{
-    color: black;
-  }
-
   
 
   .nav-links.open{
     right: 0%;
   }
 }
-/* 
-.nav-links ul  a{
-  list-style: none!important;
-  text-decoration: none;
-} */
+
 
 .none{
-  /* position: absolute;
-  visibility: hidden;
-  height: 0vh;
-  overflow: hidden; */
-  /*bro if you had an error w ma 3refet men sho, bikoun men wara l display none, shil l display none w uncomment li fo2*/
+
   display: none;
 }
 .app{
   display: flex;
   justify-content: row;
-}
+} */
