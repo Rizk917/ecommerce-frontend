@@ -3,6 +3,7 @@
     justify-content: center;
     margin-bottom: 30px;
     border: 1px solid black;
+    border-radius: 10%;
     }
 
 .table{
@@ -68,10 +69,11 @@
     padding: 8px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    border-radius: 15%;
 }
 
 .add_category button:hover{
-    background-color: black;
+    background-color: #8c6b26;
     color: white;
     transition: 0.5s;
 }
@@ -132,6 +134,8 @@
 .search input{
     padding: 10px;
     border: 2px solid;
+    border-radius: 10%;
+
 
 }
 
@@ -149,7 +153,7 @@
 
 
 .category_form button:hover{
-    background-color: black;
+    background-color: #8c6b26;
     color: white;
     transition: 0.5s;
 }

@@ -12,9 +12,9 @@ function AdminHeader({showSidebar,isSidebarOpen}) {
 
 return (
     <div className="header-container">
-    <div className="logo-container" onClick={()=>showSidebar(!isSidebarOpen)}>
+    {/* <div className="logo-container" onClick={()=>showSidebar(!isSidebarOpen)}>
         <img src={burgerImage} alt='logo' />
-    </div>
+    </div> */}
     <div className='title-container'>
         <div className='title'>Welcome To The DashBoard</div>
     </div>
