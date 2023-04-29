@@ -1,13 +1,163 @@
-.select_categories{
-width: 200px;
-height: 30px;    
-margin: 20px;
-font-size: 16px;
-border-radius: 4px;
+.shop_product{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.sideBar_products{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.burger_image img{
+    width:40px;
+    height: 40px;
+
+}
+
+.burger_image{
+    display: flex;
+    padding: 5px ;
+}
+
+
+
+
+
+.burger_title{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.all_category{
+    width: 18rem;
+    background-color:gold;
+}
+
+.li_category{
+    font-weight: bold;
+    color: black;
+}
+
+
+.list_category{
+    display: flex;
+    background-color:gold;
+    width: 18rem;
+    /* height: 100vh; */
+    box-shadow: 5px 5px 10px grey;
+    
+
+
+    
+
+}
+
+.div_color{
+    background-color: white;
+    width: 18rem;
+}
+
+
+
+/* .collapse{
+    transform: translateX(0%);
+} */
+
+
+.list_category ul li {
+    width: 18rem;
+    list-style: none;
+    padding: 12px;
+    border-bottom: 10px solid white;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s;
+    
+
+
+
+    
+}
+
+
+.list_category ul{
+    padding: 0;
+}
+
+
+
+.list_category ul li:hover{
+    letter-spacing: 0.1em;
+
+    background-color: white;
+}
+
+
+.card{
+    width: 16rem;
+    height: 22rem;
+    border: 2px solid black;
+    border-radius: 1em ;
+}
+
+.product_search{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
+    margin-left: 2rem;
+}
+
+.img_card{
+    width: 16rem;
+    border-radius: 1em 1em 0 0;
 
 }
 
 
+.product_name {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.product_name h2{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.details_product{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+
+.button_card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gold;
+    border: 1px solid;
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 1em;
+    border: 2px solid;
+    box-shadow: 5px 5px 15px  gray;
+    ;
+}
+
+.product_price{
+    display: flex;
+    align-items: center;
+}
+
+.product_price h2{
+    font-weight: bold;
+}
 
 
 

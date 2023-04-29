@@ -68,7 +68,7 @@ function CategoriesAdmin() {
       console.log(error);
     }
   };
-
+  //update category
   const handleUpdateCategory = (event) => {
     event.preventDefault();
 
