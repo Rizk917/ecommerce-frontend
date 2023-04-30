@@ -123,7 +123,7 @@ const ContactUsComponent = (props) => {
                              onChange={onChange}
                            />
                 </div>
-                <div class="button1">
+                <div class="button_card">
                 <button type="submit">Send Message</button>
                 </div>
                 </form>
