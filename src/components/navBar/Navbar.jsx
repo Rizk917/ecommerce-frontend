@@ -15,7 +15,7 @@ function Navbar({ onButtonClick }) {
   const token = localStorage.getItem("token");
   const Role = localStorage.getItem("Role");
   const name = localStorage.getItem("name");
-  const id = localStorage.getItem("id");
+  const UserId = localStorage.getItem("id");
   const loggedIn = localStorage.getItem("loggedIn");
 
   const isActive = () => {
