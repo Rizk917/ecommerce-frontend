@@ -15,7 +15,7 @@ import UserLayout from "./pages/UserLayout";
 import SideBar from "./admin/SideBar/sidebar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
-
+import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -57,6 +57,8 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/categories" element={<CategoriesAdmin />} />
       <Route path="/products" element={<ProductsAdmin />} />
+      <Route path="/imagesC" element={<ImageCarousleAdmin />} />
+      
     </Route>
     </Routes>    </>
         

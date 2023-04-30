@@ -64,7 +64,7 @@ const ContactUsComponent = (props) => {
 
   return (
     <div className="">
-    <div className="container">
+    <div className="container-home">
     <div class="cntctus">
       <div class="content">
         <div class="left-side">
