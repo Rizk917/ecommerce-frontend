@@ -1,7 +1,10 @@
-import './navbar.css';
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import logo from '../../Assets/logo.png';
+import "./navbar.css";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import logo from "../../Assets/logo.png";
+import cartLogo from "../../Assets/cartIcon.png";
+import cartLogoWhite from "../../Assets/cartIconWhite.png";
+import { Link } from "react-router-dom";
 
 function Navbar({ onButtonClick }) {
   const [active, setActive] = useState(false);
@@ -9,6 +12,11 @@ function Navbar({ onButtonClick }) {
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
   const location = useLocation();
+  const token = localStorage.getItem("token");
+  const Role = localStorage.getItem("Role");
+  const name = localStorage.getItem("name");
+  const id = localStorage.getItem("id");
+  const loggedIn = localStorage.getItem("loggedIn");
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -42,36 +50,87 @@ function Navbar({ onButtonClick }) {
   return (
     <header className={`hello ${active ? "active" : "sticky-header"}`}>
       <a href="/" className="logo">
-        <span>        <img src={logo} alt="wlogo" className="header-logo" />
-</span>
+        <span>
+          {" "}
+          <img src={logo} alt="wlogo" className="header-logo" />
+        </span>
       </a>
       <ul className={menu}>
-        <li className='li'>
-          <a href="/" className={location.pathname === '/' ? 'lol' : ''}>
+        <li className="li">
+          {" "}
+          <Link
+            className={
+              active
+                ? "user-b"
+                : "user" && location.pathname === "/"
+                ? "lol"
+                : ""
+            }
+            to="/"
+          >
             Home
-          </a>
+          </Link>
         </li>
-        <li className='li'>
-          <a href="/shop" className={location.pathname === '/shop' ? 'lol' : ''}>
+        <li className="li">
+          <Link
+            className={
+              active
+                ? "user-b"
+                : "user" && location.pathname === "/shop"
+                ? "lol"
+                : ""
+            }
+            to="/shop"
+          >
             Shop
-          </a>
+          </Link>
         </li>
-        <li className='li'>
-          <a href="/about" className={location.pathname === '/about' ? 'lol' : ''}>
+        <li className="li">
+          <Link
+            className={
+              active
+                ? "user-b"
+                : "user" && location.pathname === "/about"
+                ? "lol"
+                : ""
+            }
+            to="/about"
+          >
             About us
-          </a>
+          </Link>
         </li>
-        <li className='li'>
-          <a href="/contactus" className={location.pathname === '/contactus' ? 'lol' : ''}>
+        <li className="li">
+          <Link
+            className={
+              active
+                ? "user-b"
+                : "user" && location.pathname === "/contactus"
+                ? "lol"
+                : ""
+            }
+            to="/contactus"
+          >
             Contact us
-          </a>
+          </Link>
         </li>
       </ul>
       <div className="header-icons">
-        <p onClick={onButtonClick} className="user"> 
-        
-          <i className="ri-user-fill"></i>Sign-in
-        </p> 
+        <div className="image_logo">
+          <Link className={active ? "user-b" : "user"} to="/cart">
+            <img
+              src={active ? cartLogoWhite : cartLogo}
+              alt="edit"
+              className="edit"
+            />
+          </Link>
+        </div>
+        {loggedIn ? (
+          <h2>Hello, {name}</h2>
+        ) : (
+          <p onClick={onButtonClick} className={active ? "user-b" : "user"}>
+            <i className="ri-user-fill"></i>Sign-in
+          </p>
+        )}
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
     </header>

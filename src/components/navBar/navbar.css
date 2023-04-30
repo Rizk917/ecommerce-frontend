@@ -1,7 +1,7 @@
 .hello{
   width: 100%;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
   right: 0;
   position: fixed;
 
@@ -19,7 +19,16 @@
   transform: translateY(0px);
 }
 
+.image_logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
+}
+.image_logo img{
+  width: 30px;
+}
 @keyframes lol {
   0%{
     opacity: 1;
@@ -119,6 +128,15 @@
   color: black;
   font-size: bold;
   display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+.user-b {
+  text-decoration: none;
+  color: white;
+  font-size: bold;
+  display: flex;
+  cursor: pointer;
   align-items: center;
 }
 

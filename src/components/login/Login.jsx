@@ -40,8 +40,13 @@ function Login() {
           window.localStorage.setItem("token", data.token);
           window.localStorage.setItem("Role", data.role);
           window.localStorage.setItem("id", data._id);
+          window.localStorage.setItem("name", data.name);
           window.localStorage.setItem("loggedIn", true);
-          window.location.href = "/dashboard";
+          if(localStorage.getItem('Role')==='admin')
+          {window.location.href = "/dashboard";}
+          else
+          if(localStorage.getItem('Role')==='user')
+          {window.location.href = "/";}
         })
         .catch((err) => {
           setError(err.message);

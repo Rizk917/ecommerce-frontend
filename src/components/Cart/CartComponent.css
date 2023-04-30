@@ -1,6 +1,7 @@
 .cart-page {
     font-family: Arial, sans-serif;
     max-width: 800px;
+    min-height:80vh;
     margin: 0 auto;
     padding: 20px;
   }

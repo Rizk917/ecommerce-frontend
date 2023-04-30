@@ -4,7 +4,7 @@ function Home() {
   return (
       <div className="starting">
         <HomeComponent/>
-        {/* <Footer/> */}
+        <Footer/>
       </div>
   );
 }

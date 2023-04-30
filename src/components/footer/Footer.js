@@ -18,12 +18,12 @@ const Footer = () => {
             Home
           </a>
 
-		  <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
-            Home
-          </a>   <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
-            Home
-          </a>   <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
-            Home
+		  <a href="/shop" className={location.pathname === "/shop" ? "f-active" : ""}>
+            shop
+          </a>   <a href="/about" className={location.pathname === "/about" ? "f-active" : ""}>
+            About
+          </a>   <a href="/contactus" className={location.pathname === "/contactus" ? "f-active" : ""}>
+          contactus
           </a>   <a href="/" className={location.pathname === "/" ? "f-active" : ""}>
             Home
           </a>
@@ -36,19 +36,19 @@ const Footer = () => {
         <div>
           <i class="fa fa-map-marker"></i>
           <p>
-            <span>444 S. Cedros Ave</span> Solana Beach, California
+            <span>Maasser El Chouf</span>
           </p>
         </div>
 
         <div>
           <i class="fa fa-phone"></i>
-          <p>+1.555.555.5555</p>
+          <p>+961 76 482 098</p>
         </div>
 
         <div>
           <i class="fa fa-envelope"></i>
           <p>
-            <a href="mailto:support@company.com">support@company.com</a>
+            <a href="mailto:baco-lb@hotmail.com">baco-lb@hotmail.com</a>
           </p>
         </div>
       </div>

@@ -8,6 +8,13 @@ function Signup({ hello }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
+  const [showPopUp, setShowPopUp] = useState(true);
+
+  function handleButtonClick() {
+    console.log('hello')
+    setShowPopUp(!showPopUp);
+  }
+
   return (
 <>
       <form className="login-form" onSubmit={handleSubmit}>
@@ -38,7 +45,7 @@ function Signup({ hello }) {
         </button>
         <p className="p">
           <p onClick={hello}>Return to login?</p>
-          <span ><a href="/">cancel</a></span>
+          <span><a href="#" onClick={(handleButtonClick) }>cancel</a></span>
         </p>
       </form>
       </>

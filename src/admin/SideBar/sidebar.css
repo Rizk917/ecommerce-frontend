@@ -81,12 +81,11 @@ button p:hover{
     align-items: center;
 
 }
-
+.image_products img{
+    width: 30px;
+}
 .products{
     display: flex;
     flex-direction: column;
 }
 
-.image_products img{
-    width: 30px;
-}

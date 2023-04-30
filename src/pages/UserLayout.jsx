@@ -7,7 +7,7 @@ function UserLayout(){
 
   function handleButtonClick() {
     console.log('hello')
-    setShowPopUp(true);
+    setShowPopUp(!showPopUp);
   }
 
   function handleCloseButtonClick() {
