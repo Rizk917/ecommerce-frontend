@@ -1,80 +1,75 @@
 import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import { Button } from "../../styles/Button";
+import { FaDiscord, FaInstagram, FaYoutube } from "react-icons/fa";
 import "./FooterStyles.css";
-import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
-	const location = useLocation();
-
   return (
-    <footer class="footer-distributed">
-      <div class="footer-left">
-        <h3>
-          Company<span>logo</span>
-        </h3>
+    <>
+      
+        <section className="contact-short">
+          <div className="grid grid-two-column">
+            <div >
+              <h3>Ready to get started?</h3>
+              <h3>Talk to us today</h3>
+            </div>
 
-        <p class="footer-links">
-          <a href="/"  className= { location.pathname === "/" ? "active" : ""}>
-            Home
-          </a>
+            <div>
+              <Button>Get Started</Button>
+            </div>
+          </div>
+        </section>
+        {/* footer section */}
 
-		  <a href="/" className={location.pathname === "/" ? "active" : ""}>
-            Home
-          </a>   <a href="/" className={location.pathname === "/" ? "active" : ""}>
-            Home
-          </a>   <a href="/" className={location.pathname === "/" ? "active" : ""}>
-            Home
-          </a>   <a href="/" className={location.pathname === "/" ? "active" : ""}>
-            Home
-          </a>
-        </p>
+        <footer>
+          <div className="container grid grid-four-column">
+            <div className="footer-about">
+              <h3 className="footer-h3">Name of Company</h3>
+              <p className="footer-p">Lorem ipsum dolor, sit amet consectetur adipisicing elit. </p>
+            </div>
+            <div className="footer-subscribe">
+              <h3 className="footer-h3" >Subscribe to get important updates</h3>
+              <form className="subscribe-form" action="#">
+                <input type="email" name="email" placeholder="YOUR E-MAIL" />
 
-        <p class="footer-company-name">Company Name © 2015</p>
-      </div>
+      
+                <Button>Subscribe</Button>
+              </form>
+            </div>
+            <div className="footer-social">
+              <h3 className="footer-h3">Follow Us on Instagram</h3>
+              <div className="footer-social--icons">
+         
+                <div>
+                  <FaInstagram className="social-media-icons" />
+                </div>
+                
+              </div>
+            </div>
+            <div className="footer-contact">
+              <h3 className="footer-h3">Call Us </h3> 
+              <h3 className="footer-h3">  +961 12345678978</h3>
+            </div>
+          </div>
 
-      <div class="footer-center">
-        <div>
-          <i class="fa fa-map-marker"></i>
-          <p>
-            <span>444 S. Cedros Ave</span> Solana Beach, California
-          </p>
-        </div>
-
-        <div>
-          <i class="fa fa-phone"></i>
-          <p>+1.555.555.5555</p>
-        </div>
-
-        <div>
-          <i class="fa fa-envelope"></i>
-          <p>
-            <a href="mailto:support@company.com">support@company.com</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-right">
-        <p class="footer-company-about">
-          <span>About the company</span>
-          Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-          euismod convallis velit, eu auctor lacus vehicula sit amet.
-        </p>
-
-        <div class="footer-icons">
-          <a href="#">
-            <i class="fa fa-facebook"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-linkedin"></i>
-          </a>
-          <a href="#">
-            <i class="fa fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
+          <div className="footer-bottom--section">
+            <hr />
+            <div className="container grid grid-two-column ">
+              <p className="footer-p">
+                @{new Date().getFullYear()} Nameofcompany. All Rights Reserved
+              </p>
+              <div className="footer-p">
+                <p >PRIVACY POLICY</p>
+                <p>TERMS & CONDITIONS</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      
+    </>
   );
 };
+
 export default Footer;
