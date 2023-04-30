@@ -7,7 +7,7 @@ export default function Cart() {
   return (
     <div>
         <CartComponent />
-        {/* <Footer /> */}
+        <Footer />
     </div>
   )
 }

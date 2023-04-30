@@ -14,6 +14,8 @@ import AdminLayout from "./pages/AdminLayout";
 import UserLayout from "./pages/UserLayout";
 import SideBar from "./admin/SideBar/sidebar";
 import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import { CartProvider } from "./components/Cart/CartContext";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -48,6 +50,8 @@ function App() {
 
     
     <>
+ 
+
     <Routes>
     
     <Route element={<AdminLayout/>}>
@@ -56,22 +60,28 @@ function App() {
       <Route path="/products" element={<ProductsAdmin />} />
     </Route>
     </Routes>
+
     </>
         
 
       <div className={showPopUp ? "none" : "main-wrap"}>
-      
+
+      <CartProvider>
+
         <Routes>
           <Route element={<UserLayout/>}>
           <Route exact path="/" element={<Home />}/>
           <Route exact path="/about" element={<AboutUs />}/>
-          <Route exact path="/cart" element={<Home />}/>
+          {/* <Route exact path="/cart" element={<Home />}/> */}
           <Route exact path="/contactus" element={<ContactUs />}/>
           <Route exact path="/shop" element={<Shop />}/>
+          <Route exact path="/cart" element={<Cart />}/>
 
           </Route>
+          
+
         </Routes>
-      
+        </CartProvider>
       </div>
     
     

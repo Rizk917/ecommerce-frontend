@@ -3,6 +3,8 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    margin-top:10vh;
+    min-height: 65vh;
   }
   
   .cart-page__title {
@@ -54,7 +56,8 @@
   }
   
   .cart-page__checkout-button {
-    background-color: #f44336;
+    background-color: #f44336
+    ;
     color: #fff;
     border: none;
     padding: 10px;

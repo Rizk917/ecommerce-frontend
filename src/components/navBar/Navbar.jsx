@@ -1,8 +1,9 @@
 import './navbar.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import Login from '../login/Login';
 // import logo from '../../Assets/logo.png';
+import CartContext from "../Cart/CartContext";
 
 function Navbar({ onButtonClick }) {
   const [active, setActive] = useState(false);
@@ -11,7 +12,15 @@ function Navbar({ onButtonClick }) {
   const [icon, setIcon] = useState("bx bx-menu");
   const location = useLocation();
   const [hidden, setHidden] = useState(false);
+  const { cart, setCart } = useContext(CartContext);
 
+
+  useEffect(() => {
+    const data = localStorage.getItem("cart");
+    if (data) {
+      setCart(JSON.parse(data));
+    }
+  }, []);
   function popUp(){
     setHidden(!hidden);
   }
@@ -78,10 +87,14 @@ function Navbar({ onButtonClick }) {
         </li>
       </ul>
       <div className="header-icons">
+      <a href="/cart" className={location.pathname === '/cart' ? 'active' : ''}>
+           Cart({cart.products.length})
+          </a>
         <div onClick={onButtonClick}>
           <p className="user" onClick={popUp}> 
             <i className="ri-user-fill"></i>Sign-in
           </p>
+      
         </div>
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
