@@ -54,7 +54,7 @@ function App() {
     
     <Route element={<AdminLayout/>}>
 
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard" element={<SideBar />} />
       <Route path="/categories" element={<CategoriesAdmin />} />
       <Route path="/products" element={<ProductsAdmin />} />
       <Route path="/imagesC" element={<ImageCarousleAdmin />} />

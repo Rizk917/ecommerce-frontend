@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../Assets/logo.png"
 import "./FooterStyles.css";
 import { useLocation } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ const Footer = () => {
     <footer class="footer-distributed">
       <div class="footer-left">
         <h3>
-          Company<span>logo</span>
+          <span><img className="logo-Footer" src={logo}></img></span>
         </h3>
 
         <p class="footer-links">

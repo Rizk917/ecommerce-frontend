@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import "./AboutUs.css";
+import Footer from "../footer/Footer";
 
 const About = () => {
   const [toggleTab, setToggleTab] = useState();
@@ -7,6 +8,7 @@ const About = () => {
     setToggleTab(index);
   }
   return (
+    <>
     <Fragment>
       <section className="about">
         <div className="row">
@@ -111,7 +113,8 @@ const About = () => {
         </div>
       </section>
     </Fragment>
-  );
+   </>
+    );
 };
 
 export default About;

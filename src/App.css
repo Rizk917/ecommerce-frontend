@@ -175,3 +175,34 @@
   display: flex;
   justify-content: row;
 } */
+
+.popup{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  z-index:200;
+}
+
+
+
+
+.main-wrap{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10vh auto;
+}
+
+.starting{
+  grid-row: 2;
+}
+
+
+.app section{
+  height:100vh;
+}
+.app section:nth-of-type(2){
+  display:none;
+}

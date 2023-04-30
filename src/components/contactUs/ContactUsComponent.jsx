@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope,faPhoneAlt} from '@fortawesome/free-solid-svg-icons';
 import "./contactUscomp.css"
+import Footer from "../footer/Footer";
 const ContactUsComponent = (props) => {
   const form = useRef();
   const [error, setError] = useState(null);
@@ -63,6 +64,7 @@ const ContactUsComponent = (props) => {
   };
 
   return (
+    <>
     <div className="">
     <div className="container-home">
     <div class="cntctus">
@@ -128,6 +130,8 @@ const ContactUsComponent = (props) => {
                 </div>
                 </div></div>
                 </div></div>
+                <Footer/>
+                </>
                 );
                 };
                 

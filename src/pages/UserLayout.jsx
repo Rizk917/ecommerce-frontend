@@ -3,15 +3,16 @@ import { Outlet } from "react-router";
 import Navbar from "../components/navBar/Navbar";
 import Login from "../components/login/Login";
 function UserLayout(){
-const [showPopUp, setShowPopUp] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
 
-function handleButtonClick() {
-  setShowPopUp(!showPopUp);
-}
+  function handleButtonClick() {
+    console.log('hello')
+    setShowPopUp(true);
+  }
 
-function handleCloseButtonClick() {
-  setShowPopUp(false);
-}
+  function handleCloseButtonClick() {
+    setShowPopUp(false);
+  }
 
     return(
         <>

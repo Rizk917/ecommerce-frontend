@@ -21,19 +21,7 @@ function ImageCarousleAdmin() {
       });
   }, [images]);
 
-  // get categories using axios
-//   useEffect(() => {
-//     axios
-//       .get("http://localhost:5000/categories")
-//       .then((response) => {
-//         setCategories(response.data.data);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   }, [categories]);
-
-  // add data to images
+ 
 
   const [uloadedImages, setAddProduct] = useState({
     altText: "",
@@ -43,10 +31,14 @@ function ImageCarousleAdmin() {
   // add product
   const handleImageChange = async (event) => {
     event.preventDefault();
-    setProductImage (event.target.files[0]);
-
-
-  }
+    const image = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = () => {
+      setAddProduct({ ...uloadedImages, image: reader.result });
+    };
+  };
+  
 
   const handleChange = async (event) => {
     event.preventDefault();
@@ -59,29 +51,27 @@ function ImageCarousleAdmin() {
 
     setAddProduct(newFormData);
   };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const formData = new FormData();
     formData.append('image',image)
     formData.append("altText", uloadedImages.altText);
-
+  
     const config = {
       headers: { "content-type": "multipart/form-data" },
     };
-
-    axios
-      .post("http://127.0.0.1:5000/imageCarousel", formData, config)
-      .then((response) => {
-        setImages([...images, response.data]);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
-
-    handleShowProduct();
+  
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/imageCarousel", formData, config);
+      setImages([...images, response.data]);
+      setAddProduct({ altText: "", image: "" });
+      setShowProduct(false);
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
+  
 
   // Function for deleting  a product
 
@@ -90,73 +80,46 @@ function ImageCarousleAdmin() {
     try {
       await axios.delete(url);
       setImages(images.filter((product) => product._id !== id));
-      console.log("Product deleted successfully!");
+      console.log("image deleted successfully!");
     } catch (error) {
       console.log(error);
     }
   };
 
-  // const [productUpdateImage, setProductUpdateImage] = useState('')
-
-  // update images
-  // const [editProduct, seteditProduct] = useState({
-  //   altText: "",
-  //   productDescription: "",
-  //   image: "",
-  //   productPrice: "",
-  //   productQuantity: "",
-  //   categoryId: "",
-  // });
-
-  // const handleUpdateChange = async (event) =>{
-  //   event.preventDefault();
-  //   const fieldName = event.target.getAttribute("name");
-    
-  //     let fieldValue = event.target.value;
-  //     const newFormData = { ...updateProduct };
-  //     newFormData[fieldName] = fieldValue;
-  //     setUpdateProduct(newFormData);
-  // };
-  // const handleUpdateProduct = (event) => {
-  //   event.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append('image',productUpdateImage)
-  //   formData.append("altText", updateProduct.altText);
-  //   formData.append("productDescription", updateProduct.productDescription);
-  //   formData.append("productPrice", updateProduct.productPrice);
-  //   formData.append("productQuantity", updateProduct.productQuantity);
-  //   formData.append("categoryId", String(updateProduct.categoryId));
-
-  //   console.log(formData)
-  //   const config = {
-  //     headers: { "content-type": "multipart/form-data" },
-  //   };
-
-  //   axios
-  //     .put(`http://127.0.0.1:5000/imageCarousel/${currentProduct._id}`, formData, config)
-  //     .then(() => {
-  //       console.log("product updated successfully");
-
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.response.data);
-  //     });
-  //     handleShowUpdateForm()
-  //   }
+ 
 
   const [showProduct, setShowProduct] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
-  // const handleShowUpdateForm = () => {
-  //   setShowUpdateForm(!showUpdateForm)
-  // }
+
 
   const handleShowProduct = () => {
     setShowProduct(!showProduct);
   };
 
   
-
+  const handleUpdate = async (event) => {
+    event.preventDefault();
+  
+    const formData = new FormData();
+    formData.append('image', image || uloadedImages.image)
+    formData.append("altText", uloadedImages.altText);
+  
+    const config = {
+      headers: { "content-type": "multipart/form-data" },
+    };
+  
+    try {
+      const response = await axios.put(`http://127.0.0.1:5000/imageCarousel/${uloadedImages._id}`, formData, config);
+      setImages(
+        images.map((image) => (image._id === response.data._id ? response.data : image))
+      );
+      setAddProduct({ altText: "", image: "" });
+      setShowUpdateForm(false);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
     
   
 
@@ -178,7 +141,8 @@ function ImageCarousleAdmin() {
           <table className="table">
             <thead className="head_table">
               <tr className="table_head_tr">
-                <th>Product Name</th>
+                <th>Images Name</th>
+                <th>Images</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -186,23 +150,24 @@ function ImageCarousleAdmin() {
 
             <tbody className="table_tbody">
               {images
-                .filter((product) => {
+                .filter((imagesList) => {
                   if (!searchTerm) {
-                    return product;
+                    return imagesList;
                   } else if (
-                    product.altText
+                    imagesList.altText
                       .toLowerCase()
                       .includes(searchTerm.toLowerCase())
                   ) {
-                    return product;
+                    return imagesList;
                   } else {
                     return null;
                   }
                 })
-                .map((product, key) => {
+                .map((imagesList, key) => {
                   return (
                     <tr className="table_tr" key={key}>
-                      <td className="table_td">{product.altText}</td>
+                      <td className="table_td">{imagesList.altText}</td>
+                      <td className="table_td"><img src={imagesList.imageCarouselItem} alt="" /></td>
                       <td className="table_td">
                         <button
                           onClick={() => {
@@ -218,7 +183,7 @@ function ImageCarousleAdmin() {
                       </td>
                       <td className="table_td">
                         <button
-                          onClick={() => handleDeleteProduct(product._id)}
+                          onClick={() => handleDeleteProduct(imagesList._id)}
                         >
                           <img
                             src={deleteImage}

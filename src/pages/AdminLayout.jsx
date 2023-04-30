@@ -13,7 +13,7 @@ function AdminLayout(){
         <>
         <AdminHeader  showSidebar={showSidebar}
             isSidebarOpen={isSidebarOpen}/>
-    <div className="app">
+        <div className="app">
 
           <SideBar isSidebarOpen={isSidebarOpen} />
         <Outlet/>
