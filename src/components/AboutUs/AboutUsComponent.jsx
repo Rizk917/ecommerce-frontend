@@ -8,7 +8,8 @@ const About = () => {
     setToggleTab(index);
   }
   return (
-    <>
+    <>  
+    <div className="starting">
     <Fragment>
       <section className="about">
         <div className="row">
@@ -112,8 +113,12 @@ const About = () => {
           </div>
         </div>
       </section>
+
     </Fragment>
+    <Footer/>
+    </div>
    </>
+
     );
 };
 
