@@ -59,13 +59,9 @@ function Navbar({ onButtonClick }) {
         <li className="li">
           {" "}
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/" ? " lol" : ""
+            }`}
             to="/"
           >
             Home
@@ -73,13 +69,9 @@ function Navbar({ onButtonClick }) {
         </li>
         <li className="li">
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/shop"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/shop" ? " lol" : ""
+            }`}
             to="/shop"
           >
             Shop
@@ -87,13 +79,9 @@ function Navbar({ onButtonClick }) {
         </li>
         <li className="li">
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/about"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/about" ? " lol" : ""
+            }`}
             to="/about"
           >
             About us
@@ -101,13 +89,9 @@ function Navbar({ onButtonClick }) {
         </li>
         <li className="li">
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/contactus"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/contactus" ? " lol" : ""
+            }`}
             to="/contactus"
           >
             Contact us
