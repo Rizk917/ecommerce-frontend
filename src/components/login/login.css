@@ -97,15 +97,19 @@
 
 
 .login-form .p span{
-    color: red;
+    color: gold;
+    font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
 }
 
 .login-card:last-of-type .p{
-    color: red;
-    text-decoration: underline;
+    color: gold;
+    text-decoration: 
+    underline;
     cursor: pointer;
+    font-weight: bold;
+
 
 }
 

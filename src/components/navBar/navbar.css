@@ -41,7 +41,7 @@
 }
 .sticky-header{
   
-  background-color: rgb(255, 255, 255);
+  background-color: #faf9f9;
 }
 
 
@@ -99,7 +99,9 @@
 }
 
 .active .active .nav-links a{
-  color: red;
+  color: gold;
+  font-weight: bold;
+
 }
 
 /* .nav-links li a.active {
@@ -186,7 +188,7 @@
     align-items: center;
   }
   /* .nav-links li :hover {
-    background-color: red;
+    background-color: gold;
   } */
   /* #menu-icon:hover {
     color: white;
@@ -213,7 +215,7 @@
     transition: 0.3s all ease;
   }
   /* .nav-links li a :hover {
-    background-color: red;
+    background-color: gold;
   } */
 
   .nav-links a {
@@ -234,10 +236,14 @@
   }
 
   .li:hover{
-    color: red;
+    color: gold;
+    font-weight: bold;
+
   }
 }
 
 .lol{
-  color: red!important;
+  color: gold!important;
+  font-weight: bold;
+
 }
