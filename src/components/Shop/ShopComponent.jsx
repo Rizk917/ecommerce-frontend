@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './shopComponent.css'
 import axios from "axios";
-import Chocolate from "../../images/chocolate1.png";
 
 
 
@@ -29,7 +28,7 @@ function ShopComponent() {
       });
   }, [categories]);
 
-
+  //get all products && products for each category using Id
   const handleShowProduct = async (id) => {
     if (id === "all") {
 
