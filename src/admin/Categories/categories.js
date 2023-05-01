@@ -48,7 +48,8 @@ function CategoriesAdmin() {
       .post(`http://localhost:5000/categories`, data, config)
       .then((response) => {
         setCategories([...categories, response.data]);
-        console.log(categories);
+        window.alert("category created successfully!");
+
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -60,11 +61,15 @@ function CategoriesAdmin() {
 
   const handleDeleteCategory = async (id) => {
     const url = `http://localhost:5000/categories/${id}`;
+    
     try {
+      const confirmDelete = window.confirm("Are you sure you want to delete this category?");
+      if(confirmDelete){
       await axios.delete(url);
       // setCategories(categories.filter(category => category._id !== id));
       console.log("Product deleted successfully!");
-    } catch (error) {
+    } }
+    catch (error) {
       console.log(error);
     }
   };
@@ -82,6 +87,8 @@ function CategoriesAdmin() {
       )
       .then(() => {
         console.log("product updated successfully");
+        window.alert("category updated successfully!");
+
       })
       .catch((error) => {
         console.log(error);

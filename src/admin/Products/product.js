@@ -19,7 +19,6 @@ function ProductsAdmin() {
         setProductsById(response.data.data);
         setUpdateProduct(response.data.data);
         setShowUpdateForm(true);
-        console.log(productsById);
       });
     } catch (error) {
       console.log(error);
@@ -97,6 +96,8 @@ function ProductsAdmin() {
       .post("http://localhost:5000/products", formData, config)
       .then((response) => {
         setProducts([...products, response.data]);
+        window.alert("product created successfully!");
+
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -110,10 +111,13 @@ function ProductsAdmin() {
   const handleDeleteProduct = async (id) => {
     const url = `http://localhost:5000/products/${id}`;
     try {
+      const confirmDelete = window.confirm("Are you sure you want to delete this product?");
+      if (confirmDelete) {
       await axios.delete(url);
       setProducts(products.filter((product) => product._id !== id));
       console.log("Product deleted successfully!");
-    } catch (error) {
+    }}
+    catch (error) {
       console.log(error);
     }
   };
@@ -161,6 +165,8 @@ function ProductsAdmin() {
       )
       .then(() => {
         console.log("product updated successfully");
+        window.alert("product updated successfully!");
+
       })
       .catch((error) => {
         console.log(error.response.data);
