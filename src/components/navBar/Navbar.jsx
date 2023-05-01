@@ -1,10 +1,12 @@
 import "./navbar.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../../Assets/logo.png";
 import cartLogo from "../../Assets/cartIcon.png";
 import cartLogoWhite from "../../Assets/cartIconWhite.png";
 import { Link } from "react-router-dom";
+import CartContext from "../Cart/CartContext";
+
 
 function Navbar({ onButtonClick }) {
   const [active, setActive] = useState(false);
@@ -17,6 +19,13 @@ function Navbar({ onButtonClick }) {
   const name = localStorage.getItem("name");
   const UserId = localStorage.getItem("id");
   const loggedIn = localStorage.getItem("loggedIn");
+  const { cart, setCart } = useContext(CartContext);
+  useEffect(() => {
+    const data = localStorage.getItem("cart");
+    if (data) {
+      setCart(JSON.parse(data));
+    }
+  }, []);
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -121,7 +130,8 @@ function Navbar({ onButtonClick }) {
               src={active ? cartLogoWhite : cartLogo}
               alt="edit"
               className="edit"
-            />
+            />        <span>{ cart.products.length}</span>
+
           </Link>
         </div>
         {loggedIn ? (

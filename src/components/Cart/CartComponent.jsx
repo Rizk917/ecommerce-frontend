@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './CartComponent.css';
+import CartContext from './CartContext';
 
 export default function CartComponent() {
-  const UserId = localStorage.getItem("id");
+  const{ cart, setCart } =useContext(CartContext)
 
-  const [cart, setCart] = useState(() => {
-    const savedCart = JSON.parse(localStorage.getItem('cart'));
-    return savedCart ? savedCart : { userId: UserId, products: [] };
-  });
 
 
   useEffect(() => {
@@ -43,7 +40,7 @@ export default function CartComponent() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userId: UserId, 
+          userId: cart.userId, 
           products: cart.products
         }),
         

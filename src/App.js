@@ -16,6 +16,7 @@ import SideBar from "./admin/SideBar/sidebar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
+import { CartProvider } from "./components/Cart/CartContext";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -64,7 +65,7 @@ function App() {
         
 
       <div className={showPopUp ? "none" : "main-wrap"}>
-      
+      <CartProvider>
         <Routes>
           <Route element={<UserLayout/>}>
           <Route exact path="/" element={<Home />}/>
@@ -74,7 +75,9 @@ function App() {
           <Route exact path="/shop" element={<Shop />}/>
 
           </Route>
+          
         </Routes>
+        </CartProvider>
       
       </div>
     
