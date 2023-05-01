@@ -168,10 +168,15 @@ body {
     right: 0%;
   }
 }
-/* 
-.nav-links ul  a{
-  list-style: none!important;
-  text-decoration: none;
+
+
+.none{
+
+  display: none;
+}
+.app{
+  display: flex;
+  justify-content: row;
 } */
 
 /* ***************************checkout ******************************/

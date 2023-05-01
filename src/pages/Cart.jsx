@@ -1,15 +1,13 @@
+import CartComponent from "../components/Cart/CartComponent";
+import Footer from "../components/footer/Footer";
 
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const Cart = () => {
+export default function Cart() {
   return (
     <div>
-      <Link to= "/checkout" className= "button">
-        Checkout
-      </Link>
+        <CartComponent />
+        <Footer />
     </div>
   )
 }
-
-export default Cart

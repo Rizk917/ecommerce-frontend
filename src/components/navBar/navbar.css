@@ -1,16 +1,57 @@
-.sticky-header {
-  position: fixed;
+.hello{
   width: 100%;
   top: 0;
+  z-index: 1000;
   right: 0;
-  z-index: 10;
+  position: fixed;
+
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
-  background-color: white;
   transition: all 0.3s ease;
   align-items: center;
   height: 10vh;
   border-bottom:1px solid #000000;
+} 
+
+.active {
+  background-color: rgb(0, 0, 0);
+  animation: lol .6s ease;
+  transform: translateY(0px);
+}
+
+.image_logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.image_logo img{
+  width: 30px;
+}
+@keyframes lol {
+  0%{
+    opacity: 1;
+    top: -100px;
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+}
+.sticky-header{
+  
+  background-color: #faf9f9;
+}
+
+
+.sticky-header .active .lol{
+  color: gray;
+}
+
+.sticky-header 
+.scroll-after .active {
+  color: rgb(223, 10, 10);
 }
 
 .logo {
@@ -34,7 +75,7 @@
   margin: 0 auto;
 }
 
-.nav-links .li a {
+.active .nav-links li a {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 5px 0;
@@ -43,19 +84,30 @@
   text-decoration: none;
   list-style-type: none;
   list-style: none;
+  color: rgb(255, 255, 255);
+}
+.sticky-header .nav-links li a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 5px 0;
+  margin: 0px 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  list-style-type: none;
+  list-style: none;
+  color: rgb(0, 0, 0);
 }
 
-.nav-links li a:hover {
-  color: white;
+.active .active .nav-links a{
+  color: gold;
+  font-weight: bold;
+
 }
 
 /* .nav-links li a.active {
   color: white;
 } */
-.nav-links li a.active {
-  color: black;
-  border-bottom: 1px solid;
-}
+
 .header-icons {
   display: flex;
   align-items: center;
@@ -78,6 +130,15 @@
   color: black;
   font-size: bold;
   display: flex;
+  cursor: pointer;
+  align-items: center;
+}
+.user-b {
+  text-decoration: none;
+  color: white;
+  font-size: bold;
+  display: flex;
+  cursor: pointer;
   align-items: center;
 }
 
@@ -93,7 +154,6 @@
 }
 
 .li a {
-  color: black;
   text-decoration: none;
   font-size: 1.2rem;
   font-family: bold;
@@ -108,7 +168,7 @@
     font-weight: bold;
   }
 
-  .nav-links li a {
+  .nav-links a {
     font-size: 0.9rem;
     padding: 5px 0;
     margin: 0px 20px;
@@ -128,7 +188,7 @@
     align-items: center;
   }
   /* .nav-links li :hover {
-    background-color: red;
+    background-color: gold;
   } */
   /* #menu-icon:hover {
     color: white;
@@ -155,7 +215,7 @@
     transition: 0.3s all ease;
   }
   /* .nav-links li a :hover {
-    background-color: red;
+    background-color: gold;
   } */
 
   .nav-links a {
@@ -176,8 +236,14 @@
   }
 
   .li:hover{
-    background-color: lightblue;
-    color: red;
+    color: gold;
+    font-weight: bold;
+
   }
 }
 
+.lol{
+  color: gold!important;
+  font-weight: bold;
+
+}

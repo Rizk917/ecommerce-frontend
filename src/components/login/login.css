@@ -1,0 +1,118 @@
+.login-wrapper {
+    width: 500px;
+    height: 500px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: pop 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 25px 50px rgb(86 86 86 / 20%);
+}
+
+
+@keyframes pop {
+    0%{
+        transform: scale(0.1);
+    }
+
+    10%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }  
+}
+.login-wrapper::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.login-card {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.login-r{
+    height: 100%;
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    transition: 0.4s all ease;
+    transform: translate(0%);
+}
+
+.login-zi7o{
+    height: 100%;
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    transition: 0.4s all ease;
+    transform: translate(-100%);
+}
+
+.login-form{
+   height: 100%;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 6%;
+   padding: 15px;
+}
+.login-form h1{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+.login-form input,
+.login-form button{
+    width: 80%;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.login-form input{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.login-form button{
+    color: white;
+    background-color: rgb(0, 0, 0);
+}
+
+.login-form .p {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    color: rgb(144, 144, 144);
+}
+
+
+.login-form .p span{
+    color: gold;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-card:last-of-type .p{
+    color: gold;
+    text-decoration: 
+    underline;
+    cursor: pointer;
+    font-weight: bold;
+
+
+}
+
+.login-card:last-of-type .p span{
+    color: rgb(144, 144, 144);
+}

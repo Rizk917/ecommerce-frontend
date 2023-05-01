@@ -4,13 +4,13 @@ img {
   height: auto;
 }
 
-.container {
+.container-home {
   max-width: 80%;
   margin: 0 auto;
 }
 
 .background {
-  background-color: red;
+  background-color: rgb(232, 229, 165);
 }
 
 .banner {

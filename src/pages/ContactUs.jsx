@@ -4,7 +4,6 @@ function ContactUs() {
   return (
       <div className="starting">
         <ContactUsComponent/>
-        <Footer/>
       </div>
   );
 }
