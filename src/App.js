@@ -12,6 +12,7 @@ import ProductsAdmin from "./admin/Products/product";
 import AdminHeader from "./admin/Header/header";
 import AdminLayout from "./pages/AdminLayout";
 import UserLayout from "./pages/UserLayout";
+import User from "./pages/User";
 import SideBar from "./admin/SideBar/sidebar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -72,6 +73,7 @@ function App() {
           <Route exact path="/cart" element={<Cart />}/>
           <Route exact path="/contactus" element={<ContactUs />}/>
           <Route exact path="/shop" element={<Shop />}/>
+          <Route exact path="/User" element={< User/>}/>
 
           </Route>
         </Routes>

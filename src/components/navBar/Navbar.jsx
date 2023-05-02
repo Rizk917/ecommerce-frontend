@@ -47,6 +47,13 @@ function Navbar({ onButtonClick }) {
     setShow(!show);
   };
 
+
+  const logOut = () => {
+    window.location.href = "/";
+
+    window.localStorage.clear();
+  };
+
   return (
     <header className={`hello ${active ? "active" : "sticky-header"}`}>
       <a href="/" className="logo">
@@ -109,7 +116,17 @@ function Navbar({ onButtonClick }) {
           </Link>
         </div>
         {loggedIn ? (
-          <h2>Hello, {name}</h2>
+          <h2> <Link
+          className={`user${active ? "-b" : ""}${
+            location.pathname === "/user" ? " lol" : ""
+          }`}
+          to="/user"
+        >Hello, {name}
+        </Link>
+        <p onClick={logOut} className={active ? "user-b" : "user"}>
+            <i className="ri-user-fill"></i>Logout
+          </p>
+        </h2>
         ) : (
           <p onClick={onButtonClick} className={active ? "user-b" : "user"}>
             <i className="ri-user-fill"></i>Sign-in
