@@ -89,15 +89,21 @@ function HomeComponent() {
       
       <div className="container-home">
         <h1 className="m-top m-bottom bigFont-2 b-bottom">Popular</h1>
-        <div className="popular-card">
+        <div className="flex">
           {popularItems.map((item) => (
-            <div key={item.id}>
-              <img src={item.image} alt={item.name} />
-              <h1 className="bold-text bigFont-1">{item.name}</h1>
-              <div className="d-flex-row">
-                <h4 className="m-top">${item.price}</h4>
-          <button className="button_card">Add to cart</button>
-        </div>
+            <div className="card" key={item.id}>
+              <img className="img_card"src={item.image} alt={item.name} />
+              <h2 className="product_name">{item.name}</h2>
+               <div className="details_product">
+            <div className="product_price">
+              <h2>{item.price} $</h2>
+            </div>
+            <div className="button_card">
+              <button type="button">
+                <p>Add Card</p>
+              </button>
+            </div>
+          </div>
       </div>
     ))}
   </div>
