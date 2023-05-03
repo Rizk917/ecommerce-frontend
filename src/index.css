@@ -15,3 +15,55 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ant-layout-sider-children{
+  min-height: 1000vh;
+}
+
+.ant-layout-sider{
+  flex: 0 0 250px;
+  max-width: 250px;
+  min-width: 250px;
+  width: 250px !important;
+
+}
+
+.ant-layout-sider-collapsed{
+  flex: 0 0 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
+}
+
+.sm-logo{
+  display: none;
+  transition: 0.3s;
+}
+
+.lg-logo{
+  display: block;
+  transition: 0.3s;
+}
+
+.ant-layout-sider-collapsed .sm-logo{
+  display: block;
+  transition: 0.3s;
+}
+
+.ant-layout-sider-collapsed .lg-logo{
+  display: none;
+  transition: 0.3s;
+}
+
+
+
+.dashboard-logo{
+  margin: 0;
+  background-color: #ffd333;
+  height: 64px;
+
+}
+
+ant-menu-title-content{
+  font-size: 16px;
+}
