@@ -102,7 +102,7 @@ function CategoriesAdmin() {
   };
 
   return (
-    <div className="container">
+    <div className="container1">
       <div className="page_name">
         <h1>Categories</h1>
       </div>

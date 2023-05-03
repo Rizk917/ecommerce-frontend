@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import './placeorderbutton.css';
 
-const TruckButton = () => {
+const TruckButton = ({ isLoading, onClick}) => {
+
   
   useEffect(() => {
     const buttons = document.querySelectorAll('.truck-button');

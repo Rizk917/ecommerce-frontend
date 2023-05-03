@@ -170,7 +170,7 @@ function ProductsAdmin() {
   
 
   return (
-    <div className="container">
+    <div className="container3">
       <div className="page_name">
         <h1 className="title_page_dashboard">Products</h1>
       </div>
