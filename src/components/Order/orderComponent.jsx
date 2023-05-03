@@ -1,10 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import "./order.css"
+import CartContext from '../Cart/CartContext';
 
 export default function Order() {
-  const [data, setData] = useState([]);
   const [phoneNumber, setPhoneNumber] = useState('');
   const [shippingAddress, setShippingAddress] = useState('');
-
+  const{UserId, data} =useContext(CartContext)
+  const handleDeleteACart = () =>{
+    
+    fetch(`http://localhost:5000/cart/${UserId}`, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to delete cart');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Cart deleted:', data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
   const handlePhoneChange = (event) => {
     setPhoneNumber(event.target.value);
   };
@@ -14,7 +33,7 @@ export default function Order() {
   };
 
   const handleConfirmOrder = () => {
-    const userId = "6437c07bd944ba122a2804a4";
+    const userId = UserId;
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -39,44 +58,53 @@ export default function Order() {
       });
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-     const userId= "6437c07bd944ba122a2804a4"
-      try {
-        const response = await fetch(`http://localhost:5000/cart/${userId}`);
-        const dataFetched = await response.json();
-        setData(dataFetched);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
+  const calculateTotal = () => {
+    const total = data.reduce((acc, order) => {
+      return acc + order.products.reduce((acc, product) => {
+        return acc + product.total_price;
+      }, 0);
+    }, 0);
+
+    return total;
+  };
 
   return (
-    <div>
-      <h1>Order</h1>
+    <div className="order-page">
+      <h1 className="order-page__title">Order</h1>
       {data.map((order) => (
-        <div key={order._id}>
-         
+        <div key={order._id} className="order-page__order">
           {order.products.map((product) => (
-            <div key={product.product}>
-              <p>Product Name: {product.productName}</p>
-              <p>Quantity: {product.quantity}</p>
-              <p>Price: {product.price}</p>
+            <div key={product.product} className="order-page__product">
+              <p className="order-page__product-name">Product Name: {product.productName}</p>
+              <p className="order-page__product-quantity">Quantity: {product.quantity}</p>
+              <p className="order-page__product-price">Price: {product.total_price}</p>
             </div>
           ))}
         </div>
       ))}
-      <div>
-        <label>Phone number:</label>
-        <input type="text" value={phoneNumber} onChange={handlePhoneChange} />
+      <div className="order-page__input-container">
+        <label className="order-page__input-label">Phone number:</label>
+        <input
+          type="text"
+          value={phoneNumber}
+          onChange={handlePhoneChange}
+          className="order-page__input"
+        />
       </div>
-      <div>
-        <label>Address:</label>
-        <input type="text" value={shippingAddress} onChange={handleAddressChange} />
+      <div className="order-page__input-container">
+        <label className="order-page__input-label">Address:</label>
+        <input
+          type="text"
+          value={shippingAddress}
+          onChange={handleAddressChange}
+          className="order-page__input"
+        />
       </div>
-      <button onClick={handleConfirmOrder}>Confirm Order</button>
+      <div className="order-page__bill">
+        <p>Total: ${calculateTotal()}</p>
+      </div>
+      <button onClick={handleConfirmOrder} className="order-page__confirm-button">Confirm Order</button>
+      <button onClick={() => {handleDeleteACart()}} className="order-page__cancel-button">Cancel Order</button>
     </div>
   );
-}
+};
