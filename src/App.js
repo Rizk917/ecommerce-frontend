@@ -19,6 +19,7 @@ import Cart from "./pages/Cart";
 
 import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
 import PopularCardAdmin from "./admin/popularCardAdmin/popularCardAdmin";
+import { CartProvider } from "./components/Cart/CartContext";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -68,7 +69,7 @@ function App() {
         
 
       <div className={showPopUp ? "none" : "main-wrap"}>
-      
+      <CartProvider>
         <Routes>
           <Route element={<UserLayout/>}>
           <Route exact path="/" element={<Home />}/>
@@ -79,7 +80,9 @@ function App() {
           <Route exact path="/User" element={< User/>}/>
 
           </Route>
+          
         </Routes>
+        </CartProvider>
       
       </div>
     

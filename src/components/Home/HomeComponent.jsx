@@ -1,12 +1,15 @@
 import Chocolate from "../../images/chocolate1.png";
 import "./homeComp.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import CartContext from "../Cart/CartContext";
+
 
 function HomeComponent() {
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [popularItems, setPopularItems] = useState([]);
+  const{ cart, handleAddProduct, setCart, userId } =useContext(CartContext)
 
   const fetchImages = async () => {
     try {
