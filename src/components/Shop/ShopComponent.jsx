@@ -1,8 +1,7 @@
   import React, { useState, useEffect, useContext } from "react";
   import './shopComponent.css'
   import axios from "axios";
-  import Chocolate from "../../images/chocolate1.png";
-  import CartContext from "../Cart/CartContext";
+    import CartContext from "../Cart/CartContext";
 
 
 
@@ -31,7 +30,7 @@
         });
     }, [categories]);
 
-
+  //get all products && products for each category using Id
     const handleShowProduct = async (id) => {
       if (id === "all") {
 

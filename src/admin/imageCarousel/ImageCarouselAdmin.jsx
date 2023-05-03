@@ -7,7 +7,12 @@ import deleteImage from '../image/delete.png'
 function ImageCarousleAdmin() {
   const [images, setImages] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [image, setProductImage] = useState('');
+  const [uploadedImage, setUploadedImage] = useState({
+    altText: "",
+    image: "",
+  });
+  const [showProduct, setShowProduct] = useState(false);
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
 
   // get images using axios
   useEffect(() => {
@@ -19,62 +24,10 @@ function ImageCarousleAdmin() {
       .catch((error) => {
         console.log(error);
       });
-  }, [images]);
+  }, []);
 
- 
 
-  const [uloadedImages, setAddProduct] = useState({
-    altText: "",
-    image: "",
-  });
-
-  // add product
-  const handleImageChange = async (event) => {
-    event.preventDefault();
-    const image = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.onloadend = () => {
-      setAddProduct({ ...uloadedImages, image: reader.result });
-    };
-  };
-  
-
-  const handleChange = async (event) => {
-    event.preventDefault();
-
-    const fieldName = event.target.getAttribute("name");
-    let fieldValue = event.target.value;
-
-    const newFormData = { ...uloadedImages };
-    newFormData[fieldName] = fieldValue;
-
-    setAddProduct(newFormData);
-  };
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-  
-    const formData = new FormData();
-    formData.append('image',image)
-    formData.append("altText", uloadedImages.altText);
-  
-    const config = {
-      headers: { "content-type": "multipart/form-data" },
-    };
-  
-    try {
-      const response = await axios.post("http://127.0.0.1:5000/imageCarousel", formData, config);
-      setImages([...images, response.data]);
-      setAddProduct({ altText: "", image: "" });
-      setShowProduct(false);
-    } catch (error) {
-      console.log(error.response.data);
-    }
-  };
-  
-
-  // Function for deleting  a product
-
+  // handle product deletion
   const handleDeleteProduct = async (id) => {
     const url = `http://127.0.0.1:5000/imageCarousel/${id}`;
     try {
@@ -86,42 +39,41 @@ function ImageCarousleAdmin() {
     }
   };
 
- 
-
-  const [showProduct, setShowProduct] = useState(false);
-  const [showUpdateForm, setShowUpdateForm] = useState(false);
-
-
-
+  // toggle show product form
   const handleShowProduct = () => {
     setShowProduct(!showProduct);
   };
 
-  
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-  
+  // handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
-    formData.append('image', image || uloadedImages.image)
-    formData.append("altText", uloadedImages.altText);
-  
-    const config = {
-      headers: { "content-type": "multipart/form-data" },
-    };
-  
+    formData.append("altText", uploadedImage.altText);
+    formData.append("image", uploadedImage.image);
     try {
-      const response = await axios.put(`http://127.0.0.1:5000/imageCarousel/${uloadedImages._id}`, formData, config);
-      setImages(
-        images.map((image) => (image._id === response.data._id ? response.data : image))
-      );
-      setAddProduct({ altText: "", image: "" });
-      setShowUpdateForm(false);
+      const res = await axios.post("http://127.0.0.1:5000/imageCarousel", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      setImages([...images, res.data.data]);
+      setShowProduct(false);
+      setUploadedImage({ altText: "", image: "" });
+      console.log("Image added successfully!");
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
     }
   };
-    
-  
+
+  // handle input change
+  const handleChange = (e) => {
+    setUploadedImage({ ...uploadedImage, [e.target.name]: e.target.value });
+  };
+
+  // handle image change
+  const handleImageChange = (e) => {
+    setUploadedImage({ ...uploadedImage, image: e.target.files[0] });
+  };
 
   return (
     <div className="container">
@@ -143,7 +95,6 @@ function ImageCarousleAdmin() {
               <tr className="table_head_tr">
                 <th>Images Name</th>
                 <th>Images</th>
-                <th>Update</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -170,19 +121,6 @@ function ImageCarousleAdmin() {
                       <td className="table_td"><img src={imagesList.imageCarouselItem} alt="" /></td>
                       <td className="table_td">
                         <button
-                          onClick={() => {
-                            setShowUpdateForm(!showUpdateForm);
-                          }}
-                        >
-                          <img
-                            src={editImage}
-                            alt="edit"
-                            className="edit"
-                          />
-                        </button>
-                      </td>
-                      <td className="table_td">
-                        <button
                           onClick={() => handleDeleteProduct(imagesList._id)}
                         >
                           <img
@@ -197,83 +135,18 @@ function ImageCarousleAdmin() {
                 })}
             </tbody>
           </table>
-          {/* {showUpdateForm ?  (
-            <div className="update_product">
-              <form className="product_form" >
-                <label className="product_label">Product Name</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="altText"
-                />
-                <label className="product_label">Product Description</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="productDescription"
-                />
-                <label className="product_label">Product Image</label>
-                <input
-                  type="file"
-                  className="product"
-                  name="image"
-                />
-                <label className="product_label">Product Price</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="productPrice"
-                />
-                <label className="product_label">Product Quantity</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="productQuantity"
-                  />
-                <select
-                  className="product"
-                  name="categoryId"
-                >
-                  {categories.map((category, key) => (
-                    <option
-                      className="option"
-                      key={key}
-                      value={category._id}
-                    >
-                      {category.categoryName}
-                    </option>
-                  ))}
-                </select>
-                <button className="submit">Submit</button>
-              </form>
-            </div>
-          ) : null} */}
+       
         </div>
 
         <div className="add_product">
           <button className="add_product" onClick={() => handleShowProduct()}>
-            + Add Product
+            + Add image
           </button>
-          {/* {showProduct ? (
+          {showProduct ? (
             <div className="add_product_form">
               <form className="product_form">
-                <label className="product_label">Product Name</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="altText"
-                  autoComplete="off"
-                  onChange={handleChange}
-                />
-                <label className="product_label">Product Description</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="productDescription"
-                  autoComplete="off"
-                  onChange={handleChange}
-                />
-                <label className="product_label">Product Image</label>
+              
+                <label className="product_label">Carousel Image</label>
                 <input
                   type="file"
                   className="product"
@@ -281,41 +154,23 @@ function ImageCarousleAdmin() {
                   autoComplete="off"
                   onChange={handleImageChange}
                 />
-                <label className="product_label">Product Price</label>
+                <label className="product_label">Image Name</label>
                 <input
                   type="text"
                   className="product"
-                  name="productPrice"
+                  name="altText"
                   autoComplete="off"
                   onChange={handleChange}
                 />
-                <label className="product_label">Product Quantity</label>
-                <input
-                  type="text"
-                  className="product"
-                  name="productQuantity"
-                  autoComplete="off"
-                  onChange={handleChange}
-                />
-                <label className="product_label">Select Category</label>
-                <select
-                  className="product"
-                  name="categoryId"
-                  onChange={handleChange}
-                >
-                  {categories.map((category, key) => (
-                    <option className="option" key={key} value={category._id}>
-                      {category.categoryName}
-                    </option>
-                  ))}
-                </select>
+             
+      
 
                 <button className="submit" onClick={handleSubmit}>
                   Submit
                 </button>
               </form>
             </div>
-          ) : null} */}
+          ) : null}
         </div>
       </div>
     </div>

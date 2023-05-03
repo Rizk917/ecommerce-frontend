@@ -56,6 +56,13 @@ function Navbar({ onButtonClick }) {
     setShow(!show);
   };
 
+
+  const logOut = () => {
+    window.location.href = "/";
+
+    window.localStorage.clear();
+  };
+
   return (
     <header className={`hello ${active ? "active" : "sticky-header"}`}>
       <a href="/" className="logo">
@@ -68,13 +75,9 @@ function Navbar({ onButtonClick }) {
         <li className="li">
           {" "}
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/" ? " lol" : ""
+            }`}
             to="/"
           >
             Home
@@ -82,13 +85,9 @@ function Navbar({ onButtonClick }) {
         </li>
         <li className="li">
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/shop"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/shop" ? " lol" : ""
+            }`}
             to="/shop"
           >
             Shop
@@ -96,13 +95,9 @@ function Navbar({ onButtonClick }) {
         </li>
         <li className="li">
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/about"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/about" ? " lol" : ""
+            }`}
             to="/about"
           >
             About us
@@ -110,13 +105,9 @@ function Navbar({ onButtonClick }) {
         </li>
         <li className="li">
           <Link
-            className={
-              active
-                ? "user-b"
-                : "user" && location.pathname === "/contactus"
-                ? "lol"
-                : ""
-            }
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/contactus" ? " lol" : ""
+            }`}
             to="/contactus"
           >
             Contact us
@@ -135,7 +126,17 @@ function Navbar({ onButtonClick }) {
           </Link>
         </div>
         {loggedIn ? (
-          <h2>Hello, {name}</h2>
+          <h2> <Link
+          className={`user${active ? "-b" : ""}${
+            location.pathname === "/user" ? " lol" : ""
+          }`}
+          to="/user"
+        >Hello, {name}
+        </Link>
+        <p onClick={logOut} className={active ? "user-b" : "user"}>
+            <i className="ri-user-fill"></i>Logout
+          </p>
+        </h2>
         ) : (
           <p onClick={onButtonClick} className={active ? "user-b" : "user"}>
             <i className="ri-user-fill"></i>Sign-in

@@ -1,25 +1,38 @@
 import React, { useState } from "react";
 import "./signup.css";
+import axios from "axios";
 
 function Signup({ hello }) {
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
   const [showPopUp, setShowPopUp] = useState(true);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:5000/user/", {
+        name: Name,
+        email: email,
+        password: password,
+      });
+      console.log(response.data); 
+      hello()
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   function handleButtonClick() {
-    console.log('hello')
     setShowPopUp(!showPopUp);
   }
 
   return (
-<>
+    <>
       <form className="login-form" onSubmit={handleSubmit}>
-      <h1>Register</h1>
-      <input
+        <h1>Register</h1>
+        <input
           type="text"
           name="Name"
           value={Name}
@@ -45,10 +58,15 @@ function Signup({ hello }) {
         </button>
         <p className="p">
           <p onClick={hello}>Return to login?</p>
-          <span><a href="#" onClick={(handleButtonClick) }>cancel</a></span>
+          <span>
+            <a href="#" onClick={handleButtonClick}>
+              cancel
+            </a>
+          </span>
         </p>
       </form>
-      </>
+    </>
   );
 }
+
 export default Signup;
