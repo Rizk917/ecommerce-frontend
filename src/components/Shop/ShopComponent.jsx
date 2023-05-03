@@ -1,7 +1,7 @@
   import React, { useState, useEffect, useContext } from "react";
   import './shopComponent.css'
   import axios from "axios";
-    import CartContext from "../Cart/CartContext";
+  import CartContext from "../Cart/CartContext";
 
 
 
@@ -15,7 +15,7 @@
 
 
 
-    const{ cart, handleAddProduct, setCart, UserId } =useContext(CartContext)
+    const{ cart, handleAddProduct, setCart, UserId } = useContext(CartContext)
 
     //get all categories
     useEffect(() => {
@@ -74,7 +74,18 @@
       <div className="shop_product">
         <div className="hamburger">
             <div className="sideBar_products">
+            <div className="select_categories">
+              <select className="select_category" onChange={(e) => handleShowProduct(e.target.value)}>
+                <option value='all'>
+                  All Products
+                  </option>
+                {categories.map((category, key) => (
+                <option key={key} value={category._id}>{category.categoryName}</option>
+                ))}
+              </select>
+            </div>
           <div className="div_color">
+            
           <div className="list_categories">
               <div className="list_category">
                 <ul>
