@@ -18,8 +18,8 @@ const handleAddProduct = (userId, productId, productName, quantity, price) => {
     let cart = cartData ? JSON.parse(cartData) : { userId: "", products: [] };
     if (!cart.userId) {
       cart = {
-        userId: "64478fafd3486cb78b760b16",
-        // userId: UserId,
+        // userId: "64478fafd3486cb78b760b16",
+        userId: UserId,
 
         products: [{
           productId: productId,
