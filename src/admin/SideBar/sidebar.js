@@ -1,102 +1,5 @@
-// import React from "react";
-// import "./sidebar.css";
-// import { Link } from "react-router-dom";
-// import homepage from '../image/homepage.png'
-// import product from '../image/product.png'
-// import category from '../image/category.png'
-// import order from '../image/order.png'
-// import socialmedia from '../image/socialmedia.png'
-
-
-
-// function SideBar({ isSidebarOpen }) {
-//   return (
-//     <div>
-//       {isSidebarOpen ? (
-//         <div className="sidebar">
-//           <div className="image_products">
-//             <img
-//               src={homepage}
-//               alt="edit"
-//               className="edit"
-//             />
-//             <img
-//               src={category}
-//               alt="edit"
-//               className="edit"
-//             />
-//             <img
-//               src={product}
-//               alt="edit"
-//               className="edit"
-//             />
-//             <img
-//               src={order}
-//               alt="edit"
-//               className="edit"
-//             />
-//             <img
-//               src={socialmedia}
-//               alt="edit"
-//               className="edit"
-//             />
-//           </div>
-
-//           <div className="products">
-//             <button type="button" className="button_sidebar">
-//               <Link className="link_button" key={1} to="/Dashboard">
-//                 <p>Home</p>
-//               </Link>
-//             </button>
-//             <button type="button" className="button_sidebar">
-//               <Link className="link_button" key={2} to="/categories">
-//                 <p>Categories</p>
-//               </Link>
-//             </button>
-//             <button type="button" className="button_sidebar">
-//               <Link className="link_button" key={3} to="/products">
-//                 <p>Products</p>
-//               </Link>
-//             </button>
-//             <button type="button" className="button_sidebar">
-//               <Link className="link_button" key={4} to="/orders">
-//                 <p>Orders</p>
-//               </Link>
-//             </button>
-//             <button type="button" className="button_sidebar">
-//               <Link className="link_button" key={5} to="/social">
-//                 <p>Social Media</p>
-//               </Link>
-//             </button>
-//           </div>
-//         </div>
-//       ) : null}
-//     </div>
-//   );
-// }
-
-// export default SideBar;
-
-// // import React from 'react'
-// // import "./sidebar.css"
-
-// // function sidebar(clicked) {
-
-// // return (
-// //     <div>
-// //     <div className='sidebar'>
-// //     <ul className='ul_sidebar'>
-// //         <li className='li_sidebar'><a href='#'>Home</a></li>
-// //         <li className='li_sidebar'>Categories</li>
-// //         <li className='li_sidebar'>Products</li>
-// //     </ul>
-// //     </div>
-// //     </div>
-// // )
-// // }
-
-// // export default sidebar
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -115,6 +18,7 @@ import {
   AiOutlineDashboard,
   AiOutlineShoppingCart,
   AiOutlineUser,
+  AiOutlinePicColors,
 } from "react-icons/ai";
 import { GrCatalog } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
@@ -122,7 +26,7 @@ import Dashboard from "../Dashboard/Dashboard";
 
 const { Header, Sider, Content } = Layout;
 
-const SideBar = () => {
+const MainLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
@@ -131,9 +35,14 @@ const SideBar = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
+        <div className="dashboard-logo">
+          <h2 className="text-white fs-5 text-center py-3 mb-0">
+            <span className="sm-logo">BC</span>
+            <span className="lg-logo">Ba Co</span>
+            </h2>
+        </div>
         <Menu
-          theme="light"
+          theme="dark"
           mode="inline"
           defaultSelectedKeys={[""]}
           onClick={({ key }) => {
@@ -183,8 +92,9 @@ const SideBar = () => {
           ]}
         />
       </Sider>
-      <Layout>
+      <Layout className="site-layout">
         <Header
+        className="d-flex justify-content-between ps-1 pe-5"
           style={{
             padding: 0,
             background: colorBgContainer,
@@ -200,11 +110,33 @@ const SideBar = () => {
               height: 64,
             }}
           />
+          <div className="d-flex gap-3 align-items-center">
+           <div></div>
+           <div className="d-flex gap-3 align-items-center">
+            <AiOutlineUser className="fs-4" />
+
+           </div>
+           <div>
+            <h5 className="text-darks"></h5>
+            <p></p>
+           </div>
+
+          </div>
         </Header>
-        
+        <Content
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            minHeight: 280,
+            background: colorBgContainer,
+          }}
+        > 
+          <Outlet/>
+          
+        </Content>
       </Layout>
       <Dashboard />
     </Layout>
   );
 };
-export default SideBar;
+export default MainLayout;

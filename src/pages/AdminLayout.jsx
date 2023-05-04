@@ -16,7 +16,7 @@ function AdminLayout(){
         <div className="app">
 
           <SideBar isSidebarOpen={isSidebarOpen} />
-        <Outlet/>
+        {/* <Outlet/> */}
         </div>
         </>
     )
