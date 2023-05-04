@@ -4,6 +4,7 @@ import { createContext, useState, useEffect } from "react";
 
 export function CartProvider({ children }) {
   const UserId = localStorage.getItem("id");
+  const [data, setData] = useState([]);
 
   const [cart, setCart] = useState(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart'));
@@ -11,9 +12,21 @@ export function CartProvider({ children }) {
   });
  
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/cart/${UserId}`);
+        const dataFetched = await response.json();
+        setData(dataFetched);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
 
-const handleAddProduct = (userId, productId, productName, quantity, price) => {
+const handleAddProduct = (userId, productId, productName, quantity, price,) => {
     let cartData = localStorage.getItem('cart');
     let cart = cartData ? JSON.parse(cartData) : { userId: "", products: [] };
     if (!cart.userId) {
@@ -84,7 +97,7 @@ const handleAddProduct = (userId, productId, productName, quantity, price) => {
     console.log(updatedCart);
   };
 return (
-<CartContext. Provider value={{ cart, setCart ,handleAddProduct, handleRemoveProduct, UserId}}>
+<CartContext. Provider value={{ cart, setCart ,handleAddProduct, handleRemoveProduct, UserId, data}}>
 {children}
 </CartContext. Provider>
 );

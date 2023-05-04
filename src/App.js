@@ -16,7 +16,8 @@ import User from "./pages/User";
 import SideBar from "./admin/SideBar/sidebar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
-
+import Order from "./pages/Order";
+import DashboadOrders from "./admin/Orders/Orders"
 import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
 import PopularCardAdmin from "./admin/popularCardAdmin/popularCardAdmin";
 import { CartProvider } from "./components/Cart/CartContext";
@@ -63,6 +64,8 @@ function App() {
       <Route path="/products" element={<ProductsAdmin />} />
       <Route path="/popularCardAdmin" element={<PopularCardAdmin />} />
       <Route path="/imagesC" element={<ImageCarousleAdmin />} />
+      <Route exact path="/adminorders" element={<DashboadOrders />} />
+
       
     </Route>
     </Routes>    </>
@@ -78,6 +81,8 @@ function App() {
           <Route exact path="/contactus" element={<ContactUs />}/>
           <Route exact path="/shop" element={<Shop />}/>
           <Route exact path="/User" element={< User/>}/>
+          <Route exact path="/order" element={<Order/>}/>
+
 
           </Route>
           

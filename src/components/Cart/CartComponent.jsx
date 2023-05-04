@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import {Link} from 'react-router-dom'
 import './CartComponent.css';
 import CartContext from './CartContext';
 
@@ -100,7 +101,7 @@ export default function CartComponent() {
           <tr>
             <td className="cart-page__table-cell" colSpan="5">
             <button className="cart-page__checkout-button" onClick={handleCreatingCart}>
-  Proceed to Checkout
+ <Link to="/order" >Proceed to Checkout</Link> 
 </button>
 
             </td>
