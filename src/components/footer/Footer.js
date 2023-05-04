@@ -33,23 +33,43 @@ const Footer = () => {
       </div>
 
       <div class="footer-center">
-        <div>
-          <i class="fa fa-map-marker"></i>
-          <p>
-            <span>Maasser El Chouf</span>
-          </p>
-        </div>
+          <div className="willhide">
+            <i class="fa fa-map-marker"></i>
+            <p>
+              <span>Maasser El Chouf</span>
+            </p>
+          </div>
 
-        <div>
-          <i class="fa fa-phone"></i>
-          <p>+961 76 482 098</p>
-        </div>
+          <div className="willhide">
+            <i class="fa fa-phone"></i>
+            <p>+961 76 482 098</p>
+          </div>
 
-        <div>
-          <i class="fa fa-envelope"></i>
-          <p>
-            <a href="mailto:baco-lb@hotmail.com">baco-lb@hotmail.com</a>
-          </p>
+          <div className="willhide">
+            <i class="fa fa-envelope"></i>
+            <p>
+              <a href="mailto:baco-lb@hotmail.com">baco-lb@hotmail.com</a>
+            </p>
+          </div>
+        <div className="inf-links">
+          <div>
+            <i class="fa fa-map-marker"></i>
+            <p>
+              <span>Maasser El Chouf</span>
+            </p>
+          </div>
+
+          <div>
+            <i class="fa fa-phone"></i>
+            <p>+961 76 482 098</p>
+          </div>
+
+          <div>
+            <i class="fa fa-envelope"></i>
+            <p>
+              <a href="mailto:baco-lb@hotmail.com">baco-lb@hotmail.com</a>
+            </p>
+          </div>
         </div>
       </div>
 

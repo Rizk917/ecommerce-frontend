@@ -4,7 +4,6 @@
   z-index: 1000;
   right: 0;
   position: fixed;
-
   display: grid;
   grid-template-columns: 300px 4fr 1fr;
   transition: all 0.3s ease;
@@ -13,13 +12,29 @@
   border-bottom:1px solid #000000;
 } 
 
+@media all and (max-width:840px) {
+  .active {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    animation: lol .6s ease;
+    transform: translateY(0px);
+  }  
+}
+
 .active {
+  /* grid-template-columns: 300px 3fr 2fr; */
   background-color: rgb(0, 0, 0);
   animation: lol .6s ease;
   transform: translateY(0px);
 }
 
 .image_logo{
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.12);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -29,6 +44,12 @@
 .image_logo img{
   width: 30px;
 }
+
+.active .header-icons .image_logo,
+.active .header-icons h2 {
+  box-shadow: 0px 0px 10px 3px rgb(255 255 255);
+}
+
 @keyframes lol {
   0%{
     opacity: 1;
@@ -99,7 +120,7 @@
 }
 
 .active .active .nav-links a{
-  color: gold;
+  color: #ffbb00;
   font-weight: bold;
 
 }
@@ -111,18 +132,23 @@
 .header-icons {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .header-icons a {
-  margin-inline: 25px 10px;
   font-size: 1.1rem;
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
+.header-icons h2{
+  padding: 10px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.12);
+
+}
+
 .header-icons a:hover {
-  color: white;
-  background-color: black;
+  text-decoration: underline;
 }
 
 .user {
@@ -158,9 +184,9 @@
   font-size: 1.2rem;
   font-family: bold;
 }
-@media all and (max-width: 1230px) {
+@media all and (max-width: 1290px) {
   .sticky-header {
-    grid-template-columns: 250px 4fr 1fr;
+    grid-template-columns: 250px 3fr 2fr;
   }
 
   .logo span {
@@ -179,6 +205,9 @@
     font-size: 0.9rem;
     font-weight: bold;
   }
+  .active {
+    grid-template-columns: 300px 3fr 2fr;
+  }
 }
 
 @media all and (max-width: 840px) {
@@ -188,12 +217,21 @@
     align-items: center;
   }
   /* .nav-links li :hover {
-    background-color: gold;
+    background-color: #ffbb00;
   } */
   /* #menu-icon:hover {
     color: white;
   } */
-  #menu-icon {
+  .active #menu-icon {
+    display: block;
+    color: white;
+    font-size: 55px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: 0.3s all ease;
+  }
+
+  .sticky-header #menu-icon {
     display: block;
     font-size: 55px;
     cursor: pointer;
@@ -218,7 +256,7 @@
     transition: 0.3s all ease;
   }
   /* .nav-links li a :hover {
-    background-color: gold;
+    background-color: #ffbb00;
   } */
 
   .nav-links a {
@@ -228,7 +266,8 @@
     transition: 0.3s ease;
   }
 
-  .user {
+  .image_logo,
+  .header-icons h2 {
     display: none;
   }
  
@@ -239,14 +278,14 @@
   }
 
   .li:hover{
-    color: gold;
+    color: #ffbb00;
     font-weight: bold;
 
   }
 }
 
 .lol{
-  color: gold!important;
+  color: #ffbb00!important;
   font-weight: bold!important; 
      text-decoration: underline!important;
 

@@ -5,7 +5,7 @@ img {
 }
 
 .container-home {
-  max-width: 80%;
+  max-width: 88%;
   margin: 0 auto;
 }
 
@@ -111,6 +111,7 @@ img {
 }
 
 .imageRight {
+  mix-blend-mode: darken;
   justify-content: end;
   margin-left: auto;
 }
@@ -158,3 +159,40 @@ img {
 .popular-card a:hover {
   background-color: #0077cc;
 }
+
+
+@media all and (max-width:1337px) {
+  .fixing{
+    overflow: scroll;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    gap: 2%;
+  }
+  
+  .card{
+    flex-shrink: 0;
+    width: 50%;
+  }
+
+  .banner {
+    text-align: center;
+    flex-direction: column;
+}
+
+.flex-r {
+  justify-content:center;
+}
+}
+
+@media all and (max-width:550px) { 
+  .card{
+    flex-shrink: 0;
+    width: 100%;
+    scroll-snap-align: center;
+  }
+}
+.fixing{
+  gap: 2%;
+}
+
+

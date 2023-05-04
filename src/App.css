@@ -196,6 +196,9 @@
 }
 
 .starting{
+  display: flex;
+  gap: 10vh;
+  flex-direction: column;
   grid-row: 2;
 }
 

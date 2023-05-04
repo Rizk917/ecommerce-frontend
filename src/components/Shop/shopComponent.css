@@ -35,7 +35,7 @@
 
 .all_category{
     width: 18rem;
-    background-color:gold;
+    background-color:#ffbb00;
 }
 
 .li_category{
@@ -46,7 +46,7 @@
 
 .list_category{
     display: flex;
-    background-color:gold;
+    background-color:#ffbb00;
     width: 18rem;
     /* height: 100vh; */
     box-shadow: 5px 5px 10px grey;
@@ -98,9 +98,12 @@
     background-color: white;
 }
 
-
+@media all and (min-width:1000px){
+    .card{
+        width: 16rem;
+    }
+}
 .card{
-    width: 16rem;
     height: 22rem;
     border: 2px solid black;
     border-radius: 1em ;
@@ -114,7 +117,7 @@
 }
 
 .img_card{
-    width: 16rem;
+    width: 100%;
     border-radius: 1em 1em 0 0;
     height: 16rem;
 
@@ -141,7 +144,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gold;
+    background-color: #ffbb00;
     border: 1px solid;
     width: 7rem;
     height: 2.5rem;

@@ -19,7 +19,7 @@
     background: white;
     margin-right: 10px;
     cursor:pointer;
-    border: 1px solid gold;
+    border: 1px solid #ffbb00;
 }
 
 .single-tab h2{
@@ -42,9 +42,25 @@
 }
 
 .content{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 10vh;
     display: none;
+}
+
+
+@media all and (max-width:820px) {
+    .content{
+        padding: 2vh;
+        text-align: center;
+    }
+    
+    .button_card {
+        margin: 0 auto;
+    }
+
+    .left-side{
+        border-top: 2px solid lightgray;
+        border-right: none;
+    }
 }
 
 .active-content{
@@ -167,4 +183,21 @@
         grid-template-columns: 1fr;
     }
     
+}
+
+.contact-Us{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+.contact-Us h1 {
+    font-size: 3rem;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: bold;
 }

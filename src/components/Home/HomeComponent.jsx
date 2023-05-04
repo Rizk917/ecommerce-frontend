@@ -92,7 +92,7 @@ function HomeComponent() {
       
       <div className="container-home">
         <h1 className="m-top m-bottom bigFont-2 b-bottom">Popular</h1>
-        <div className="flex">
+        <div className="flex fixing">
           {popularItems.map((item) => (
             <div className="card" key={item.id}>
               <img className="img_card"src={item.image} alt={item.name} />
