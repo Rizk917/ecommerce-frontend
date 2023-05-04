@@ -22,7 +22,6 @@ import {
 } from "react-icons/ai";
 import { GrCatalog } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "../Dashboard/Dashboard";
 
 const { Header, Sider, Content } = Layout;
 
@@ -135,7 +134,6 @@ const MainLayout = () => {
           
         </Content>
       </Layout>
-      <Dashboard />
     </Layout>
   );
 };
