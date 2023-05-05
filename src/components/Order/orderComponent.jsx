@@ -74,6 +74,22 @@ export default function Order() {
   return (
     <div className="order-page">
       <h1 className="order-page__title">Order</h1>
+      {/* <hr className='line'/> */}
+      <span className="spn">
+        You have&nbsp;
+        <span className="allqty">
+          {data.reduce(
+            (acc, order) =>
+              acc +
+              order.products.reduce(
+                (acc, product) => acc + product.quantity,
+                0
+              ),
+            0
+          )}
+        </span>
+        &nbsp;items in your cart.
+      </span>
       <div className="container_order">
         <div className="left-side">
           <div className="product-details">
@@ -99,47 +115,54 @@ export default function Order() {
 
         <div className="right-side">
           <div className="order-info">
-            <div className="form">
-              <label className="radio">Phone number:</label>
-              <input
-                type="text"
-                placeholder="Enter phone number"
-                value={phoneNumber}
-                onChange={handlePhoneChange}
-                className="form-control"
-              />
+            <span className="order-info_title">Order Details</span>
+            <hr className="line-right" />
+            <div className="form-group">
+              <div className="phn">
+                <label className="radio">Phone number :</label>{' '}
+                <input
+                  type="text"
+                  placeholder="Enter phone number"
+                  value={phoneNumber}
+                  onChange={handlePhoneChange}
+                  className="form-control"
+                />
+              </div>
+              <div className="adrs">
+                <label className="radio">Address :</label>{' '}
+                <input
+                  type="text"
+                  placeholder="Enter shipping address"
+                  value={shippingAddress}
+                  onChange={handleAddressChange}
+                  className="form-control"
+                />
+              </div>
             </div>
-            <div>
-              <label className="radio">Address:</label>
-              <textarea
-                type="text"
-                placeholder="Enter shipping address"
-                value={shippingAddress}
-                onChange={handleAddressChange}
-                className="form-control"
-              />
+            <hr className="line" />
+            <div className="payment ">
+              <span>Cache on Delivery </span>
+            </div>
+            <div className="order-page__bill">
+              <p>Total: {calculateTotal()}&nbsp; $</p>
+            </div>
+            <hr className="line" />
+            <div className="btn_dev">
+              <button onClick={handleConfirmOrder} className="confirm-button">
+                Confirm Order
+              </button>
+              <button
+                onClick={() => {
+                  handleDeleteACart();
+                }}
+                className="cancel-button"
+              >
+                Cancel Order
+              </button>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="order-page__bill">
-        <p>Total: ${calculateTotal()}</p>
-      </div>
-      <button
-        onClick={handleConfirmOrder}
-        className="order-page__confirm-button"
-      >
-        Confirm Order
-      </button>
-      <button
-        onClick={() => {
-          handleDeleteACart();
-        }}
-        className="order-page__cancel-button"
-      >
-        Cancel Order
-      </button>
     </div>
   );
 }
