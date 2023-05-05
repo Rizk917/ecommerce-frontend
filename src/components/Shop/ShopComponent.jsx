@@ -92,13 +92,13 @@
                   <li className="li_category" 
                   onClick={() => handleShowProduct('all')}
     
-                  >All Products</li>
+                  ><span>All Products</span></li>
                   {categories.map((category, key) => {
                     return(
                   <li className="li_category" key={key}
                   onClick={() => handleShowProduct(category._id)}
     
-                  >{category.categoryName}</li>
+                  ><span>{category.categoryName}</span></li>
                     )
                 })}
                   

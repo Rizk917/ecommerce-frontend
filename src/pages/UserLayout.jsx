@@ -18,7 +18,7 @@ function UserLayout(){
         <>
                 {showPopUp ? (
         <div className="popup">
-          <Login />
+          <Login cancel={handleButtonClick}/>
         </div>
       ) : null}
       <Navbar onButtonClick={handleButtonClick} />

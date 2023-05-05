@@ -112,6 +112,16 @@ function Navbar({ onButtonClick }) {
           >
             Contact us
           </Link>
+          </li>
+        <li className="li">
+          <Link
+            className={`user${active ? "-b" : ""}${
+              location.pathname === "/login" ? " lol" : ""
+            } hidden` }
+            to="/login"
+          >
+            Login
+          </Link>
         </li>
       </ul>
       <div className="header-icons">

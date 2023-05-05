@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./signup.css";
 import axios from "axios";
 
-function Signup({ hello }) {
+function Signup({ hello, handleButtonClick}) {
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -24,9 +24,7 @@ function Signup({ hello }) {
     }
   };
 
-  function handleButtonClick() {
-    setShowPopUp(!showPopUp);
-  }
+
 
   return (
     <>
@@ -59,9 +57,9 @@ function Signup({ hello }) {
         <p className="p">
           <p onClick={hello}>Return to login?</p>
           <span>
-            <a href="#" onClick={handleButtonClick}>
+            <p onClick={handleButtonClick}>
               cancel
-            </a>
+            </p>
           </span>
         </p>
       </form>

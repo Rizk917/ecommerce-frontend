@@ -21,6 +21,7 @@ import DashboadOrders from "./admin/Orders/Orders"
 import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
 import PopularCardAdmin from "./admin/popularCardAdmin/popularCardAdmin";
 import { CartProvider } from "./components/Cart/CartContext";
+import LoginP from "./pages/Login";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -82,6 +83,8 @@ function App() {
           <Route exact path="/shop" element={<Shop />}/>
           <Route exact path="/User" element={< User/>}/>
           <Route exact path="/order" element={<Order/>}/>
+          <Route exact path="/login" element={<LoginP/>}/>
+
 
 
           </Route>
