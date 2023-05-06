@@ -5,7 +5,21 @@ import CartContext from '../Cart/CartContext';
 export default function Order() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [shippingAddress, setShippingAddress] = useState('');
-  const { UserId, data } = useContext(CartContext);
+  const [cartData, setCartData] = useState([]);
+  const { UserId, data,fetchData } = useContext(CartContext);
+
+  // useEffect(() => {
+  //   if (window.location.pathname === '/order') {
+  //     fetchData();
+  //   }
+  // }, [window.location.pathname]);
+
+  useEffect(() => {
+    fetchData();
+
+    setCartData(data);
+  }, [data]);
+
   const handleDeleteACart = () => {
     fetch(`http://localhost:5000/cart/${UserId}`, {
       method: 'DELETE',
@@ -78,7 +92,7 @@ export default function Order() {
       <span className="spn">
         You have&nbsp;
         <span className="allqty">
-          {data.reduce(
+          {cartData.reduce(
             (acc, order) =>
               acc +
               order.products.reduce(
@@ -93,7 +107,7 @@ export default function Order() {
       <div className="container_order">
         <div className="left-side">
           <div className="product-details">
-            {data.map((order) => (
+            {cartData.map((order) => (
               <div key={order._id} className="order-page__orderleft">
                 {order.products.map((product) => (
                   <div key={product.product} className="items">
@@ -154,6 +168,7 @@ export default function Order() {
               <button
                 onClick={() => {
                   handleDeleteACart();
+                  fetchData();
                 }}
                 className="cancel-button"
               >

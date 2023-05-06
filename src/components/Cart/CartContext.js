@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
- const CartContext = createContext();
+const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const UserId = localStorage.getItem("id");
@@ -12,28 +12,26 @@ export function CartProvider({ children }) {
   });
  
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/cart/${UserId}`);
+      const dataFetched = await response.json();
+      setData(dataFetched);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`http://localhost:5000/cart/${UserId}`);
-        const dataFetched = await response.json();
-        setData(dataFetched);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     fetchData();
   }, []);
 
-
-const handleAddProduct = (userId, productId, productName, quantity, price,) => {
+  const handleAddProduct = (userId, productId, productName, quantity, price,) => {
     let cartData = localStorage.getItem('cart');
     let cart = cartData ? JSON.parse(cartData) : { userId: "", products: [] };
     if (!cart.userId) {
       cart = {
-        // userId: "64478fafd3486cb78b760b16",
         userId: UserId,
-
         products: [{
           productId: productId,
           productName: productName,
@@ -96,12 +94,12 @@ const handleAddProduct = (userId, productId, productName, quantity, price,) => {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
     console.log(updatedCart);
   };
-return (
-<CartContext. Provider value={{ cart, setCart ,handleAddProduct, handleRemoveProduct, UserId, data}}>
-{children}
-</CartContext. Provider>
-);
+
+  return (
+    <CartContext.Provider value={{ cart, setCart, handleAddProduct, handleRemoveProduct, UserId, data, fetchData }}>
+      {children}
+    </CartContext.Provider>
+  );
 }
- export default CartContext;
 
-
+export default CartContext;
