@@ -108,7 +108,7 @@ export default function Order() {
         <div className="left-side">
           <div className="product-details">
             {cartData.map((order) => (
-              <div key={order._id} className="order-page__orderleft">
+              <div key={order.id} className="order-page_orderleft">
                 {order.products.map((product) => (
                   <div key={product.product} className="items">
                     <p className="order-page__product-name">
