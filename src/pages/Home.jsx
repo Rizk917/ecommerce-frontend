@@ -2,7 +2,7 @@ import HomeComponent from "../components/Home/HomeComponent";
 import Footer from "../components/footer/Footer";
 function Home() {
   return (
-      <div className="starting">
+      <div className="page-start">
         <HomeComponent/>
         <Footer/>
       </div>

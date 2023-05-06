@@ -10,6 +10,8 @@
   align-items: center;
   border-bottom:1px solid #000000;
 } 
+
+
 .hidden{
   display: none;
 }
@@ -25,6 +27,8 @@
   }  
 
 }
+
+
 
 .active {
   /* grid-template-columns: 300px 3fr 2fr; */
@@ -110,7 +114,8 @@
   list-style: none;
   color: rgb(255, 255, 255);
 }
-.sticky-header .nav-links li a {
+.sticky-header .nav-links li a,
+.sticky-header .nav-links li p {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 5px 0;
@@ -191,9 +196,7 @@
   .sticky-header {
     grid-template-columns: 250px 3fr 2fr;
   }
-  .hidden{
-    display: none;
-  }
+
   .logo span {
     font-size: 1.2rem;
     font-weight: bold;
@@ -287,6 +290,11 @@
     font-weight: bold;
 
   }
+
+
+.hidden{
+  display: block;
+}
 }
 
 .lol{
@@ -295,3 +303,5 @@
      text-decoration: underline!important;
 
 }
+
+

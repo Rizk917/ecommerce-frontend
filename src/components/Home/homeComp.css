@@ -11,6 +11,9 @@ img {
 
 .background {
   background-color: rgb(232, 229, 165);
+  /* background-color: rgb(247 ,244 ,172); */
+
+  /* background-color: #FFCC3F; */
 }
 
 .banner {
@@ -160,16 +163,15 @@ img {
   background-color: #0077cc;
 }
 
-
-@media all and (max-width:1337px) {
-  .fixing{
+@media all and (max-width: 1337px) {
+  .fixing {
     overflow: scroll;
     display: flex;
     scroll-snap-type: x mandatory;
     gap: 2%;
   }
-  
-  .card{
+
+  .card {
     flex-shrink: 0;
     width: 50%;
   }
@@ -177,22 +179,20 @@ img {
   .banner {
     text-align: center;
     flex-direction: column;
+  }
+
+  .flex-r {
+    justify-content: center;
+  }
 }
 
-.flex-r {
-  justify-content:center;
-}
-}
-
-@media all and (max-width:550px) { 
-  .card{
+@media all and (max-width: 550px) {
+  .card {
     flex-shrink: 0;
     width: 100%;
     scroll-snap-align: center;
   }
 }
-.fixing{
+.fixing {
   gap: 2%;
 }
-
-

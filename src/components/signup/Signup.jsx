@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./signup.css";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 function Signup({ hello, handleButtonClick}) {
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [showPopUp, setShowPopUp] = useState(true);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +59,7 @@ function Signup({ hello, handleButtonClick}) {
         <p className="p">
           <p onClick={hello}>Return to login?</p>
           <span>
-            <p onClick={handleButtonClick}>
+            <p onClick={()=>{navigate(-1)}}>
               cancel
             </p>
           </span>

@@ -42,7 +42,7 @@ function Login({cancel}) {
           alert("login successful");
           window.localStorage.setItem("token", data.token);
           window.localStorage.setItem("Role", data.role);
-          window.localStorage.setItem("id", data._id);
+          window.localStorage.setItem("id", data.id);
           window.localStorage.setItem("name", data.name);
           window.localStorage.setItem("loggedIn", true);
           if(localStorage.getItem('Role')==='admin')

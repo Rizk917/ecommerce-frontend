@@ -76,17 +76,14 @@ function App() {
       <CartProvider>
         <Routes>
           <Route element={<UserLayout/>}>
-          <Route exact path="/" element={<Home />}/>
-          <Route exact path="/about" element={<AboutUs />}/>
-          <Route exact path="/cart" element={<Cart />}/>
-          <Route exact path="/contactus" element={<ContactUs />}/>
-          <Route exact path="/shop" element={<Shop />}/>
-          <Route exact path="/User" element={< User/>}/>
-          <Route exact path="/order" element={<Order/>}/>
-          <Route exact path="/login" element={<LoginP/>}/>
-
-
-
+            <Route exact path="/" element={<Home />}/>
+            <Route exact path="/about" element={<AboutUs />}/>
+            <Route exact path="/cart" element={<Cart />}/>
+            <Route exact path="/contactus" element={<ContactUs />}/>
+            <Route exact path="/shop" element={<Shop />}/>
+            <Route exact path="/User" element={< User/>}/>
+            <Route exact path="/order" element={<Order/>}/>
+            <Route exact path="/login" element={<LoginP/>}/>
           </Route>
           
         </Routes>

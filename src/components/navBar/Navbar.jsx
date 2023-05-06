@@ -113,15 +113,12 @@ function Navbar({ onButtonClick }) {
             Contact us
           </Link>
           </li>
-        <li className="li">
-          <Link
-            className={`user${active ? "-b" : ""}${
-              location.pathname === "/login" ? " lol" : ""
-            } hidden` }
-            to="/login"
+        <li className="li hidden">
+          <p
+          onClick={logOut}
           >
-            Login
-          </Link>
+            Logout
+          </p>
         </li>
       </ul>
       <div className="header-icons">
@@ -148,9 +145,9 @@ function Navbar({ onButtonClick }) {
           </p>
         </h2>
         ) : (
-          <p onClick={onButtonClick} className={active ? "user-b" : "user"}>
+          <a href="/login">
             <i className="ri-user-fill"></i>Sign-in
-          </p>
+          </a>
         )}
         <div className={icon} id="menu-icon" onClick={toggle}></div>
       </div>
