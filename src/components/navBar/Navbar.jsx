@@ -113,13 +113,13 @@ function Navbar({ onButtonClick }) {
             Contact us
           </Link>
           </li>
-        <li className="li hidden">
+       {loggedIn?<li className="li hidden">
           <p
           onClick={logOut}
           >
             Logout
           </p>
-        </li>
+        </li>:null}
       </ul>
       <div className="header-icons">
         <div className="image_logo">
