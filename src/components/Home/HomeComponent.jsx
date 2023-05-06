@@ -103,7 +103,7 @@ function HomeComponent() {
             </div>
             <div className="button_card">
               <button type="button">
-                <p>Add Card</p>
+                <p>Add to cart</p>
               </button>
             </div>
           </div>

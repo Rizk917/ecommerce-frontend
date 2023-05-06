@@ -125,14 +125,15 @@
 .img_card{
     width: 100%;
     border-radius: 1em 1em 0 0;
-    height: 16rem;
+    height: 15rem;
 
 }
 
 
 .product_name {
     text-align: center;
-    margin-top: 4px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .product_name h2{
