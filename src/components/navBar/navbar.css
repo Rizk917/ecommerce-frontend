@@ -103,7 +103,7 @@
   margin: 0 auto;
 }
 
-.active .nav-links li a {
+.active .nav-links li a ,.active .nav-links li p {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 5px 0;
@@ -112,7 +112,7 @@
   text-decoration: none;
   list-style-type: none;
   list-style: none;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 .sticky-header .nav-links li a,
 .sticky-header .nav-links li p {
@@ -188,6 +188,11 @@
 }
 
 .li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: bold;
+}
+.li p{
   text-decoration: none;
   font-size: 1.2rem;
   font-family: bold;

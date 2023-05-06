@@ -189,6 +189,7 @@
 
 .select_categories select{
         display:block ;
+        margin-top: 20px;
         width: 390px;
     }
 
