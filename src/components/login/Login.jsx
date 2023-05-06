@@ -3,13 +3,16 @@ import "./login.css";
 import { useState } from "react";
 import Signup from "../signup/Signup";
 
-function Login() {
+function Login({cancel}) {
   const [prvnxt, setPrvnxt] = useState(false);
   const [error, setError] = useState("");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  function cancelToggle(){
+    cancel()
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -39,7 +42,7 @@ function Login() {
           alert("login successful");
           window.localStorage.setItem("token", data.token);
           window.localStorage.setItem("Role", data.role);
-          window.localStorage.setItem("id", data._id);
+          window.localStorage.setItem("id", data.id);
           window.localStorage.setItem("name", data.name);
           window.localStorage.setItem("loggedIn", true);
           if(localStorage.getItem('Role')==='admin')
@@ -91,7 +94,7 @@ function Login() {
           </form>
         </div>
         <div className="login-card" id="lol">
-          <Signup hello={handleLog} />
+          <Signup hello={handleLog} handleButtonClick={cancelToggle}/>
         </div>
       </div>
     </div>

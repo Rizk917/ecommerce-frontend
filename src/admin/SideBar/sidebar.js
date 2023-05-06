@@ -84,6 +84,18 @@ const MainLayout = () => {
               label: "Orders",
             },
             {
+              key: "imagesC",
+              icon: <BiCategoryAlt className="fs-4" />,
+              label: "Image Carousel",
+            },
+            
+            {
+              key: "users",
+              icon: < AiOutlineUser className="fs-4" />,
+              label: "Users",
+            },
+
+            {
               key: "social-media",
               icon: <SlSocialFacebook className="fs-4" />,
               label: "Social Media",
@@ -112,7 +124,7 @@ const MainLayout = () => {
           <div className="d-flex gap-3 align-items-center">
            <div></div>
            <div className="d-flex gap-3 align-items-center">
-            <AiOutlineUser className="fs-4" />
+           
 
            </div>
            <div>

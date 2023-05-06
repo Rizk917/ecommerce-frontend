@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function User() {
   return (
-    <div className="starting">
+    <div className="page-start">
       
         <UserComponent />
         <Footer />

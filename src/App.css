@@ -195,11 +195,17 @@
   grid-template-rows: 10vh auto;
 }
 
+.page-start{
+  grid-row: 2;
+
+}
 .starting{
   display: flex;
   gap: 10vh;
   flex-direction: column;
-  grid-row: 2;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 

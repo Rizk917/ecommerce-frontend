@@ -9,7 +9,7 @@ const About = () => {
   }
   return (
     <>  
-    <div className="starting">
+    <div className="page-start">
     <Fragment>
       <section className="about">
         <div className="row">

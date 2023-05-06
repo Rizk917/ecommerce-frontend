@@ -106,7 +106,7 @@ console.log(event.target.value)
   return (
     <div className="container">
       <div className="page_name">
-        <h1 className="title_page_dashboard">Products</h1>
+        <h1 className="title_page_dashboard">Popular Cards</h1>
       </div>
       <div className="table_container">
         <div className="search_table">
