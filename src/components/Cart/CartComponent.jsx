@@ -2,11 +2,11 @@ import React, { useEffect, useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import './CartComponent.css';
 import CartContext from './CartContext';
-
+import { useNavigate } from 'react-router-dom';
 export default function CartComponent() {
   const{ cart, setCart } =useContext(CartContext)
 
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -49,6 +49,7 @@ export default function CartComponent() {
       const data = await response.json();
       console.log(data);
       setCart({ userId: '', products: [] })
+      navigate('/order');
     } catch (error) {
       console.error(error);
     }
@@ -101,7 +102,8 @@ export default function CartComponent() {
           <tr>
             <td className="cart-page__table-cell" colSpan="5">
             <button className="cart-page__checkout-button" onClick={handleCreatingCart}>
- <Link to="/order" >Proceed to Checkout</Link> 
+ {/* <Link to="/order" >Proceed to Checkout</Link>  */}
+ Proceed to Checkout
 </button>
 
             </td>
