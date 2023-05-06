@@ -22,6 +22,7 @@ import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
 import PopularCardAdmin from "./admin/popularCardAdmin/popularCardAdmin";
 import { CartProvider } from "./components/Cart/CartContext";
 import LoginP from "./pages/Login";
+import Orders from "./admin/Orders/Orders";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -61,6 +62,7 @@ function App() {
     <Route element={<AdminLayout/>}>
 
       <Route path="/dashboard" element={<SideBar />} />
+      <Route path="/orders" element={<Orders />} />
       <Route path="/categories" element={<CategoriesAdmin />} />
       <Route path="/products" element={<ProductsAdmin />} />
       <Route path="/popularCardAdmin" element={<PopularCardAdmin />} />
