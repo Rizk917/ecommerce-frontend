@@ -5,11 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
+import ProfilePage from './components/Profile/ProfilePage';
+import Footer from './components/footer/Footer';
+import Navbar from './components/navBar/Navbar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <React.StrictMode>
     <App />
+  
+   
+    <Footer />
   </React.StrictMode>
   </BrowserRouter>
 );
