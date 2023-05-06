@@ -93,11 +93,11 @@ export default function CartComponent() {
         </tbody>
         <tfoot>
           <tr>
-            <td className="cart-page__table-cell cart-page__table-cell--total">Total</td>
-            <td className="cart-page__table-cell cart-page__table-cell--total"></td>
-            <td className="cart-page__table-cell cart-page__table-cell--total"></td>
-            <td className="cart-page__table-cell cart-page__table-cell--total">${getTotalPrice()}</td>
-            <td className="cart-page__table-cell cart-page__table-cell--total"></td>
+            <td className="cart-page_table-cell cart-page_table-cell--total">Total</td>
+            <td className="cart-page_table-cell cart-page_table-cell--total"></td>
+            <td className="cart-page_table-cell cart-page_table-cell--total"></td>
+            <td className="cart-page_table-cell cart-page_table-cell--total">${getTotalPrice()}</td>
+            <td className="cart-page_table-cell cart-page_table-cell--total"></td>
           </tr>
           <tr>
             <td className="cart-page__table-cell" colSpan="5">
