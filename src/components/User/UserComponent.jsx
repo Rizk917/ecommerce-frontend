@@ -11,7 +11,7 @@ function UserComponent() {
   useEffect(() => {
     const UserId = localStorage.getItem("id");
     if (UserId) {
-      axios.get(`http://127.0.0.1:5000/user/${UserId}`).then((res) => {
+      axios.get(`https://ecommerce-backend-5k4d.onrender.com/user/${UserId}`).then((res) => {
         setUser(res.data.User);
         setName(res.data.User.name);
         setEmail(res.data.User.email);
@@ -22,7 +22,7 @@ function UserComponent() {
   const handleSave = () => {
     // Send updated user data to the server
     axios
-      .put(`http://127.0.0.1:5000/user/edit/${user._id}`, { name, password })
+      .put(`https://ecommerce-backend-5k4d.onrender.com/user/edit/${user._id}`, { name, password })
       .then((res) => {
         setUser(res.data.data);
         setName(res.data.data.name);

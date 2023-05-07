@@ -19,7 +19,7 @@ function ContactUsAdmin() {
   };
   const getUserData =()=>{
     axios
-      .get("http://127.0.0.1:5000/contactus")
+      .get("https://ecommerce-backend-5k4d.onrender.com/contactus")
       .then((response) => {
         setUserslist(response.data);
       })

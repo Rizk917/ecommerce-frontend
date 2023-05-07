@@ -28,7 +28,7 @@ useEffect(() => {
   };
   const getUserData =()=>{
     axios
-      .get("http://127.0.0.1:5000/user")
+      .get("https://ecommerce-backend-5k4d.onrender.com/user")
       .then((response) => {
         setUserslist(response.data.data);
       })

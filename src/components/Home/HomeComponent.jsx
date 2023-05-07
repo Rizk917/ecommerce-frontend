@@ -18,7 +18,7 @@ function HomeComponent() {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/imageCarousel");
+      const response = await axios.get("https://ecommerce-backend-5k4d.onrender.com/imageCarousel");
       const imagesData = response.data.data; // get the array of images from the response data
       const images = imagesData.map((image) => image.imageCarouselItem); // get an array of image URLs
       setImages(images);
@@ -29,7 +29,7 @@ function HomeComponent() {
 
   const fetchPopularItems = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:5000/popular");
+      const response = await axios.get("https://ecommerce-backend-5k4d.onrender.com/popular");
       const popularItemsData = response.data;
       if (popularItemsData) {
         const popularItems = popularItemsData.map((item) => {

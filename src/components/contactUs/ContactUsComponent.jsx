@@ -52,7 +52,7 @@ const ContactUsComponent = (props) => {
     await sendEmail(e);
 
     try {
-      await axios.post("http://127.0.0.1:5000/contactus/", newContact);
+      await axios.post("https://ecommerce-backend-5k4d.onrender.com/contactus/", newContact);
       setmyData({
         fullName: "",
         email: "",

@@ -22,7 +22,7 @@ function Login({cancel}) {
     } else if (!password) {
       setError("Password is required");
     } else {
-      fetch("http://127.0.0.1:5000/user/login", {
+      fetch("https://ecommerce-backend-5k4d.onrender.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

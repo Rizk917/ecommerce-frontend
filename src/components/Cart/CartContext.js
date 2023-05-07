@@ -11,7 +11,6 @@ export function CartProvider({ children }) {
     return savedCart ? savedCart : { userId: UserId, products: [] };
   });
  
-const isLoggedin=window.localStorage.getItem('loggedIn')
 
   const fetchData = async () => {
     try {
@@ -23,12 +22,9 @@ const isLoggedin=window.localStorage.getItem('loggedIn')
     }
   };
 
-  
-
   useEffect(() => {
-    if(isLoggedin)
-    {fetchData()}
-  }, [isLoggedin]);
+    fetchData();
+  }, []);
 
   const handleAddProduct = (userId, productId, productName, quantity, price,) => {
     let cartData = localStorage.getItem('cart');
@@ -81,7 +77,7 @@ const isLoggedin=window.localStorage.getItem('loggedIn')
     const productIndex = cart.products.findIndex(product => product.productId === productId);
 
     if (productIndex === -1) {
-      // console.log('Product is not in the cart');
+      console.log('Product is not in the cart');
       return;
     }
 
@@ -96,7 +92,7 @@ const isLoggedin=window.localStorage.getItem('loggedIn')
     setCart(updatedCart);
 
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    // console.log(updatedCart);
+    console.log(updatedCart);
   };
 
   return (

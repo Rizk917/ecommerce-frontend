@@ -18,7 +18,7 @@ function ImageCarousleAdmin() {
   // get images using axios
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/imageCarousel")
+      .get("https://ecommerce-backend-5k4d.onrender.com/imageCarousel")
       .then((response) => {
         setImages(response.data.data);
       })
@@ -30,7 +30,7 @@ function ImageCarousleAdmin() {
 
   // handle product deletion
   const handleDeleteProduct = async (id) => {
-    const url = `http://127.0.0.1:5000/imageCarousel/${id}`;
+    const url = `https://ecommerce-backend-5k4d.onrender.com/imageCarousel/${id}`;
     try {
       await axios.delete(url);
       setImages(images.filter((product) => product._id !== id));
@@ -58,7 +58,7 @@ function ImageCarousleAdmin() {
     formData.append("altText", uploadedImage.altText);
     formData.append("image", uploadedImage.image);
     try {
-      const res = await axios.post("http://127.0.0.1:5000/imageCarousel", formData, {
+      const res = await axios.post("https://ecommerce-backend-5k4d.onrender.com/imageCarousel", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
