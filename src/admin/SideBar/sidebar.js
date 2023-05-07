@@ -100,11 +100,11 @@ const MainLayout = () => {
               label: "Contact Us",
             },
 
-            {
-              key: "social-media",
-              icon: <SlSocialFacebook className="fs-4" />,
-              label: "Social Media",
-            },
+            // {
+            //   key: "social-media",
+            //   icon: <SlSocialFacebook className="fs-4" />,
+            //   label: "Social Media",
+            // },
           ]}
         />
       </Sider>
