@@ -11,6 +11,7 @@ export function CartProvider({ children }) {
     return savedCart ? savedCart : { userId: UserId, products: [] };
   });
  
+const isLoggedin=window.localStorage.getItem('loggedIn')
 
   const fetchData = async () => {
     try {
@@ -22,9 +23,12 @@ export function CartProvider({ children }) {
     }
   };
 
+  
+
   useEffect(() => {
-    fetchData();
-  }, []);
+    if(isLoggedin)
+    {fetchData()}
+  }, [isLoggedin]);
 
   const handleAddProduct = (userId, productId, productName, quantity, price,) => {
     let cartData = localStorage.getItem('cart');
