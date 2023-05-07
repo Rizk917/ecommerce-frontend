@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Outlet } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router";
 import AdminHeader from "../admin/Header/header";
 import SideBar from "../admin/SideBar/sidebar";
 
@@ -9,6 +9,12 @@ function AdminLayout(){
   const showSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+  const navigate=useNavigate();
+useEffect(() => {
+  if (!localStorage.getItem('token') || localStorage.getItem('Role')!=='admin') {
+    navigate('/');
+  }
+}, []);
     return(
         <>
         <AdminHeader  showSidebar={showSidebar}

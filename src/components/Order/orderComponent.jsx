@@ -36,7 +36,10 @@ export default function Order() {
         return response.json();
       })
       .then((data) => {
+
         console.log('Cart deleted:', data);
+        setCart({ userId: '', products: [] })
+
       })
       .catch((error) => {
         console.error(error);
@@ -78,6 +81,13 @@ navigate('/user')
         console.log('Error confirming order:', error);
       });
   };
+
+  const handleCancelOrder = () => {
+    
+          setCart({ userId: '', products: [] })
+
+  };
+
 
   const calculateTotal = () => {
     const total = data.reduce((acc, order) => {

@@ -5,9 +5,17 @@ import editImage from '../image/edit.png'
 import deleteImage from '../image/delete.png'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router";
 function Dashboard() {
 const [userslist,setUserslist]=useState([])
 const [searchTerm, setSearchTerm] = useState("");
+
+const navigate=useNavigate();
+useEffect(() => {
+  if (!localStorage.getItem('token') || localStorage.getItem('Role')!=='admin') {
+    navigate('/');
+  }
+}, []);
 
  useEffect(() => {
   getUserData();

@@ -9,7 +9,8 @@ function HomeComponent() {
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [popularItems, setPopularItems] = useState([]);
-  const{ cart, handleAddProduct, setCart, userId } =useContext(CartContext)
+  const{ cart, handleAddProduct, setCart, UserId } = useContext(CartContext)
+
 
   const fetchImages = async () => {
     try {
@@ -31,12 +32,12 @@ function HomeComponent() {
           const product = item.productId;
           console.log('test',product)
           return {  
-            id: item._id,
-            name: product.productName,
-            image: product.productImage,
-            description: product.productDescription,
-            price: product.productPrice,
-            quantity: product.productQuantity,
+            _id: item._id,
+            productName: product.productName,
+            productImage: product.productImage,
+            productDescription: product.productDescription,
+            productPrice: product.productPrice,
+            productQuantity: product.productQuantity,
           };
         });
         setPopularItems(popularItems);
@@ -93,17 +94,17 @@ function HomeComponent() {
       <div className="container-home">
         <h1 className="m-top m-bottom bigFont-2 b-bottom">Popular</h1>
         <div className="flex fixing">
-          {popularItems.map((item) => (
-            <div className="card" key={item.id}>
-              <img className="img_card"src={item.image} alt={item.name} />
-              <h2 className="product_name">{item.name}</h2>
+          {popularItems.map((product) => (
+            <div className="card" key={product._id}>
+              <img className="img_card"src={product.productImage} alt={product.productName} />
+              <h2 className="product_name">{product.productName}</h2>
                <div className="details_product">
             <div className="product_price">
-              <h2>{item.price} $</h2>
+              <h2>{product.productPrice} $</h2>
             </div>
             <div className="button_card">
-              <button type="button">
-                <p>Add Card</p>
+            <button type="button" onClick={() => handleAddProduct(UserId, product._id, product.productName, 1, product.productPrice)}>
+                <p>Add to cart</p>
               </button>
             </div>
           </div>
