@@ -92,7 +92,7 @@ function ImageCarousleAdmin() {
     <ToastContainer/>
 
       <div className="page_name">
-        <h1 className="title_page_dashboard">Products</h1>
+        <h1 className="title_page_dashboard">Home Carousel</h1>
       </div>
       <div className="table_container">
         <div className="search_table">

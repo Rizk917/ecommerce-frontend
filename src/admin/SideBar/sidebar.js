@@ -100,11 +100,11 @@ const MainLayout = () => {
               label: "Contact Us",
             },
 
-            // {
-            //   key: "social-media",
-            //   icon: <SlSocialFacebook className="fs-4" />,
-            //   label: "Social Media",
-            // },
+            {
+              key: "popularCardAdmin",
+              icon: <FaClipboardList className="fs-4" />,
+              label: "Popular Cards",
+            },
           ]}
         />
       </Sider>

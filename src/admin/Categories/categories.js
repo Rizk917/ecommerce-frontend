@@ -128,7 +128,7 @@ function CategoriesAdmin() {
     <div className="container">
       <ToastContainer/>
       <div className="page_name">
-        <h1>Categories</h1>
+      <h1 className="title_page_dashboard">Categories</h1>
       </div>
       <div className="table_container">
         <div className="search_table">
