@@ -43,9 +43,7 @@ function Login({cancel}) {
         })
         .then((data) => {
           console.table(data);
-          toast.success(' Logged in successfully!', {
-            position: toast.POSITION.TOP_RIGHT
-        });
+       
           window.localStorage.setItem("token", data.token);
           window.localStorage.setItem("Role", data.role);
           window.localStorage.setItem("id", data.id);
@@ -58,10 +56,8 @@ function Login({cancel}) {
           {window.location.href = "/";}
         })
         .catch((err) => {
-          toast.error('Invalid email or password !', {
-            position: toast.POSITION.TOP_RIGHT
-        });
-          setError(err.message);
+          toast.error('Invalid email or password !');
+          // setError(err.message);
         });
     }
   };

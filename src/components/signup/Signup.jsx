@@ -37,7 +37,6 @@ function Signup({ hello, handleButtonClick}) {
 
   return (
     <>
-      <ToastContainer/>
 
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Register</h1>

@@ -11,6 +11,10 @@ function HomeComponent() {
   const [popularItems, setPopularItems] = useState([]);
   const{ cart, handleAddProduct, setCart, UserId } = useContext(CartContext)
 
+  useEffect(() => {
+    fetchImages();
+    fetchPopularItems();
+  }, []);
 
   const fetchImages = async () => {
     try {
@@ -48,10 +52,6 @@ function HomeComponent() {
   };
   
 
-  useEffect(() => {
-    fetchImages();
-    fetchPopularItems();
-  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
