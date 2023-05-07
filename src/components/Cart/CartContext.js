@@ -18,7 +18,7 @@ export function CartProvider({ children }) {
       const dataFetched = await response.json();
       setData(dataFetched);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
 
