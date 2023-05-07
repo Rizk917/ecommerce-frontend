@@ -90,9 +90,14 @@ const MainLayout = () => {
             },
             
             {
-              key: "users",
+              key: "adminuser",
               icon: < AiOutlineUser className="fs-4" />,
               label: "Users",
+            },
+            {
+              key: "admincontactus",
+              icon: < AiOutlineUser className="fs-4" />,
+              label: "Contact Us",
             },
 
             {

@@ -112,7 +112,7 @@
   text-decoration: none;
   list-style-type: none;
   list-style: none;
-  color: rgb(0, 0, 0);
+  /* color: rgb(255, 255, 255); */
 }
 .sticky-header .nav-links li a,
 .sticky-header .nav-links li p {

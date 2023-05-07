@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './order.css';
 import CartContext from '../Cart/CartContext';
+import { useNavigate } from 'react-router';
 
 export default function Order() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [shippingAddress, setShippingAddress] = useState('');
   const [cartData, setCartData] = useState([]);
   const { UserId, data,fetchData } = useContext(CartContext);
-
+  const{ cart, setCart } =useContext(CartContext)
+  const navigate = useNavigate();
   // useEffect(() => {
   //   if (window.location.pathname === '/order') {
   //     fetchData();
@@ -20,6 +22,9 @@ export default function Order() {
     setCartData(data);
   }, [data]);
 
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
   const handleDeleteACart = () => {
     fetch(`http://localhost:5000/cart/${UserId}`, {
       method: 'DELETE',
@@ -62,6 +67,8 @@ export default function Order() {
       .then((response) => {
         if (response.status === 200) {
           console.log('Order confirmed!');
+          setCart({ userId: '', products: [] })
+navigate('/user')
         } else {
           console.log('Error confirming order:', response.status);
         }

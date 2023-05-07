@@ -48,8 +48,9 @@ export default function CartComponent() {
       });
       const data = await response.json();
       console.log(data);
-      setCart({ userId: '', products: [] })
-      navigate('/order');
+     
+      localStorage.getItem('loggedIn')? navigate('/order'): navigate('/login')
+     
     } catch (error) {
       console.error(error);
     }
@@ -102,7 +103,7 @@ export default function CartComponent() {
           <tr>
             <td className="cart-page__table-cell" colSpan="5">
             <button className="cart-page__checkout-button" onClick={handleCreatingCart}>
- {/* <Link to="/order" >Proceed to Checkout</Link>  */}
+
  Proceed to Checkout
 </button>
 

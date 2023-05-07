@@ -3,7 +3,8 @@ import "./home.css";
 import axios from "axios";
 import editImage from '../image/edit.png'
 import deleteImage from '../image/delete.png'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Dashboard() {
 const [userslist,setUserslist]=useState([])
 const [searchTerm, setSearchTerm] = useState("");
@@ -32,11 +33,16 @@ const [searchTerm, setSearchTerm] = useState("");
     try {
       await axios.delete(url);
   getUserData();
-
+  toast.success(' Deleted successfully!', {
+    position: toast.POSITION.TOP_RIGHT
+});
       // setCategories(categories.filter(category => category._id !== id));
       console.log("Product deleted successfully!");
     } catch (error) {
       console.log(error);
+      toast.error('Error!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
     }
   };
 
@@ -45,6 +51,8 @@ const [searchTerm, setSearchTerm] = useState("");
   };
   return (
     <div className="home">
+    <ToastContainer/>
+
       <div className="container">
       <div className="page_name">
         <h1>users</h1>

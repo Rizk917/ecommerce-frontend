@@ -3,7 +3,8 @@ import "./product.css";
 import axios from "axios";
 import editImage from "../image/edit.png";
 import deleteImage from "../image/delete.png";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function ProductsAdmin() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -17,6 +18,7 @@ function ProductsAdmin() {
       const url = `http://localhost:5000/products/${id}`;
       await axios.get(url).then((response) => {
         setProductsById(response.data.data);
+          console.log(response.data.data)
         setUpdateProduct(response.data.data);
         setShowUpdateForm(true);
       });
@@ -27,6 +29,9 @@ function ProductsAdmin() {
 
   // get products using axios
   useEffect(() => {
+    getData()
+  }, []);
+  const getData =()=>{
     axios
       .get("http://localhost:5000/products")
       .then((response) => {
@@ -35,7 +40,7 @@ function ProductsAdmin() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }
 
   // get categories using axios
   useEffect(() => {
@@ -96,10 +101,16 @@ function ProductsAdmin() {
       .post("http://localhost:5000/products", formData, config)
       .then((response) => {
         setProducts([...products, response.data]);
-        window.alert("product created successfully!");
+    getData()
+    toast.success(' Product created successfully!', {
+      position: toast.POSITION.TOP_RIGHT
+  });
 
       })
       .catch((error) => {
+        toast.error('Error!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
         console.log(error.response.data);
       });
 
@@ -116,8 +127,16 @@ function ProductsAdmin() {
       await axios.delete(url);
       setProducts(products.filter((product) => product._id !== id));
       console.log("Product deleted successfully!");
+      toast.success(' Product deleted successfully!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+    getData()
+
     }}
     catch (error) {
+      toast.error('Error!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
       console.log(error);
     }
   };
@@ -165,11 +184,16 @@ function ProductsAdmin() {
       )
       .then(() => {
         console.log("product updated successfully");
-        window.alert("product updated successfully!");
+        toast.success(' Product updated successfully!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
 
       })
       .catch((error) => {
         console.log(error.response.data);
+        toast.error('Error!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
       });
     setShowUpdateForm(false);
   };
@@ -183,6 +207,7 @@ function ProductsAdmin() {
 
   return (
     <div className="container">
+      <ToastContainer/>
       <div className="page_name">
         <h1 className="title_page_dashboard">Products</h1>
       </div>
@@ -200,6 +225,9 @@ function ProductsAdmin() {
             <thead className="head_table">
               <tr className="table_head_tr">
                 <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -224,6 +252,9 @@ function ProductsAdmin() {
                   return (
                     <tr className="table_tr" key={key}>
                       <td className="table_td">{product.productName}</td>
+                      <td className="table_td">{product.productDescription}</td>
+                      <td className="table_td">{product.productPrice}</td>
+                      <td className="table_td">{product.productQuantity}</td>
                       <td className="table_td">
                         <button
                           onClick={() => {
