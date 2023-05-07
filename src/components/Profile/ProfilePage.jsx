@@ -132,7 +132,7 @@ const ProfilePage = () => {
           ) : (
             orders.map((order) => (
               <tr key={order._id}>
-                <td className="order-id">{order._id}</td>
+                <td className="orderID">{order._id}</td>
                 <td className="order-date">{order.createdAt}</td>
                 <td className="order-status">{order.shippingAddress}</td>
                 <td className="order-bill">{order.totalBill} USD</td>

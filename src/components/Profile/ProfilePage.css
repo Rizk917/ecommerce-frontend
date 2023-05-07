@@ -38,83 +38,103 @@
   text-transform: uppercase;
 }
 
-.search-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.search-container input[type="text"] {
-  /* flex: 1; */
-  padding: 1em;
-  border: none;
-  border-radius: 5px;
-  margin-right: 1em;
-  font-size: 1em;
-}
-
-.back-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  margin-bottom: 2rem;
-}
-.orders-table {
-  width: 80%;
-  border-collapse: collapse;
-  font-size: 1em;
-  margin: 0 auto;
-  border: 1px solid #ddd;
-}
-
-.orders-table th {
-  font-weight: bold;
-  background-color: #f2f2f2;
-  padding: 1em;
-  border-bottom: 1px solid #ddd;
-}
-
-.orders-table th,
-.orders-table td {
-  padding: 1em;
-  border-bottom: 1px solid #ddd;
-}
-
-.order-id-header {
-  width: 15%;
-}
-
-.order-date-header {
-  width: 20%;
-}
-
-.order-status-header {
-  width: 35%;
-}
-
-.order-bill-header {
-  width: 15%;
-}
-
-.order-shipping-header {
-  width: 15%;
-}
-
-.order-id {
-  color: #007bff;
-}
-
-.order-shipping {
-  color: #fff;
-  text-transform: capitalize;
-  padding: 0.5em;
-  font-weight: bold;
-}
-@media only screen and (max-width: 600px) {
-  .greeting-container {
-    font-size: 1.5rem;
+  .greeting-p {
+    margin: 5vh;
+    }
+  
+  .search-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
   }
+  
+  .search-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+
+  
+  .back-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .back-container button {
+      padding: 10px 22px
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    border: 1px solid #ddd;
+
+    
+
+  }
+  
+  .orders-table th {
+    text-align: left;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  .order-id-header {
+    width: 15%;
+
+  }
+  
+  .order-date-header {
+    width: 20%;
+  }
+  
+  .order-status-header {
+    width: 35%;
+  }
+  
+  .order-bill-header {
+    width: 15%;
+  }
+  
+  .order-shipping-header {
+    width: 15%;
+  }
+  
+  .orderID {
+    color: #007bff;
+  }
+  
+  .order-shipping {
+    color: #fff;
+    text-transform: capitalize;
+    padding: 5px;
+    font-weight: bold;
+  }
+ 
+
+  
+  
+  @media only screen and (max-width: 600px) {
+    .orders-table {
+      font-size: 0.60rem;
+    }
 
   .profile-pic {
     width: 75px;
