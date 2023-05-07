@@ -26,7 +26,7 @@ export default function Order() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
   const handleDeleteACart = () => {
-    fetch(`http://localhost:5000/cart/${UserId}`, {
+    fetch(`https://ecommerce-backend-5k4d.onrender.com/cart/${UserId}`, {
       method: 'DELETE',
     })
       .then((response) => {
@@ -66,7 +66,7 @@ export default function Order() {
         shippingAddress,
       }),
     };
-    fetch('http://localhost:5000/order', requestOptions)
+    fetch('https://ecommerce-backend-5k4d.onrender.com/order', requestOptions)
       .then((response) => {
         if (response.status === 200) {
           console.log('Order confirmed!');

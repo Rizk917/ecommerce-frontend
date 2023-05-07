@@ -35,7 +35,7 @@ export default function CartComponent() {
   };
   const handleCreatingCart = async (productId, productName, productPrice) => {
     try {
-      const response = await fetch('http://localhost:5000/cart/addtocart', {
+      const response = await fetch('https://ecommerce-backend-5k4d.onrender.com/cart/addtocart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

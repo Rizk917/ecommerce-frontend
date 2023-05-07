@@ -15,7 +15,7 @@ function ProductsAdmin() {
   //get products by id
   const editProduct = async (id) => {
     try {
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://ecommerce-backend-5k4d.onrender.com/products/${id}`;
       await axios.get(url).then((response) => {
         setProductsById(response.data.data);
           console.log(response.data.data)
@@ -33,7 +33,7 @@ function ProductsAdmin() {
   }, []);
   const getData =()=>{
     axios
-      .get("http://localhost:5000/products")
+      .get("https://ecommerce-backend-5k4d.onrender.com/products")
       .then((response) => {
         setProducts(response.data.data);
       })
@@ -45,7 +45,7 @@ function ProductsAdmin() {
   // get categories using axios
   useEffect(() => {
     axios
-      .get("http://localhost:5000/categories")
+      .get("https://ecommerce-backend-5k4d.onrender.com/categories")
       .then((response) => {
         setCategories(response.data.data);
       })
@@ -98,7 +98,7 @@ function ProductsAdmin() {
     };
 
     axios
-      .post("http://localhost:5000/products", formData, config)
+      .post("https://ecommerce-backend-5k4d.onrender.com/products", formData, config)
       .then((response) => {
         setProducts([...products, response.data]);
     getData()
@@ -120,7 +120,7 @@ function ProductsAdmin() {
   // Function for deleting  a product
 
   const handleDeleteProduct = async (id) => {
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://ecommerce-backend-5k4d.onrender.com/products/${id}`;
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete this product?");
       if (confirmDelete) {
@@ -178,7 +178,7 @@ function ProductsAdmin() {
 
     axios
       .put(
-        `http://localhost:5000/products/${productsById._id}`,
+        `https://ecommerce-backend-5k4d.onrender.com/products/${productsById._id}`,
         formData,
         config
       )

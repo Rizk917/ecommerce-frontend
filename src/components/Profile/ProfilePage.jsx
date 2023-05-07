@@ -25,7 +25,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      const res = await fetch(`http://localhost:5000/order/user/${UserId}`);
+      const res = await fetch(`https://ecommerce-backend-5k4d.onrender.com/order/user/${UserId}`);
       const data = await res.json();
       setOrders(data);
     };
@@ -34,7 +34,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await fetch(`http://localhost:5000/user/${UserId}`);
+      const res = await fetch(`https://ecommerce-backend-5k4d.onrender.com/user/${UserId}`);
       const data = await res.json();
       setFirstName(data.User.name);
     };
@@ -43,7 +43,7 @@ const ProfilePage = () => {
 
   const initials = firstName.split(" ").map((name) => name[0]).join("").toUpperCase();
   const handleSearch = async () => {
-    const res = await fetch(`http://localhost:5000/order/${searchOrder}`);
+    const res = await fetch(`https://ecommerce-backend-5k4d.onrender.com/order/${searchOrder}`);
     if (res.ok) {
       const data = await res.json();
       setOrderDetails(data);

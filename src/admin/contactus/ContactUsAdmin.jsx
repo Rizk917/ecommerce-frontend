@@ -31,7 +31,7 @@ function ContactUsAdmin() {
       });
   }
   const handleDeleteUser = async (id) => {
-    const url = `http://localhost:5000/contactus/${id}`;
+    const url = `https://ecommerce-backend-5k4d.onrender.com/contactus/${id}`;
     try {
       await axios.delete(url);
   getUserData();

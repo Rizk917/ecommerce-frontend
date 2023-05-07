@@ -37,7 +37,7 @@ useEffect(() => {
       });
   }
   const handleDeleteUser = async (id) => {
-    const url = `http://localhost:5000/user/${id}`;
+    const url = `https://ecommerce-backend-5k4d.onrender.com/user/${id}`;
     try {
       await axios.delete(url);
   getUserData();

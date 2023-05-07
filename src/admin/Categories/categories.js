@@ -12,7 +12,7 @@ function CategoriesAdmin() {
   // get categories using axios
   useEffect(() => {
     axios
-      .get("http://localhost:5000/categories")
+      .get("https://ecommerce-backend-5k4d.onrender.com/categories")
       .then((response) => {
         setCategories(response.data.data);
       })
@@ -46,7 +46,7 @@ function CategoriesAdmin() {
       headers: { "content-type": "application/json" },
     };
     axios
-      .post(`http://localhost:5000/categories`, data, config)
+      .post(`https://ecommerce-backend-5k4d.onrender.com/categories`, data, config)
       .then((response) => {
         setCategories([...categories, response.data]);
         // window.alert("category created successfully!");
@@ -67,7 +67,7 @@ function CategoriesAdmin() {
   // Function for deleting  a product
 
   const handleDeleteCategory = async (id) => {
-    const url = `http://localhost:5000/categories/${id}`;
+    const url = `https://ecommerce-backend-5k4d.onrender.com/categories/${id}`;
     
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete this category?");
@@ -95,7 +95,7 @@ function CategoriesAdmin() {
     };
     axios
       .put(
-        `http://localhost:5000/categories/${currentCategory._id}`,
+        `https://ecommerce-backend-5k4d.onrender.com/categories/${currentCategory._id}`,
         updateCategory
       )
       .then(() => {

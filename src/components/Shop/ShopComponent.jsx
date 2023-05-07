@@ -20,7 +20,7 @@
     //get all categories
     useEffect(() => {
       axios
-        .get("http://localhost:5000/categories")
+        .get("https://ecommerce-backend-5k4d.onrender.com/categories")
         .then((response) => {
           setCategories(response.data.data);
 
@@ -35,7 +35,7 @@
       if (id === "all") {
 
         try {
-          const url = "http://localhost:5000/products/display";
+          const url = "https://ecommerce-backend-5k4d.onrender.com/products/display";
           await axios.get(url).then((response) => {
             setProducts(response.data.products);
           });
@@ -43,7 +43,7 @@
           console.log(error);
         }
       } else {
-        const url = `http://localhost:5000/products/display/${id}`;
+        const url = `https://ecommerce-backend-5k4d.onrender.com/products/display/${id}`;
         try {
           await axios.get(url).then((response) => {
             console.log(response)

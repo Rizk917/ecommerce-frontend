@@ -14,7 +14,7 @@ export function CartProvider({ children }) {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/cart/${UserId}`);
+      const response = await fetch(`https://ecommerce-backend-5k4d.onrender.com/cart/${UserId}`);
       const dataFetched = await response.json();
       setData(dataFetched);
     } catch (error) {

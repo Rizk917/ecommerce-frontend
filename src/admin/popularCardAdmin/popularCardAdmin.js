@@ -14,7 +14,7 @@ function PopularCardAdmin() {
   
 const showPopular=() =>{
   axios
-      .get("http://localhost:5000/popular")
+      .get("https://ecommerce-backend-5k4d.onrender.com/popular")
       .then((response) => {
         console.log(response.data)
 
@@ -32,7 +32,7 @@ const showPopular=() =>{
   // get categories using axios
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://ecommerce-backend-5k4d.onrender.com/products")
       .then((response) => {
         setCategories(response.data.data);
       })
@@ -61,7 +61,7 @@ console.log(event.target.value)
   
     try {
       const { productId } = addProduct;
-      const response = await axios.post("http://localhost:5000/popular", { productId });
+      const response = await axios.post("https://ecommerce-backend-5k4d.onrender.com/popular", { productId });
       const newPopularProduct = response.data;
   
       setProducts([...products, newPopularProduct]);
@@ -78,7 +78,7 @@ console.log(event.target.value)
   // Function for deleting  a product
 
   const handleDeleteProduct = async (id) => {
-    const url = `http://localhost:5000/popular/${id}`;
+    const url = `https://ecommerce-backend-5k4d.onrender.com/popular/${id}`;
     try {
       const confirmDelete = window.confirm("Are you sure you want to delete this product?");
       if (confirmDelete) {
