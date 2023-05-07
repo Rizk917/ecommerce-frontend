@@ -3,7 +3,7 @@ import "./AboutUs.css";
 import Footer from "../footer/Footer";
 
 const About = () => {
-  const [toggleTab, setToggleTab] = useState();
+  const [toggleTab, setToggleTab] = useState(1);
   const toggleState = (index) => {
     setToggleTab(index);
   }
@@ -18,8 +18,8 @@ const About = () => {
           </div>
           <div className="column">
             <div className="tabs">
-              <div
-                className={toggleTab === 1 ? "single-tab active-tab" : "single-tab"}
+              <div 
+                className={ toggleTab === 1 ? "single-tab active-tab" : "single-tab" }
                 onClick={() => toggleState(1)}
               >
                 
@@ -39,7 +39,7 @@ const About = () => {
             <div className="tab-content">
               <div className={toggleTab === 1 ? "content active-content" :"content"}>
                 <h2>Our Story</h2>
-                <p>
+                <p className="story-p">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Voluptatibus neque sapiente explicabo? Molestiae,
                   exercitationem. Quasi neque reprehenderit adipisci nemo amet
