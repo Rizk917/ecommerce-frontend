@@ -34,7 +34,7 @@ function ImageCarousleAdmin() {
     try {
       await axios.delete(url);
       setImages(images.filter((product) => product._id !== id));
-      console.log("image deleted successfully!");
+      // console.log("image deleted successfully!");
       toast.success(' Image deleted successfully!', {
         position: toast.POSITION.TOP_RIGHT
     });
@@ -66,7 +66,7 @@ function ImageCarousleAdmin() {
       setImages([...images, res.data.data]);
       setShowProduct(false);
       setUploadedImage({ altText: "", image: "" });
-      console.log("Image added successfully!");
+      // console.log("Image added successfully!");
       toast.success(' Image added successfully!', {
         position: toast.POSITION.TOP_RIGHT
     });

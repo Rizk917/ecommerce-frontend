@@ -74,7 +74,7 @@ function CategoriesAdmin() {
       if(confirmDelete){
       await axios.delete(url);
       // setCategories(categories.filter(category => category._id !== id));
-      console.log("Product deleted successfully!");
+      // console.log("Product deleted successfully!");
       toast.success(' Deleted successfully!', {
         position: toast.POSITION.TOP_RIGHT
     });
@@ -99,7 +99,7 @@ function CategoriesAdmin() {
         updateCategory
       )
       .then(() => {
-        console.log("product updated successfully");
+        // console.log("product updated successfully");
         // window.alert("category updated successfully!");
         toast.success(' category updated successfully!', {
           position: toast.POSITION.TOP_RIGHT

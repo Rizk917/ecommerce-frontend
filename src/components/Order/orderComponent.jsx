@@ -37,7 +37,7 @@ export default function Order() {
       })
       .then((data) => {
 
-        console.log('Cart deleted:', data);
+        // console.log('Cart deleted:', data);
         setCart({ userId: '', products: [] })
 
       })
@@ -75,7 +75,7 @@ navigate('/user')
         } else {
           console.log('Error confirming order:', response.status);
         }
-        console.log(requestOptions);
+        // console.log(requestOptions);
       })
       .catch((error) => {
         console.log('Error confirming order:', error);

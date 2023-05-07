@@ -16,7 +16,7 @@ function Orders() {
     axios
       .get("https://ecommerce-backend-5k4d.onrender.com/order")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setOrderslist(response.data);
       })
       .catch((error) => {

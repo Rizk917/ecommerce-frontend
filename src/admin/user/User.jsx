@@ -37,7 +37,7 @@ const [searchTerm, setSearchTerm] = useState("");
     position: toast.POSITION.TOP_RIGHT
 });
       // setCategories(categories.filter(category => category._id !== id));
-      console.log("Product deleted successfully!");
+      // console.log("Product deleted successfully!");
     } catch (error) {
       toast.error('Error!', {
         position: toast.POSITION.TOP_RIGHT

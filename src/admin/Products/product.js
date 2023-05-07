@@ -18,7 +18,7 @@ function ProductsAdmin() {
       const url = `https://ecommerce-backend-5k4d.onrender.com/products/${id}`;
       await axios.get(url).then((response) => {
         setProductsById(response.data.data);
-          console.log(response.data.data)
+          // console.log(response.data.data)
         setUpdateProduct(response.data.data);
         setShowUpdateForm(true);
       });
@@ -111,7 +111,7 @@ function ProductsAdmin() {
         toast.error('Error!', {
           position: toast.POSITION.TOP_RIGHT
       });
-        console.log(error.response.data);
+        // console.log(error.response.data);
       });
 
     handleShowProduct();
@@ -126,7 +126,7 @@ function ProductsAdmin() {
       if (confirmDelete) {
       await axios.delete(url);
       setProducts(products.filter((product) => product._id !== id));
-      console.log("Product deleted successfully!");
+      // console.log("Product deleted successfully!");
       toast.success(' Product deleted successfully!', {
         position: toast.POSITION.TOP_RIGHT
     });
@@ -183,14 +183,14 @@ function ProductsAdmin() {
         config
       )
       .then(() => {
-        console.log("product updated successfully");
+        // console.log("product updated successfully");
         toast.success(' Product updated successfully!', {
           position: toast.POSITION.TOP_RIGHT
       });
 
       })
       .catch((error) => {
-        console.log(error.response.data);
+        // console.log(error.response.data);
         toast.error('Error!', {
           position: toast.POSITION.TOP_RIGHT
       });

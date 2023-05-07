@@ -30,10 +30,10 @@ const ContactUsComponent = (props) => {
         "-G-4mQwUEY5HmF9QG"
       );
 
-      console.log("email sent successfully");
+      // console.log("email sent successfully");
       form.current.reset();
     } catch (error) {
-      console.log("email sending failed", error);
+      // console.log("email sending failed", error);
     }
   };
 

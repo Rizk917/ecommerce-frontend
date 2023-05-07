@@ -30,7 +30,7 @@ function HomeComponent() {
       if (popularItemsData) {
         const popularItems = popularItemsData.map((item) => {
           const product = item.productId;
-          console.log('test',product)
+          // console.log('test',product)
           return {  
             _id: item._id,
             productName: product.productName,

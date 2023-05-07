@@ -45,7 +45,7 @@ useEffect(() => {
     position: toast.POSITION.TOP_RIGHT
 });
       // setCategories(categories.filter(category => category._id !== id));
-      console.log("Product deleted successfully!");
+      // console.log("Product deleted successfully!");
     } catch (error) {
       console.log(error);
       toast.error('Error!', {

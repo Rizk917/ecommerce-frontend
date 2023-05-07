@@ -47,7 +47,7 @@ export default function CartComponent() {
         
       });
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
      
       localStorage.getItem('loggedIn')? navigate('/order'): navigate('/login')
      

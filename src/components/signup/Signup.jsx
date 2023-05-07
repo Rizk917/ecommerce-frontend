@@ -19,7 +19,7 @@ function Signup({ hello, handleButtonClick}) {
         email: email,
         password: password,
       });
-      console.log(response.data);
+      // console.log(response.data);
       toast.success(' Account created succesfully!', {
         position: toast.POSITION.TOP_RIGHT
     });

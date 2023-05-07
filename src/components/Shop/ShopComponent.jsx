@@ -46,7 +46,7 @@
         const url = `https://ecommerce-backend-5k4d.onrender.com/products/display/${id}`;
         try {
           await axios.get(url).then((response) => {
-            console.log(response)
+            // console.log(response)
             setProducts(response.data.products);
           
           });

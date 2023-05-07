@@ -45,11 +45,11 @@ function Navbar({ onButtonClick }) {
 
   const toggle = () => {
     if (!show) {
-      console.log("opened");
+      // console.log("opened");
       setMenu("nav-links open");
       setIcon("bx bx-x");
     } else {
-      console.log("closed");
+      // console.log("closed");
       setMenu("nav-links");
       setIcon("bx bx-menu");
     }

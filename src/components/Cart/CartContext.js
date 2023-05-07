@@ -70,14 +70,14 @@ export function CartProvider({ children }) {
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     setCart(cart); // update state
-    console.log(cart);
+    // console.log(cart);
   };
 
   const handleRemoveProduct = (productId) => {
     const productIndex = cart.products.findIndex(product => product.productId === productId);
 
     if (productIndex === -1) {
-      console.log('Product is not in the cart');
+      // console.log('Product is not in the cart');
       return;
     }
 
@@ -92,7 +92,7 @@ export function CartProvider({ children }) {
     setCart(updatedCart);
 
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    console.log(updatedCart);
+    // console.log(updatedCart);
   };
 
   return (

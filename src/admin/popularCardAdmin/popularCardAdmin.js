@@ -16,7 +16,7 @@ const showPopular=() =>{
   axios
       .get("https://ecommerce-backend-5k4d.onrender.com/popular")
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
 
         setProducts(response.data);
       })
@@ -47,7 +47,7 @@ const showPopular=() =>{
     productId: "",
   });
   const handleChange = (event) => {
-console.log(event.target.value)
+// console.log(event.target.value)
     setAddProduct({
       ...addProduct,
       productId: event.target.value,
@@ -84,7 +84,7 @@ console.log(event.target.value)
       if (confirmDelete) {
       await axios.delete(url);
       setProducts(products.filter((product) => product._id !== id));
-      console.log("Product deleted successfully!");
+      // console.log("Product deleted successfully!");
     }}
     catch (error) {
       console.log(error);
