@@ -23,7 +23,7 @@ const Footer = () => {
           </a>   <a href="/about" className={location.pathname === "/about" ? "f-active" : ""}>
             About
           </a>   <a href="/contactus" className={location.pathname === "/contactus" ? "f-active" : ""}>
-          contactus
+          Contact us
           </a>
         </p>
 
