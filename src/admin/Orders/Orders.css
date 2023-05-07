@@ -1,13 +1,159 @@
-.orders-table {
-    border-collapse: collapse;
-    width: 100%;
+.FW-dashboard {
+  margin: 2vw;
+  padding: 2vw;
+  border: 1px solid black;
+}
+
+.FW-dashboard h1 {
+  font-size: 1.5rem;
+}
+
+.FW-dashboard input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 2vw;
+}
+
+.FW-dashboard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.FW-dashboard li {
+  margin-bottom: 2vw;
+  padding: 2vw;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.FW-dashboard li p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.FW-dashboard li button {
+  margin-right: 1vw;
+  padding: 0.5rem 1rem;
+  background-color: #ffbb00;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.FW-dashboard li button:hover {
+  background-color: #dbab25;
+}
+
+@media (max-width: 768px) {
+  .FW-dashboard {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: white;
   }
-  
-  .order-id,
-  .user-id,
-  .user-name,
-  .status {
-    border: 1px solid black;
-    padding: 5px;
+
+  .FW-dashboard h1 {
+    font-size: 1rem;
+    margin-bottom: 1vw;
   }
-  
+
+  .FW-dashboard input {
+    padding: 0.3rem;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 1vw;
+  }
+
+  .FW-dashboard ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .FW-dashboard li {
+    margin-bottom: 1vw;
+    padding: 1vw;
+    border: none;
+    background-color: white;
+  }
+
+  .FW-dashboard li p {
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .FW-dashboard li button {
+    margin-right: 0.5vw;
+    padding: 0.3rem 0.5rem;
+    background-color: #ffbb00;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s all ease;
+  }
+
+  .FW-dashboard li button:hover {
+    background-color: #dbab25;
+  }
+}
+
+
+
+@media (max-width: 425px) {
+  .FW-dashboard {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: white;
+  }
+
+  .FW-dashboard h1 {
+    font-size: 0.875rem;
+    margin-bottom: 1vw;
+  }
+
+  .FW-dashboard input {
+    padding: 0.2rem;
+    font-size: 0.75rem;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 1vw;
+  }
+
+  .FW-dashboard ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .FW-dashboard li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    background-color: white;
+  }
+
+  .FW-dashboard li p {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .FW-dashboard li button {
+    margin-right: 3px;
+    padding: 2px 3px;
+    background-color: #ffbb00;
+    border-radius: 40px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s all ease;
+  }
+
+  .FW-dashboard li button:hover {
+    background-color: #dbab25;
+  }
+}
