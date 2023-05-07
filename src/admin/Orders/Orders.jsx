@@ -1,106 +1,129 @@
-import { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./Orders.css";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Orders() {
-  const [orders, setOrders] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const [statusUpdate, setStatusUpdate] = useState(false);
+  const [Orderslist, setOrderslist] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch('http://localhost:5000/order')
-      .then(response => response.json())
-      .then(data => setOrders(data))
-      .catch(error => console.error(error));
-  }, [statusUpdate]);
+    getOrderData();
+  }, []);
 
-  useEffect(() => {
-    if (!searchInput) {
-      setSearchResults([]);
-     
-      return;
-    }
-
-    const results = orders.filter(order => {
-      if (order._id === searchInput) {
-        return true;
-      }
-
-      if (order.userId === searchInput) {
-        return true;
-      }
-
-      return false;
-    });
-
-    setSearchResults(results);
-  }, [searchInput, orders]);
-
-  function handleSearch(event) {
-    setSearchInput(event.target.value);
-  }
-
-  function handleStatusUpdate(orderId, newStatus) {
-    fetch(`http://localhost:5000/order/${orderId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ status: newStatus })
-    })
-      .then(() => setStatusUpdate(!statusUpdate))
-      .catch(error => console.error(error));
-      }
-
+  const getOrderData = () => {
+    axios
+      .get("http://localhost:5000/order")
+      .then((response) => {
+        console.log(response.data);
+        setOrderslist(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleUpdate = (orderId, status) => {
+    axios
+      .patch(`http://localhost:5000/order/${orderId}`, { status })
+      .then((response) => {
+        toast.success(`Order status updated to ${status}`);
+        getOrderData();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Failed to update order status");
+      });
+  };
   return (
-<div className="FW-dashboard">
-<div className="page_name">
-        <h1 className="title_page_dashboard">Orders</h1>
-      </div>  <input className="FW-search-input" type="text" placeholder="Search by order ID or user ID" value={searchInput} onChange={handleSearch} />
-  <ul className="FW-order-list">
-    {searchResults.length > 0 ? searchResults.map(order => (
-      <li key={order._id} className="FW-order-item">
-        <p className="FW-order-info">Order ID: {order._id}</p>
-        <p className="FW-order-info">User ID: {order.userId}</p>
-        <p className="FW-order-info">Status: {order.status}</p>
-        <p className="FW-order-info">Total Bill: {order.totalBill}</p>
-        <ul className="FW-products-list">
-          {order.products.map(product => (
-            <li key={product._id} className="FW-product-item">
-              <p className="FW-product-info">{product.productName}: {product.quantity}</p>
-            </li>
-          ))}
-        </ul>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Pending')}>Pending</button>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Confirmed')}>Confirmed</button>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Shipped')}>Shipped</button>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Delivered')}>Delivered</button>
-      </li>
-    )) : orders.map(order => (
-      <li key={order._id} className="FW-order-item">
-        <p className="FW-order-info">Order ID: {order._id}</p>
-        <p className="FW-order-info">User ID: {order.userId}</p>
-        <p className="FW-order-info">Status: {order.status}</p>
-        <p className="FW-order-info">Total Bill: {order.totalBill}</p>
-        <ul className="FW-products-list">
-          {order.products.map(product => (
-            <li key={product._id} className="FW-product-item">
-              <p className="FW-product-info">{product.productName}: {product.quantity}</p>
-            </li>
-          ))}
-        </ul>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Pending')}>Pending</button>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Confirmed')}>Confirmed</button>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Shipped')}>Shipped</button>
-        <button className="FW-order-btn" onClick={() => handleStatusUpdate(order._id, 'Delivered')}>Delivered</button>
-      </li>
-    ))}
-  </ul>
-</div>
+    <div className="home">
+      <div className="container">
+        <ToastContainer />
 
+        <div className="page_name">
+          <h1 className="title_page_dashboard">Orders</h1>
+        </div>
+        <div className="table_container">
+          <div className="search_table">
+            <div className="search">
+              <input
+                placeholder="Search By User Name"
+                onChange={(event) => {
+                  setSearchTerm(event.target.value);
+                }}
+              />
+            </div>
+            <table className="">
+              <thead className="head_table">
+                <tr className="table_head_tr">
+                  <th>Order ID</th>
+                  <th>User Name</th>
+                  <th>User address</th>
+                  <th>User Email</th>
+                  <th>totalBill</th>
+                  <th>Items</th>
+                  <th style={{ width: "100px" }}>Status</th>
+
+                  <th style={{ width: "100px" }}>Update</th>
+                </tr>
+              </thead>
+
+              <tbody className="table_tbody">
+                {Orderslist.filter((listOrders) => {
+                  if (!searchTerm) {
+                    return listOrders;
+                  } else if (
+                    listOrders.name
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())
+                  ) {
+                    return listOrders;
+                  } else {
+                    return null;
+                  }
+                }).map((listOrders, key) => {
+                  return (
+                    <tr className="table_tr" key={key}>
+                      <td className="table_td">{listOrders._id}</td>
+                      <td className="table_td">{listOrders.userId.name}</td>
+                      <td className="table_td">{listOrders.shippingAddress}</td>
+                      <td className="table_td">{listOrders.userId.email}</td>
+                      <td className="table_td">{listOrders.totalBill}$</td>
+                      <td className="table_td smallerfont">
+                        {listOrders.products
+                          .map(
+                            (product) =>
+                              `${product.productName} (${product.quantity})`
+                          )
+                          .join("\n")}
+                      </td>
+                      <td className="table_td">{listOrders.status}</td>
+                      <td className="table_td">
+                        <select
+                          value={listOrders.status}
+                          onChange={(event) =>
+                            handleUpdate(listOrders._id, event.target.value)
+                          }
+                        >
+                          {["Pending", "Confirmed", "Shipped", "Delivered"].map(
+                            (option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            )
+                          )}
+                        </select>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
-
-
 
 export default Orders;
