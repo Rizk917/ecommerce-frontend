@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './UserComponent.css'
 function UserComponent() {
   const [user, setUser] = useState({});
@@ -26,13 +28,21 @@ function UserComponent() {
         setName(res.data.data.name);
         setEmail(res.data.data.email);
         setPassword("");
-        alert("User data saved successfully");
+        // alert("User data saved successfully");
+        toast.success('User data saved successfully!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
       })
-      .catch((err) => alert(err.response.data.message));
+      .catch((err) =>
+       alert(err.response.data.message));
+      toast.error('Error!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
   };
 
   return (
     <div className="containerform ">
+      <ToastContainer/>
         <div className="userform">
        <label className="userlabel">
         Name:

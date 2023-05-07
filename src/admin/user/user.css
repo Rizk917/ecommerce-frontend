@@ -1,0 +1,13 @@
+.orders-table {
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  .order-id,
+  .user-id,
+  .user-name,
+  .status {
+    border: 1px solid black;
+    padding: 5px;
+  }
+  

@@ -1,54 +1,42 @@
-
-
-
 .profile-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    font-family: Arial, sans-serif;
-    align-items: center;
-    justify-content:space-evenly;
-    min-height: 65vh;
-    margin-bottom: 3vh;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 0;
+}
+
+.greeting-container {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+}
 
 
-  .greeting-container {
-    font-size: 2rem;
-    font-weight: bold;
-    align-self: flex-start;
-    display: flex;
-    flex-direction: row;
-  }
-  
-  
-  .group-cotainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 40vw
-    
-  }
- 
-  
-  .profile-pic {
-    margin-left: 1vw;
-    width: 150px;
-    height: 150px;
-    border-radius: 25%;
-    background-color: #d9d9d9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 45px;
-    color: #fff;
-  }
- 
-  
-  .profile-initials {
-    text-transform: uppercase;
-  }
+.profile-pic {
+  margin-left: 1vw;
+  width: 150px;
+  height: 150px;
+  border-radius: 25%;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 45px;
+  color: #fff;
+}
+
+.profile-initials {
+  text-transform: uppercase;
+}
 
   .greeting-p {
     margin: 5vh;
@@ -148,12 +136,67 @@
       font-size: 0.60rem;
     }
 
-    .profile-pic {
-width: 75px;
-height: 75px;
+  .profile-pic {
+    width: 75px;
+    height: 75px;
   }
 
-  .greeting-container {
-    font-size: 1.2rem;
+  .orders-table {
+    font-size: 0.8rem;
+  }
+
+  .order-id-header {
+    width: 10%;
+  }
+
+  .order-date-header {
+    width: 20%;
+  }
+
+  .order-status-header {
+    width: 30%;
+  }
+
+  .order-bill-header {
+    /* display: none; */
+  }
+
+  .order-shipping-header {
+    /* display: none; */
+  }
+
+  .order-id {
+    font-size: 0.8em;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .orders-table {
+    font-size: 0.6rem;
+  }
+
+  .order-id-header {
+    width: 10%;
+  }
+
+  .order-date-header {
+    width: 30%;
+  }
+
+  .order-status-header {
+    width: 60%;
+  }
+
+  .order-bill-header {
+    /* display: none; */
+  }
+
+  .order-shipping-header {
+    /* display: none; */
+  }
+
+  .order-id {
+    font-size: 0.6em;
   }
 }

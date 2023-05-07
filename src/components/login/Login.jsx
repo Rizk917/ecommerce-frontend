@@ -2,7 +2,8 @@ import React from "react";
 import "./login.css";
 import { useState } from "react";
 import Signup from "../signup/Signup";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Login({cancel}) {
   const [prvnxt, setPrvnxt] = useState(false);
   const [error, setError] = useState("");
@@ -33,13 +34,18 @@ function Login({cancel}) {
       })
         .then((res) => {
           if (!res.ok) {
+            toast.error('Invalid email or password !', {
+              position: toast.POSITION.TOP_RIGHT
+          });
             throw new Error("Invalid email or password");
           }
           return res.json();
         })
         .then((data) => {
           console.table(data);
-          alert("login successful");
+          toast.success(' Logged in successfully!', {
+            position: toast.POSITION.TOP_RIGHT
+        });
           window.localStorage.setItem("token", data.token);
           window.localStorage.setItem("Role", data.role);
           window.localStorage.setItem("id", data.id);
@@ -52,6 +58,9 @@ function Login({cancel}) {
           {window.location.href = "/";}
         })
         .catch((err) => {
+          toast.error('Invalid email or password !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
           setError(err.message);
         });
     }
@@ -66,6 +75,9 @@ function Login({cancel}) {
   }
 
   return (
+    <>
+    <ToastContainer/>
+
     <div className="login-wrapper">
       <div className={prvnxt ? "login-zi7o" : "login-r"}>
         <div className="login-card">
@@ -98,6 +110,7 @@ function Login({cancel}) {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

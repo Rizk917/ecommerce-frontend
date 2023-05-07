@@ -3,7 +3,8 @@ import "./carouselimg.css";
 import axios from "axios";
 import editImage from '../image/edit.png'
 import deleteImage from '../image/delete.png'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function ImageCarousleAdmin() {
   const [images, setImages] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,7 +35,13 @@ function ImageCarousleAdmin() {
       await axios.delete(url);
       setImages(images.filter((product) => product._id !== id));
       console.log("image deleted successfully!");
+      toast.success(' Image deleted successfully!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
     } catch (error) {
+      toast.error('Error!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
       console.log(error);
     }
   };
@@ -60,7 +67,12 @@ function ImageCarousleAdmin() {
       setShowProduct(false);
       setUploadedImage({ altText: "", image: "" });
       console.log("Image added successfully!");
+      toast.success(' Image added successfully!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
     } catch (error) {
+    <ToastContainer/>
+
       console.log(error);
     }
   };
@@ -77,6 +89,8 @@ function ImageCarousleAdmin() {
 
   return (
     <div className="container">
+    <ToastContainer/>
+
       <div className="page_name">
         <h1 className="title_page_dashboard">Products</h1>
       </div>

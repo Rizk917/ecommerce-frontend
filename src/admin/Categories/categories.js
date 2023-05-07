@@ -3,7 +3,8 @@ import "./categories.css";
 import axios from "axios";
 import editImage from '../image/edit.png'
 import deleteImage from '../image/delete.png'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function CategoriesAdmin() {
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -48,10 +49,16 @@ function CategoriesAdmin() {
       .post(`http://localhost:5000/categories`, data, config)
       .then((response) => {
         setCategories([...categories, response.data]);
-        window.alert("category created successfully!");
-
+        // window.alert("category created successfully!");
+        
+        toast.success(' category created successfully!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
       })
       .catch((error) => {
+        toast.error('Error!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
         console.log(error.response.data);
       });
     handleShowCategory();
@@ -68,8 +75,14 @@ function CategoriesAdmin() {
       await axios.delete(url);
       // setCategories(categories.filter(category => category._id !== id));
       console.log("Product deleted successfully!");
+      toast.success(' Deleted successfully!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
     } }
     catch (error) {
+      toast.error('Error!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
       console.log(error);
     }
   };
@@ -87,7 +100,10 @@ function CategoriesAdmin() {
       )
       .then(() => {
         console.log("product updated successfully");
-        window.alert("category updated successfully!");
+        // window.alert("category updated successfully!");
+        toast.success(' category updated successfully!', {
+          position: toast.POSITION.TOP_RIGHT
+      });
 
       })
       .catch((error) => {
@@ -110,6 +126,7 @@ function CategoriesAdmin() {
 
   return (
     <div className="container">
+      <ToastContainer/>
       <div className="page_name">
         <h1>Categories</h1>
       </div>

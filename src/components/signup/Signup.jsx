@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./signup.css";
 import axios from "axios";
 import { useNavigate } from "react-router";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Signup({ hello, handleButtonClick}) {
   const [email, setEmail] = useState("");
   const [Name, setName] = useState("");
@@ -18,11 +19,17 @@ function Signup({ hello, handleButtonClick}) {
         email: email,
         password: password,
       });
-      console.log(response.data); 
+      console.log(response.data);
+      toast.success(' Account created succesfully!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
       hello()
 
     } catch (error) {
       console.error(error);
+      toast.error('Error!', {
+        position: toast.POSITION.TOP_RIGHT
+    });
     }
   };
 
@@ -30,6 +37,8 @@ function Signup({ hello, handleButtonClick}) {
 
   return (
     <>
+      <ToastContainer/>
+
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Register</h1>
         <input

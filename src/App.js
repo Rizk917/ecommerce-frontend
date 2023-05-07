@@ -17,12 +17,14 @@ import SideBar from "./admin/SideBar/sidebar";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
-import DashboadOrders from "./admin/Orders/Orders"
+import DashboadOrders from "./admin/Orders/Orders";
 import ImageCarousleAdmin from "./admin/imageCarousel/ImageCarouselAdmin";
 import PopularCardAdmin from "./admin/popularCardAdmin/popularCardAdmin";
 import { CartProvider } from "./components/Cart/CartContext";
 import LoginP from "./pages/Login";
 import Orders from "./admin/Orders/Orders";
+import UserAdmin from "./admin/user/User";
+import ContactUsAdmin from "./admin/contactus/ContactUsAdmin";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -41,7 +43,7 @@ function App() {
   };
   return (
     <>
-        {/* <div>
+      {/* <div>
       <>
         <AdminHeader showSidebar={showSidebar} isSidebarOpen={isSidebarOpen} />
         <div className="admin_dashboard">
@@ -55,48 +57,38 @@ function App() {
       </>
     </div> */}
 
-    
-    <>
-    <Routes>
-    
-    <Route element={<AdminLayout/>}>
-
-      <Route path="/dashboard" element={<SideBar />} />
-      <Route path="/orders" element={<Orders />} />
-      <Route path="/categories" element={<CategoriesAdmin />} />
-      <Route path="/products" element={<ProductsAdmin />} />
-      <Route path="/popularCardAdmin" element={<PopularCardAdmin />} />
-      <Route path="/imagesC" element={<ImageCarousleAdmin />} />
-      <Route exact path="/adminorders" element={<DashboadOrders />} />
-
-      
-    </Route>
-    </Routes>    </>
-        
+      <>
+        <Routes>
+          <Route element={<AdminLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/categories" element={<CategoriesAdmin />} />
+            <Route path="/products" element={<ProductsAdmin />} />
+            <Route path="/popularCardAdmin" element={<PopularCardAdmin />} />
+            <Route path="/imagesC" element={<ImageCarousleAdmin />} />
+            <Route exact path="/adminorders" element={<DashboadOrders />} />
+            <Route exact path="/adminuser" element={<UserAdmin />} />
+            <Route exact path="/admincontactus" element={<ContactUsAdmin />} />
+          </Route>
+        </Routes>
+      </>
 
       <div className={showPopUp ? "none" : "main-wrap"}>
-      <CartProvider>
-        <Routes>
-          <Route element={<UserLayout/>}>
-            <Route exact path="/" element={<Home />}/>
-            <Route exact path="/about" element={<AboutUs />}/>
-            <Route exact path="/cart" element={<Cart />}/>
-            <Route exact path="/contactus" element={<ContactUs />}/>
-            <Route exact path="/shop" element={<Shop />}/>
-            <Route exact path="/User" element={< User/>}/>
-            <Route exact path="/order" element={<Order/>}/>
-            <Route exact path="/login" element={<LoginP/>}/>
-          </Route>
-          
-        </Routes>
+        <CartProvider>
+          <Routes>
+            <Route element={<UserLayout />}>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<AboutUs />} />
+              <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/contactus" element={<ContactUs />} />
+              <Route exact path="/shop" element={<Shop />} />
+              <Route exact path="/User" element={<User />} />
+              <Route exact path="/order" element={<Order />} />
+              <Route exact path="/login" element={<LoginP />} />
+            </Route>
+          </Routes>
         </CartProvider>
-      
       </div>
-    
-    
-    
-
-    
     </>
   );
 }
