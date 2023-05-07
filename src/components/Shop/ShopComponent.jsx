@@ -126,7 +126,7 @@
               </div>
               <div className="button_card">
                 <button type="button" onClick={() => handleAddProduct(UserId, product._id, product.productName, 1, product.productPrice)}>
-                  <p>Add Card</p>
+                  <p>Add to cart</p>
                 </button>
               </div>
             </div>
