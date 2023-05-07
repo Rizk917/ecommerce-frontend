@@ -100,7 +100,7 @@ export default function CartComponent() {
           </tr>
           <tr>
             <td className="cart-page__table-cell" colSpan="5">
-            <button className="cart-page__checkout-button" onClick={handleCreatingCart}>
+            <button className="cart-page__checkout-button" onClick={handleCreatingCart }>
  <Link to="/order" >Proceed to Checkout</Link> 
 </button>
 

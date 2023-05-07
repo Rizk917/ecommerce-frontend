@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import "./Orders.css";
 
 function Orders() {
@@ -17,6 +17,7 @@ function Orders() {
   useEffect(() => {
     if (!searchInput) {
       setSearchResults([]);
+     
       return;
     }
 
@@ -49,12 +50,12 @@ function Orders() {
     })
       .then(() => setStatusUpdate(!statusUpdate))
       .catch(error => console.error(error));
-  }
+      }
 
   return (
 <div className="FW-dashboard">
 <div className="page_name">
-        <h1 className="title_page_dashboard">Products</h1>
+        <h1 className="title_page_dashboard">Orders</h1>
       </div>  <input className="FW-search-input" type="text" placeholder="Search by order ID or user ID" value={searchInput} onChange={handleSearch} />
   <ul className="FW-order-list">
     {searchResults.length > 0 ? searchResults.map(order => (
