@@ -1,10 +1,11 @@
 .cart-page {
     font-family: Arial, sans-serif;
     max-width: 800px;
-    min-height:80vh;
+    min-height:60vh;
     margin: 0 auto;
     padding: 20px;
     margin-top: 10vh;
+    border: 1px solid;
   }
   
   .cart-page__title {
