@@ -42,7 +42,7 @@ export default function Order() {
 
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
       });
   };
   const handlePhoneChange = (event) => {
