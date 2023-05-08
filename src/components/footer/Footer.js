@@ -27,7 +27,7 @@ const Footer = () => {
           </a>
         </p>
 
-        <p className="footer-company-name">Company Name © 2015</p>
+        <p className="footer-company-name"> Codi Tech © 2023</p>
       </div>
 
       <div className="footer-center">
