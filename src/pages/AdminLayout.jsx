@@ -12,7 +12,7 @@ function AdminLayout(){
   const navigate=useNavigate();
 useEffect(() => {
   if (!localStorage.getItem('token') || localStorage.getItem('Role')!=='admin') {
-    navigate('/');
+    navigate('/*');
   }
 }, []);
     return(

@@ -25,6 +25,7 @@ import LoginP from "./pages/Login";
 import Orders from "./admin/Orders/Orders";
 import UserAdmin from "./admin/user/User";
 import ContactUsAdmin from "./admin/contactus/ContactUsAdmin";
+import Error from "./pages/Error";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
 
@@ -85,6 +86,8 @@ function App() {
               <Route exact path="/User" element={<User />} />
               <Route exact path="/order" element={<Order />} />
               <Route exact path="/login" element={<LoginP />} />
+              <Route exact path="/*" element={<Error />} />
+              
             </Route>
           </Routes>
         </CartProvider>
