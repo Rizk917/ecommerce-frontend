@@ -5,7 +5,6 @@ function Error() {
   return (
       <div className="page-start">
         <Error404/>
-        <Footer/>
       </div>
   );
 }

@@ -70,6 +70,7 @@ function App() {
             <Route exact path="/adminorders" element={<DashboadOrders />} />
             <Route exact path="/adminuser" element={<UserAdmin />} />
             <Route exact path="/admincontactus" element={<ContactUsAdmin />} />
+            
           </Route>
         </Routes>
       </>
@@ -86,9 +87,12 @@ function App() {
               <Route exact path="/User" element={<User />} />
               <Route exact path="/order" element={<Order />} />
               <Route exact path="/login" element={<LoginP />} />
-              <Route exact path="/*" element={<Error />} />
+              {/* <Route exact path="/*" element={<Error />} /> */}
               
             </Route>
+            <Route exact path="/Error404" element={<Error />} />
+            <Route exact path="/*" element={<Error />} />
+
           </Routes>
         </CartProvider>
       </div>

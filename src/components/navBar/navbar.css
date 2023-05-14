@@ -34,6 +34,7 @@
   /* grid-template-columns: 300px 3fr 2fr; */
   background-color: rgb(0, 0, 0);
   animation: lol .6s ease;
+  color:white;
   transform: translateY(0px);
 }
 
@@ -220,7 +221,11 @@
   }
   .active {
     grid-template-columns: 300px 3fr 2fr;
+    color: white;
   }
+  /* .active a{
+    color: white;
+  } */
 }
 
 @media all and (max-width: 940px) {
