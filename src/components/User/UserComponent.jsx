@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  secureLocalStorage  from  "react-secure-storage";
 import './UserComponent.css'
 function UserComponent() {
   const [user, setUser] = useState({});
@@ -9,7 +10,7 @@ function UserComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   useEffect(() => {
-    const UserId = localStorage.getItem("id");
+    const UserId = secureLocalStorage.getItem("id");
     if (UserId) {
       axios.get(`https://ecommerce-backend-5k4d.onrender.com/user/${UserId}`).then((res) => {
         setUser(res.data.User);

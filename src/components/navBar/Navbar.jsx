@@ -6,7 +6,7 @@ import cartLogo from "../../Assets/cartIcon.png";
 import cartLogoWhite from "../../Assets/cartIconWhite.png";
 import { Link } from "react-router-dom";
 import CartContext from "../Cart/CartContext";
-
+import  secureLocalStorage  from  "react-secure-storage";
 
 function Navbar({ onButtonClick }) {
   const [active, setActive] = useState(false);
@@ -14,14 +14,14 @@ function Navbar({ onButtonClick }) {
   const [menu, setMenu] = useState("nav-links");
   const [icon, setIcon] = useState("bx bx-menu");
   const location = useLocation();
-  const token = localStorage.getItem("token");
-  const Role = localStorage.getItem("Role");
-  const name = localStorage.getItem("name");
-  const UserId = localStorage.getItem("id");
-  const loggedIn = localStorage.getItem("loggedIn");
+  const token = secureLocalStorage.getItem("token");
+  const Role = secureLocalStorage.getItem("Role");
+  const name = secureLocalStorage.getItem("name");
+  const UserId = secureLocalStorage.getItem("id");
+  const loggedIn = secureLocalStorage.getItem("loggedIn");
   const { cart, setCart } = useContext(CartContext);
   useEffect(() => {
-    const data = localStorage.getItem("cart");
+    const data = secureLocalStorage.getItem("cart");
     if (data) {
       setCart(JSON.parse(data));
     }
@@ -60,7 +60,7 @@ function Navbar({ onButtonClick }) {
   const logOut = () => {
     window.location.href = "/";
 
-    window.localStorage.clear();
+    secureLocalStorage.clear();
   };
 
   return (

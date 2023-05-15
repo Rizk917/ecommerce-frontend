@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import './order.css';
 import CartContext from '../Cart/CartContext';
 import { useNavigate } from 'react-router';
-
+import  secureLocalStorage  from  "react-secure-storage";
 export default function Order() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [shippingAddress, setShippingAddress] = useState('');
@@ -23,7 +23,7 @@ export default function Order() {
   }, [data]);
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    secureLocalStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
   const handleDeleteACart = () => {
     fetch(`https://ecommerce-backend-5k4d.onrender.com/cart/${UserId}`, {

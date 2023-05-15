@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./ProfilePage.css";
-
+import  secureLocalStorage  from  "react-secure-storage";
 const ProfilePage = () => {
   const [orders, setOrders] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [searchOrder, setSearchOrder] = useState("");
   const [orderDetails, setOrderDetails] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
-  const UserId = localStorage.getItem("id");
+  const UserId = secureLocalStorage.getItem("id");
   const getStatusColor = (status) => {
     switch (status) {
       case "Delivered":

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Signup from "../signup/Signup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  secureLocalStorage  from  "react-secure-storage";
 function Login({cancel}) {
   const [prvnxt, setPrvnxt] = useState(false);
   const [error, setError] = useState("");
@@ -44,15 +45,15 @@ function Login({cancel}) {
         .then((data) => {
           console.table(data);
        
-          window.localStorage.setItem("token", data.token);
-          window.localStorage.setItem("Role", data.role);
-          window.localStorage.setItem("id", data.id);
-          window.localStorage.setItem("name", data.name);
-          window.localStorage.setItem("loggedIn", true);
-          if(localStorage.getItem('Role')==='admin')
+          secureLocalStorage.setItem("token", data.token);
+          secureLocalStorage.setItem("Role", data.role);
+          secureLocalStorage.setItem("id", data.id);
+          secureLocalStorage.setItem("name", data.name);
+          secureLocalStorage.setItem("loggedIn", true);
+          if(secureLocalStorage.getItem('Role')==='admin')
           {window.location.href = "/dashboard";}
           else
-          if(localStorage.getItem('Role')==='user')
+          if(secureLocalStorage.getItem('Role')==='user')
           {window.location.href = "/";}
         })
         .catch((err) => {

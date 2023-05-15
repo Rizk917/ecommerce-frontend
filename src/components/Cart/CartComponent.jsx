@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import {Link} from 'react-router-dom'
 import './CartComponent.css';
 import CartContext from './CartContext';
+import  secureLocalStorage  from  "react-secure-storage";
 import { useNavigate } from 'react-router-dom';
 export default function CartComponent() {
   const{ cart, setCart } =useContext(CartContext)
@@ -9,7 +10,7 @@ export default function CartComponent() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    secureLocalStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
   const getTotalPrice = () => {
@@ -49,7 +50,7 @@ export default function CartComponent() {
       const data = await response.json();
       // console.log(data);
      
-      localStorage.getItem('loggedIn')? navigate('/order'): navigate('/login')
+      secureLocalStorage.getItem('loggedIn')? navigate('/order'): navigate('/login')
      
     } catch (error) {
       console.error(error);

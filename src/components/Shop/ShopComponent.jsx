@@ -2,7 +2,7 @@
   import './shopComponent.css'
   import axios from "axios";
   import CartContext from "../Cart/CartContext";
-
+  import  secureLocalStorage  from  "react-secure-storage";
 
 
 
@@ -64,7 +64,7 @@
     }, []);
 
     useEffect(() => {
-      const data = localStorage.getItem("cart");
+      const data = secureLocalStorage.getItem("cart");
       if (data) {
         setCart(JSON.parse(data));
       }

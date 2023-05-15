@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import AdminHeader from "../admin/Header/header";
 import SideBar from "../admin/SideBar/sidebar";
-
+import  secureLocalStorage  from  "react-secure-storage";
 function AdminLayout(){
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -11,7 +11,7 @@ function AdminLayout(){
   };
   const navigate=useNavigate();
 useEffect(() => {
-  if (!localStorage.getItem('token') || localStorage.getItem('Role')!=='admin') {
+  if (!secureLocalStorage.getItem('token') || secureLocalStorage.getItem('Role')!=='admin') {
     navigate('/Error404');
   }
 }, []);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import axios from "axios";
+import  secureLocalStorage  from  "react-secure-storage";
 import editImage from '../image/edit.png'
 import deleteImage from '../image/delete.png'
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,7 +13,7 @@ const [searchTerm, setSearchTerm] = useState("");
 
 const navigate=useNavigate();
 useEffect(() => {
-  if (!localStorage.getItem('token') || localStorage.getItem('Role')!=='admin') {
+  if (!secureLocalStorage.getItem('token') || secureLocalStorage.getItem('Role')!=='admin') {
     navigate('/');
   }
 }, []);

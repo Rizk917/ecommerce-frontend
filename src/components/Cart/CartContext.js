@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect } from "react";
-
+import  secureLocalStorage  from  "react-secure-storage";
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const UserId = localStorage.getItem("id");
+  const UserId = secureLocalStorage.getItem("id");
   const [data, setData] = useState([]);
 
   const [cart, setCart] = useState(() => {
-    const savedCart = JSON.parse(localStorage.getItem('cart'));
+    const savedCart = JSON.parse(secureLocalStorage.getItem('cart'));
     return savedCart ? savedCart : { userId: UserId, products: [] };
   });
  
@@ -27,7 +27,7 @@ export function CartProvider({ children }) {
   }, []);
 
   const handleAddProduct = (userId, productId, productName, quantity, price,) => {
-    let cartData = localStorage.getItem('cart');
+    let cartData = secureLocalStorage.getItem('cart');
     let cart = cartData ? JSON.parse(cartData) : { userId: "", products: [] };
     if (!cart.userId) {
       cart = {
@@ -68,7 +68,7 @@ export function CartProvider({ children }) {
         };
       }
     }
-    localStorage.setItem('cart', JSON.stringify(cart));
+    secureLocalStorage.setItem('cart', JSON.stringify(cart));
     setCart(cart); // update state
     // console.log(cart);
   };
@@ -91,8 +91,8 @@ export function CartProvider({ children }) {
     const updatedCart = { ...cart, products: updatedProducts };
     setCart(updatedCart);
 
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    console.log(updatedCart);
+    secureLocalStorage.setItem('cart', JSON.stringify(updatedCart));
+    // console.log(updatedCart);
   };
 
   return (
